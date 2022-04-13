@@ -1,0 +1,101 @@
+﻿@page
+@model E_Procurement.Pages.Register.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="p-5">
+                        
+                        <form method="post">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="SupplierRegistation.Id" />
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.SupplierRegistrationCode" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.SupplierRegistrationCode" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.SupplierRegistrationCode" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.CompanyRegistrationNumber" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.CompanyRegistrationNumber" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.CompanyRegistrationNumber" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.Tpin" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.Tpin" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.Tpin" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.OrganizationName" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.OrganizationName" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.OrganizationName" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.OrganizationType" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.OrganizationType" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.OrganizationType" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.Country" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.Country" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.Country" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.Phone" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.Phone" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.Phone" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.CountryOfRegistration" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.CountryOfRegistration" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.Shareholders" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.Shareholders" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.CompanyStatusZra" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.CompanyStatusZra" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.CompanyStatusZra" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.CompanyStatusNapsa" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.CompanyStatusNapsa" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.CompanyStatusNapsa" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="SupplierRegistation.ConfirmationCode" class="control-label"></label>
+                                    <input asp-for="SupplierRegistation.ConfirmationCode" class="form-control" />
+                                    <span asp-validation-for="SupplierRegistation.ConfirmationCode" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <a asp-page="./Index">Back to List</a>
+                </div>
+
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
+                </div>
+</div>
+</div>
+</div>

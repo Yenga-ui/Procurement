@@ -1,0 +1,178 @@
+﻿@page
+@model E_Procurement.Pages.Tender.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card o-hidden border-0 shadow-lg col-lg-12">
+    <div class="card-header">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Create Tender</h1>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+
+        <form method="post">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CdfTender.ShortDescription" class="control-label">Title</label>
+                        <input asp-for="CdfTender.ShortDescription" class="form-control" />
+                        <span asp-validation-for="CdfTender.ShortDescription" class="text-danger"></span>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label asp-for="CdfTender.Category" class="control-label"> Category</label>
+                        <select asp-for="CdfTender.Category" class="form-control" asp-items="@Model.Category">
+                            <option>--Select--</option>
+
+                        </select>
+                        <span asp-validation-for="CdfTender.Category" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.DueDate" class="control-label">Bid Due Date</label>
+                        <input asp-for="CdfTender.DueDate" class="form-control" />
+                        <span asp-validation-for="CdfTender.DueDate" class="text-danger"></span>
+                    </div>
+
+
+
+
+                    <div class="form-group">
+                        <label asp-for="CdfTender.BudgetId" class="control-label">Budget</label>
+                        <select id="budgetId" asp-for="CdfTender.BudgetId" class="form-control" asp-items="@Model.budget" onchange="sendData()">
+
+                            <option>--select--</option>
+                        </select>
+                        <span asp-validation-for="CdfTender.BudgetId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.LongDescription" class="control-label">Description</label>
+                        <textarea asp-for="CdfTender.LongDescription" class="form-control"></textarea>
+                        <span asp-validation-for="CdfTender.LongDescription" class="text-danger"></span>
+                    </div>
+                </div>
+             
+               
+
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CdfTender.Department" class="control-label"></label>
+                        <select asp-for="CdfTender.Department" class="form-control" asp-items="@Model.department">
+
+                            <option>--select--</option>
+                        </select>
+                        <span asp-validation-for="CdfTender.Department" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="display:none">
+                        <label asp-for="CdfTender.TenderSerial" class="control-label"></label>
+                        <input asp-for="CdfTender.TenderSerial" class="form-control" />
+                        <span asp-validation-for="CdfTender.TenderSerial" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.TenderProcedure" class="control-label">Tender Procedure</label>
+                        <select asp-for="CdfTender.TenderProcedure" asp-items="@Model.tenderProcedure" class="form-control">
+
+                            <option>--Select--</option>
+                        </select>
+                        <span asp-validation-for="CdfTender.TenderProcedure" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.TenderProcurementTechnique" class="control-label"> Procurement Technique</label>
+                        <input asp-for="CdfTender.TenderProcurementTechnique" class="form-control" />
+                        <span asp-validation-for="CdfTender.TenderProcurementTechnique" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+
+                        <label asp-for="CdfTender.BudgetExpenseId" class="control-label">Budget line</label>
+                        <select asp-for="CdfTender.BudgetExpenseId" class="form-control" asp-items="@Model.budgetExpenses" id="budgetExpense" >
+                            <option value="0">--select--</option>
+                        </select>
+                        <span asp-validation-for="CdfTender.BudgetExpenseId" class="text-danger"></span>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.SubmissionDeadline" class="control-label"></label>
+                        <input asp-for="CdfTender.SubmissionDeadline" class="form-control" />
+                        <span asp-validation-for="CdfTender.SubmissionDeadline" class="text-danger"></span>
+                    </div>
+
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label asp-for="CdfTender.ClarificationDeadline" class="control-label"> Clarification Deadline</label>
+                        <input asp-for="CdfTender.ClarificationDeadline" class="form-control" />
+                        <span asp-validation-for="CdfTender.ClarificationDeadline" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.InvitationDate" class="control-label"> Bid Invitation Date</label>
+                        <input asp-for="CdfTender.InvitationDate" class="form-control" />
+                        <span asp-validation-for="CdfTender.InvitationDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.ContractNoticeDate" class="control-label">Contract Notice Date</label>
+                        <input asp-for="CdfTender.ContractNoticeDate" class="form-control" />
+                        <span asp-validation-for="CdfTender.ContractNoticeDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTender.EvaluationMechanism" class="control-label">Evaluation Mechanism</label>
+                        <select asp-for="CdfTender.EvaluationMechanism" class="form-control" asp-items="@Model.tenderEvaluationMethod">
+                            <option> --select--</option>
+
+                        </select>
+                        <span asp-validation-for="CdfTender.EvaluationMechanism" class="text-danger"></span>
+                    </div>
+                  
+                </div>
+                <div class="row" style="padding-left:10px">
+                   
+                    <div class="col-md-2">
+
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-primary" asp-page-handler="Submit" />
+                        </div>
+                    </div>
+                    </div>
+        </form>
+    </div>
+    </div>
+            </div>
+
+
+            <div>
+                <a asp-page="Index">Back to List</a>
+            </div>
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }
+
+    <script>
+        function sendData() {
+            alert("here");
+            var selectedFilter = $("#budgetId").val();
+            $.ajax({
+                type: "POST",
+                url: "/Tender/Create/",
+                data: { selectedFilter: selectedFilter },
+                headers: {
+                    RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val()
+                },
+                success: function (result) {
+                    alert("success");
+
+                },
+                error: function () {
+                    alert("there was an error");
+                }
+            })
+    }
+</script>

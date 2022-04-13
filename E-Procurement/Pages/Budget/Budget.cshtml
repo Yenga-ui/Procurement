@@ -1,0 +1,297 @@
+﻿@page
+@model E_Procurement.Pages.Budget.BudgetModel
+
+@{
+    ViewData["Title"] = "Budget";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<div class="row" style="display:none">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CdfBudget.Period" class="control-label"></label>
+                <input asp-for="CdfBudget.Period" class="form-control" />
+                <span asp-validation-for="CdfBudget.Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CdfBudget.CreatedDate" class="control-label"></label>
+                <input asp-for="CdfBudget.CreatedDate" class="form-control" />
+                <span asp-validation-for="CdfBudget.CreatedDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CdfBudget.CreatedBy" class="control-label"></label>
+                <input asp-for="CdfBudget.CreatedBy" class="form-control" />
+                <span asp-validation-for="CdfBudget.CreatedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Add Expense
+            </div>
+            <div class="card-body">
+                <div class="expense-form" id="expense-form">
+                    <form id="expForm" asp-page-handler="AddExpense">
+                        <input type="hidden" id="id" asp-for="id" />
+                        <div class="">
+                            <label for="">Expense</label> <br />
+                            <input type="text" id="expName" asp-for="expName" class="form-control" />
+
+                        </div>
+                        <div class="">
+                            <label for="">Code</label> <br />
+                            <input type="text" id="expCode" asp-for="code" class="form-control" />
+
+                        </div>
+                        <div class="">
+                            <label for="">Type</label> <br />
+                            <Select type="text" id="expType" class="form-control">
+
+                                <option>-- Type of Expense--</option>
+
+                                <option value="Assets">Assets</option>
+                                <option value="Stock">Stock</option>
+                                <option value="Services">Services</option>
+                                <option value="Other">Other</option>
+                            </Select>
+                        </div>
+                        <div class="ext" id="ex" style="display:none">
+
+                            <div class="">
+
+                                <input type="text" id="expenseType" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="">
+                            <label for=""> Amount</label> <br />
+                            <input type="number" id="expNumber" asp-for="expNumber" class="form-control" />
+                        </div>
+                        <br />
+                        <input type="file" id="uploadExpense" class="btn btn-dark" asp-for="Upload" style="display:none" />
+                        <button type="submit" id="submitExpen" class="btn btn-primary">Add expense</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card" id="revenue-form">
+            <div class="card-header">Add Revenue</div>
+            <div class="card-body">
+                <form id="revenueForm" asp-page-handler="AddRevenue">
+                    <input type="hidden" id="id" asp-for="id" />
+                    <div class="">
+                        <label for=""> Revenue</label> <br />
+                        <input type="text" id="revenueName" asp-for="revenueName" class="form-control" />
+                    </div>
+
+                    <div class="">
+
+                        <label for="">Amount</label> <br />
+                        <input type="number" id="revenueNumber" asp-for="revenueNumber" class="form-control" />
+                    </div>
+                    <br />
+                    <input type="file" id="uploadRevenue" class="btn btn-dark" asp-for="Upload" style="display:none" />
+                    <button type="submit" id="submitRevenue" class="btn btn-primary" >Add Revenue</button>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+
+
+
+    <div class="col-md-6">
+
+        <div class="card">
+            <div class="card-header">
+
+                Expenses
+            </div>
+            <div class="card-body">
+
+                <table class="table" id="tbExpenses">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cdfBudgetExpenses[0].Description)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.cdfBudgetExpenses[0].Code)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cdfBudgetExpenses[0].Amount)
+                            </th>
+
+
+
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @try
+                        {
+                            foreach (var item in Model.cdfBudgetExpenses)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Description)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Code)
+
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Amount)
+                                    </td>
+
+
+                                    <td>
+                                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+
+        <div class="card">
+            <div class="card-header">
+                Revenue
+
+            </div>
+            <div class="card-body">
+
+                <table class="table" id="tbRevenue">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cdfBudgetRevenues[0].Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.cdfBudgetRevenues[0].Amount)
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.cdfBudgetRevenues)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Amount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Currency)
+                                </td>
+
+
+                                <td>
+                                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<script>
+
+
+
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.href);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, '    '));
+    };
+
+
+    $(document).ready(function () {
+        let dataSet = [];
+
+
+        $("#id").val(getUrlParameter("id"));
+
+
+
+
+
+        $("#expType").change(function () {
+
+
+            if ($("#expType").val() == "Other") {
+
+
+                $("#ex").show();
+            }
+            else {
+
+                $("#ex").hide();
+            }
+        });
+
+
+
+        // Find and remove selected table rows
+        $(".delete-row").click(function () {
+            $("table tbody").find('input[name="record"]').each(function () {
+                if ($(this).is(":checked")) {
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });
+</script>

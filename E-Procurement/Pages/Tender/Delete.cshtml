@@ -1,0 +1,101 @@
+﻿@page
+@model E_Procurement.Pages.Tender.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CdfTender</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.DateCreated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.DateCreated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.LongDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.LongDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderSerial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderSerial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderProcedure)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderProcedure)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderProcurementTechnique)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderProcurementTechnique)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.SubmissionDeadline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.SubmissionDeadline)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ClarificationDeadline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ClarificationDeadline)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.InvitationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.InvitationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ContractNoticeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ContractNoticeDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.EvaluationMechanism)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.EvaluationMechanism)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CdfTender.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

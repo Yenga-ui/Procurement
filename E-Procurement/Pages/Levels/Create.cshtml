@@ -1,0 +1,41 @@
+﻿@page
+@model E_Procurement.Pages.Levels.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+
+<div class="card o-hidden border-0 shadow-lg col-lg-12">
+    <div class="card-header">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Level</h1>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-md-4">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CdfLevels.LevelInOrganization" class="control-label">Level</label>
+                        <input type="number" asp-for="CdfLevels.LevelInOrganization" class="form-control" />
+                        <span asp-validation-for="CdfLevels.LevelInOrganization" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit"  value="Create" class="btn btn-primary" >Add level</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-page="Index">Back to List</a>
+        </div>
+        </div>
+    </div>
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        }

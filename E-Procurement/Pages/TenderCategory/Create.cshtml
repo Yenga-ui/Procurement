@@ -1,0 +1,88 @@
+﻿@page
+@model E_Procurement.Pages.TenderCategory.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card o-hidden border-0 shadow-lg col-lg-12">
+    <div class="card-header">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Category</h1>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <!-- Nested Row within Card Body -->
+ 
+        <div class="row">
+            <div class="col-md-6">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="CdfTenderCategor.Category" class="control-label"> </label>
+                        <input asp-for="CdfTenderCategor.Category" class="form-control form-control-user" />
+                        <span asp-validation-for="CdfTenderCategor.Category" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CdfTenderCategor.Uom" class="control-label">Unit Of Measure</label>
+                        <input asp-for="CdfTenderCategor.Uom" class="form-control form-control-user" />
+                        <span asp-validation-for="CdfTenderCategor.Uom" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-6" style="display:none">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CdfTenderCategory[0].Category)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CdfTenderCategory[0].Uom)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CdfTenderCategory)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Uom)
+                                </td>
+                                <td>
+                                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+
+
+        </div>
+
+            <div class="row">
+
+           
+            </div>
+        </div>
+    </div>
+
+
+            @section Scripts {
+                @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            }

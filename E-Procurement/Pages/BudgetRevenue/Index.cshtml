@@ -1,0 +1,61 @@
+﻿@page
+@model E_Procurement.Pages.BudgetRevenue.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfBudgetRevenue[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfBudgetRevenue[0].Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfBudgetRevenue[0].Currency)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfBudgetRevenue[0].BudgetId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfBudgetRevenue[0].CreatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CdfBudgetRevenue) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BudgetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

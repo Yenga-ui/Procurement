@@ -1,0 +1,89 @@
+﻿@page
+@model E_Procurement.Pages.Budget.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card o-hidden border-0 shadow-lg col-lg-12">
+    <div class="card-header">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Create Budget</h1>
+        </div>
+    </div>
+
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
+    <div class="row">
+        @foreach (var item in Model.CdfBudget)
+        {
+            <div class="col-md-4">
+                <div class="card" style="width: 25rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.BudgetName)</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"> @Html.DisplayFor(modelItem => item.Period)</h6>
+                        <p class="card-text"> @Html.DisplayFor(modelItem => item.BudgetYear)</p>
+                        <a asp-page="./Budget" class=" btn btn-primary" asp-route-id="@item.Id">Define</a>|
+                        <a asp-page="./Edit" class="btn btn-warning " asp-route-id="@item.Id">Edit</a>
+                        <a asp-page="./Delete" class="btn btn-danger " asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+           
+            
+     
+    <table class="table" style="display:none">
+        <thead>
+            <tr>
+                <th>
+                    Budget Description
+                </th>
+
+
+                <th>Period</th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Date Created
+                </th>
+
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CdfBudget)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BudgetName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Period)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BudgetYear)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                    </td>
+                    <td>
+                        <a asp-page="./Budget" asp-route-id="@item.Id">Define</a>|
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

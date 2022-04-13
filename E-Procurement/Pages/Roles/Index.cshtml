@@ -1,0 +1,59 @@
+﻿@page
+@model E_Procurement.Pages.Roles.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<div class="card o-hidden border-0 shadow-lg col-lg-12">
+    <div class="card-header">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Level</h1>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CdfRole[0].Role)
+                    </th>
+                    <th>
+                        Level
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CdfRole[0].DateCreated)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CdfRole[0].CreatedBy)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CdfRole) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LevelId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedBy)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+}
+            </tbody>
+        </table>
+        </div>
+</div>

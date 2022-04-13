@@ -1,0 +1,116 @@
+﻿@page
+@model E_Procurement.Pages.SupplierTender.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CdfTender</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.Category)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.DateCreated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.DateCreated)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.DueDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.DueDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ShortDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ShortDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.LongDescription)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.LongDescription)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderSerial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderSerial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderProcedure)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderProcedure)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.TenderProcurementTechnique)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.TenderProcurementTechnique)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.SubmissionDeadline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.SubmissionDeadline)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ClarificationDeadline)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ClarificationDeadline)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.InvitationDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.InvitationDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.ContractNoticeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.ContractNoticeDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.EvaluationMechanism)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.EvaluationMechanism)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.Department)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.Department)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.Units)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.Units)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfTender.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfTender.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CdfTender.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

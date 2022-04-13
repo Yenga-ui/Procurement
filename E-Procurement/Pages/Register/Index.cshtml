@@ -1,0 +1,114 @@
+﻿@page
+@model E_Procurement.Pages.Register.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+    <div class="card o-hidden border-0 shadow-lg col-lg-12">
+        <div class="card-header">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Suppliers</h1>
+            </div>
+        </div>
+        <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+                <div class="col-lg-12">
+                  
+                       
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th width="10%">Action</th>
+                                    <th>
+                                        Code
+                                    </th>
+                                    <th>
+                                        Registration
+                                    </th>
+                                    <th>
+                                        Tpin
+                                    </th>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Country
+                                    </th>
+                                    <th>
+                                        Phone
+                                    </th>
+                                    <th>
+                                        #
+                                    </th>
+                                    <th>
+                                        Shareholders
+                                    </th>
+                                    <th>
+                                        Zra
+                                    </th>
+                                    <th>
+                                        Napsa
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.SupplierRegistation)
+                                {
+                                <tr>
+                                    <td>
+                                        <a asp-page="./Edit" asp-route-id="@item.Id"><i class="fa fa-pen"></i></a> |
+                                        <a asp-page="./Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SupplierRegistrationCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CompanyRegistrationNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Tpin)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrganizationName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrganizationType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Country)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Phone)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CountryOfRegistration)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Shareholders)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CompanyStatusZra)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CompanyStatusNapsa)
+                                    </td>
+
+
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                        </div>
+                </div>
+</div>
+</div>
+

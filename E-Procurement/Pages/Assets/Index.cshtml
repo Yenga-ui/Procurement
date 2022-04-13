@@ -1,0 +1,55 @@
+﻿@page
+@model E_Procurement.Pages.Assets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfAsset[0].Asset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfAsset[0].AssetType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfAsset[0].DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CdfAsset[0].CreatedBy)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CdfAsset) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Asset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssetType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
