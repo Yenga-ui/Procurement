@@ -73,6 +73,8 @@ namespace E_Procurement
             {
                 endpoints.MapRazorPages();
             });
+           
+            
         }
     }
 }

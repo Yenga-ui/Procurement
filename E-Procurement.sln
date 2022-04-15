@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31424.327
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Procurement", "E-Procurement\E-Procurement.csproj", "{5EF49F82-867A-4248-B5EE-D312A986621F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portal", "ProcurementPortal\Portal.csproj", "{03761EA7-4F02-4E0F-9D77-4EF28F94C8F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{C1E14FCA-737E-44BB-9EE7-8D8D68F7D1C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{5EF49F82-867A-4248-B5EE-D312A986621F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EF49F82-867A-4248-B5EE-D312A986621F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EF49F82-867A-4248-B5EE-D312A986621F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03761EA7-4F02-4E0F-9D77-4EF28F94C8F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03761EA7-4F02-4E0F-9D77-4EF28F94C8F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03761EA7-4F02-4E0F-9D77-4EF28F94C8F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03761EA7-4F02-4E0F-9D77-4EF28F94C8F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1E14FCA-737E-44BB-9EE7-8D8D68F7D1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1E14FCA-737E-44BB-9EE7-8D8D68F7D1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1E14FCA-737E-44BB-9EE7-8D8D68F7D1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1E14FCA-737E-44BB-9EE7-8D8D68F7D1C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

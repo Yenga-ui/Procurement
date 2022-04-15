@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NewFolder\**" />
+    <Compile Remove="Pages\NewFolder\**" />
+    <Content Remove="NewFolder\**" />
+    <Content Remove="Pages\NewFolder\**" />
+    <EmbeddedResource Remove="NewFolder\**" />
+    <EmbeddedResource Remove="Pages\NewFolder\**" />
+    <None Remove="NewFolder\**" />
+    <None Remove="Pages\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Pages\Login\download.jpg" />
   </ItemGroup>
 
@@ -41,11 +52,6 @@
     <PackageReference Include="MimeKit" Version="3.0.0" />
     <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
     <PackageReference Include="Select2.js" Version="4.0.13" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="NewFolder\" />
-    <Folder Include="Pages\NewFolder\" />
   </ItemGroup>
 
 </Project>
