@@ -3,8 +3,8 @@ $(document).ready(function() {
     $('.table').DataTable({
         "scrollX": true,
         "autoWidth": false, 
-        "bDestroy": true
-
+        "bDestroy": true,
+        "pageLength":5 
 
     });
 });

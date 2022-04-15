@@ -55,8 +55,8 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-imageW" style="background-image:url('/img/3.jpg')"></div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-2 d-none d-lg-block bg-login-imageW" style="background-image:url('/img/3.jpg');display:none"></div>
+                            <div class="col-lg-12">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Supplier Registration!</h1>
@@ -64,7 +64,11 @@
                                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <form method="post" class="user">
 
+                                          <div class="form-group">
 
+                                            <input asp-for="SupplierRegistation.OrganizationName" class="form-control form-control-user" placeholder="Organization Name" />
+                                            <span asp-validation-for="SupplierRegistation.OrganizationName" class="text-danger"></span>
+                                        </div>
 
                                         <div class="form-group row">
 
@@ -79,24 +83,33 @@
                                            
                                         </div>
                            
-                                        <div class="form-group">
+                                      
+                                        <div class="form-group row">
+                                            <div class="col-lg-6">
 
-                                            <input asp-for="SupplierRegistation.OrganizationName" class="form-control form-control-user" placeholder="Organization Name" />
-                                            <span asp-validation-for="SupplierRegistation.OrganizationName" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <select asp-items="@Model.organizationType" id="organizationType" asp-for="SupplierRegistation.OrganizationType" class="form-control">
+                                                  <select asp-items="@Model.organizationType" id="organizationType" asp-for="SupplierRegistation.OrganizationType" class="form-control-user" style="width:395px">
                                                 <option value="0">Organization Type</option>
 
                                             </select>
                                             <span asp-validation-for="SupplierRegistation.OrganizationType" class="text-danger"></span>
+                                            </div>
+                                                                    <div class="col-lg-6">
+
+                                          
+                                            <select asp-for="SupplierRegistation.CountryOfRegistration" id="CountryOfRegistration" class="form-control-user" asp-items="@Model.country" style="width:395px">
+
+                                                <option value="0">Country Of Registration</option>
+
+
+                                            </select>
+                                            <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
+                                        </div>
                                         </div>
 
 
 
 
-                                        <div class="form-group">
+                                        <div class="form-group" style="display:none">
 
                                             <select asp-for="SupplierRegistation.Country" class="form-control " id="country" asp-items="@Model.country">
                                                 <option value="0">Country</option>
@@ -105,45 +118,40 @@
                                             </select>
                                             <span asp-validation-for="SupplierRegistation.Country" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
+                                                  <div class="col-lg-6">
 
-                                            <input asp-for="SupplierRegistation.Phone" class="form-control " placeholder="phone" />
+                                            <input asp-for="SupplierRegistation.Email" class="form-control form-control-user" placeholder="Email" />
+                                            <span asp-validation-for="SupplierRegistation.Email" class="text-danger"></span>
+                                       </div>
+                                               <div class="col-lg-6">
+
+                                            <input asp-for="SupplierRegistation.Phone" class="form-control form-control-user" placeholder="Contact Number" />
                                             <span asp-validation-for="SupplierRegistation.Phone" class="text-danger"></span>
+                                       </div>
+                                 
                                         </div>
+             
                                         <div class="form-group">
 
-                                            <select asp-for="SupplierRegistation.CountryOfRegistration" id="CountryOfRegistration" class="form-control" asp-items="@Model.country">
-
-                                                <option value="0">Country Of Registration</option>
-
-
-                                            </select>
-                                            <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group">
-
-                                            <input asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Shareholders.." />
+                                            <input asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.." />
                                             <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
                                         </div>
 
 
 
-                                        <div class="form-group">
+                                        <div class="form-group" style="display:none">
 
                                             <input asp-for="SupplierRegistation.CompanyStatusZra" placeholder="Company Status(ZRA)" class="form-control form-control-user" />
                                             <span asp-validation-for="SupplierRegistation.CompanyStatusZra" class="text-danger"></span>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="display:none">
 
                                             <input asp-for="SupplierRegistation.CompanyStatusNapsa" class="form-control form-control-user" placeholder="Company Status(Napsa" />
                                             <span asp-validation-for="SupplierRegistation.CompanyStatusNapsa" class="text-danger"></span>
                                         </div>
 
-                                        <div class="form-group">
-
-                                            <input asp-for="SupplierRegistation.Email" class="form-control form-control-user" placeholder="email" />
-                                            <span asp-validation-for="SupplierRegistation.Email" class="text-danger"></span>
-                                        </div>
+                                    
 
                                         <div class="form-group">
                                             <input type="submit" value="Create" class="btn btn-primary" />
