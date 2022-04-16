@@ -1,5 +1,56 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Upload Plan";
+}
+
+<!--begin::Entry-->
+<div class="d-flex flex-column-fluid">
+    <!--begin::Container-->
+    <div class="container">
+   
+        <!--end::Notice-->
+        <!--begin::Card-->
+        <div class="card card-custom gutter-b">
+            <div class="card-header">
+                <div class="card-title">
+                    <h3 class="card-label">Dropzone File Upload Examples</h3>
+                </div>
+            </div>
+            <!--begin::Form-->
+            <form>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-3 col-sm-12 text-lg-right"></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropzone dropzone-default dz-clickable" id="kt_dropzone_1">
+                                <div class="dropzone-msg dz-message needsclick">
+                                    <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                    <span class="dropzone-msg-desc">                                        
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                
+                </div>
+                <div class="card-footer d-none">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <div class="col-lg-4">
+                            <button type="reset" class="btn btn-light-primary mr-2">Submit</button>
+                            <button type="reset" class="btn btn-primary">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--end::Form-->
+        </div>
+        <!--end::Card-->   
+        <!--end::Row-->
+    </div>
+    <!--end::Container-->
+</div>
+<!--end::Entry-->
+@section Scripts{
+<!--begin::Page Scripts(used by this page)-->
+<script src="~/js/file-upload/procurementplan.dropzonejs.js"></script>
+<!--end::Page Scripts-->
 }
