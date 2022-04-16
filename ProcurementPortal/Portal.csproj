@@ -2942,6 +2942,11 @@
 
     <ItemGroup>
       <Folder Include="Views\Shared\Menus\" />
+      <Folder Include="wwwroot\Uploads\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core\Core.csproj" />
     </ItemGroup>
 
 </Project>
