@@ -38,17 +38,33 @@ namespace E_Procurement.Pages.Login
 
         {
             var userCount = 1;
-            userCount = _context.SupplierRegistation.Where(p => p.Email == username).Count();
+            userCount = _context.CdfUser.Where(p => p.Email == username).Count();
             if (userCount >= 1)
             {
-                SupplierRegistation supplierRegistration = _context.SupplierRegistation.Where(p => p.Email == username).FirstOrDefault();
+                CdfUser cdfUser = _context.CdfUser.Where(p => p.Email == username).FirstOrDefault();
 
 
 
+                if (cdfUser.RoleId == 2)
+                {
+
+                    Console.WriteLine("Data found");
+                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("supplierID", cdfUser.Id.ToString());
+                    return RedirectToPage("/Login/Index");
+                }
+                if (cdfUser.RoleId == 3)
+                {
+
+                    Console.WriteLine("Data found");
+                    HttpContext.Session.SetString("username", username);
+                    HttpContext.Session.SetString("ID", cdfUser.Id.ToString());
+                    return RedirectToPage("/Login/Index");
+                  }
 
                 Console.WriteLine("Data found");
                 HttpContext.Session.SetString("username", username);
-                HttpContext.Session.SetString("supplierID", supplierRegistration.Id.ToString());
+                HttpContext.Session.SetString("supplierID", cdfUser.Id.ToString());
                 return RedirectToPage("/Login/Index");
             }
 
