@@ -2,6 +2,10 @@ using Core.Interfaces;
 using Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMvc()
+      .AddSessionStateTempDataProvider();
+builder.Services.AddSession();
+
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
