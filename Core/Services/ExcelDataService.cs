@@ -16,7 +16,7 @@ namespace Core.Services
     {
 
         /// <summary>
-        /// @"C:\Users\E56626\Desktop\Teddy\VS2012\Sandbox\sandbox_test - Copy - Copy.xlsx"
+        /// Upload Excel Document
         /// </summary>
         /// <param name="filePath"></param>
         public void ParseExcelData(String filePath)

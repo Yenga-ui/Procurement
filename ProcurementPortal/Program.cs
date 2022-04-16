@@ -3,6 +3,7 @@ using Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
+builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
