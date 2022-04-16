@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace Core.Interfaces
 {
     public interface IExcelDataService
     {
-        void ParseExcelData(string uploadPath);
+        Task<List<ProcurementPlanItem>> ParseExcelData(string uploadPath);
     }
 }
