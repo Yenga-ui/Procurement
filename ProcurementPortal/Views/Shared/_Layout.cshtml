@@ -41,17 +41,17 @@
                 <!--end::Header-->
                 <!--begin::Content-->
                 <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-                <!--begin::Entry-->
-                <div class="d-flex flex-column-fluid">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                 @RenderBody()
+                    <!--begin::Entry-->
+                    <div class="d-flex flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class="container-fluid">
+                            @RenderBody()
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Entry-->
                 </div>
-                <!--end::Container-->
-                </div>
-                <!--end::Entry-->
-                </div>
-               
+
                 <!--end::Content-->
                 <!--begin::Footer-->
                 <partial name="Partials/_Footer.cshtml" />
@@ -87,12 +87,7 @@
     <script src="~/assets/plugins/custom/prismjs/prismjs.bundle.js" asp-append-version="true"></script>
     <script src="~/assets/js/scripts.bundle.js" asp-append-version="true"></script>
     <!--end::Global Theme Bundle-->
-    <!--begin::Page Vendors(used by this page)-->
-    <script src="~/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
-    <!--end::Page Vendors-->
-    <!--begin::Page Scripts(used by this page)-->
-    <script src="~/assets/js/pages/widgets.js"></script>
-    <!--end::Page Scripts-->
+
     <script>
         $(document).ready(function(){
             //$("#kt_aside").addClass("aside-on")
