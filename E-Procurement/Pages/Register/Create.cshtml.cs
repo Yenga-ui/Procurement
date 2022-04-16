@@ -73,9 +73,17 @@ namespace E_Procurement.Pages.Register
 
             Services.Reference reference = new Services.Reference();
             SupplierRegistation.SupplierRegistrationCode=reference.generateReferenceNumber(SupplierRegistation.OrganizationName);
+            CdfUser user = new CdfUser();
+            user.Username = SupplierRegistation.Email;
+            user.Email = SupplierRegistation.Email;
+            user.RoleId = 2;
+            user.Status = 1;
+            _context.CdfUser.Add(user);
+
+
             _context.SupplierRegistation.Add(SupplierRegistation);
             await _context.SaveChangesAsync();
-            MailRequest mailRequest = new MailRequest(SupplierRegistation.Email, "Supplier Registration", SupplierRegistation.OrganizationName + " Kindly note that your account has been created. You can log in to the application as a supplier using your supplier code "+ SupplierRegistation.SupplierRegistrationCode+ " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
+            MailRequest mailRequest = new MailRequest(SupplierRegistation.Email, "Supplier Registration", SupplierRegistation.OrganizationName + " Kindly note that your account on the Procurement System has been created. You can log in to the application as a supplier using your supplier code "+ SupplierRegistation.SupplierRegistrationCode+ " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
 
             SendMail(mailRequest);
             return RedirectToPage("./Index");
