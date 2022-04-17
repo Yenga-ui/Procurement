@@ -14,12 +14,12 @@ namespace Core.Services
 {
     public class ExcelDataService : IExcelDataService
     {
-
+       
         /// <summary>
-        /// @"C:\Users\E56626\Desktop\Teddy\VS2012\Sandbox\sandbox_test - Copy - Copy.xlsx"
+        /// Upload Excel Document
         /// </summary>
         /// <param name="filePath"></param>
-        public void ParseExcelData(String filePath)
+        public async Task<List<ProcurementPlanItem>> ParseExcelData(String filePath)
         {
             //Create COM Objects. Create a COM object for everything that is referenced
             Excel.Application xlApp = new Excel.Application();
@@ -67,8 +67,6 @@ namespace Core.Services
                 }
             }
 
-
-
             //cleanup
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -84,6 +82,9 @@ namespace Core.Services
             //quit and release
             xlApp.Quit();
             Marshal.ReleaseComObject(xlApp);
+
+            await Task.Delay(10);
+            return listOfDictionary;
         }
 
         private string SanitizePropertyName(string v)

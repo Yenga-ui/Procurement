@@ -7,6 +7,7 @@ builder.Services.AddMvc()
 builder.Services.AddSession();
 
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
+builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
