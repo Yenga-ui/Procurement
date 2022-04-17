@@ -1,5 +1,5 @@
 ﻿@{
-   ViewData["Title"] = "Procurement Plans";
+    ViewData["Title"] = "Procurement Plans";
 }
 <!--begin::Page Vendors Styles(used by this page)-->
 <link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
@@ -87,7 +87,32 @@
         </div>
     </div>
     <div class="card-body">
-        <!--begin: Datatable-->
+
+
+
+
+        <div class="" style="background: #fdfdfd; border-radius: 5px;">
+            <ul style="list-style-type: none" class=" p-3 text-muted">
+                <li class="text-muted font-weight-bolder">
+                    <span class="text-primary">Entity</span> : <span>Zambia Revenue Authority</span>
+                </li>
+                <li class="text-muted font-weight-bolder">
+                    <span class="text-primary">Procurement Plan for year</span> : <span>2022 </span>
+                </li>
+                <li class="text-muted font-weight-bolder">
+                    <span class="text-primary">Version</span> : <span>1 </span>
+                </li>
+                <li class="text-muted font-weight-bolder">
+                    <span class="text-primary">Date Last Updated</span> : <span>04/01/2022  18:05:13</span>
+                </li>
+                <li class="text-muted font-weight-bolder">
+                    <span class="text-primary">Comments</span> : <span>04/01/2022  18:05:13</span>
+                </li>
+            </ul>
+        </div>
+
+
+
         <table class="table table-bordered table-hover table-checkable mt-10" id="kt_datatable">
             <thead>
                 <tr>
@@ -175,6 +200,9 @@
 <!--begin::Page Scripts(used by this page)-->
 <script src="~/js/file-upload/procurementplan.dropzonejs.js" asp-append-version="true"></script>
 <!--end::Page Scripts-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="~/assets/js/pages/crud/forms/validation/form-widgets.js" asp-append-version="true"></script>
+<!--end::Page Scripts-->
 <script>
     $(document).ready(function(){
 
@@ -191,7 +219,7 @@
 
 
            let settings = {
-              url: "Create",
+              url: "procurement-plan/create",
               method: "POST",
               dataType: "json",
               data: JSON.stringify(payload),
