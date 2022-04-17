@@ -24,5 +24,6 @@ namespace E_Procurement.Models
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public int? EmailConfirmed { get; set; }
     }
 }
