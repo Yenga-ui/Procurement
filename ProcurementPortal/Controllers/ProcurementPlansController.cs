@@ -100,5 +100,11 @@ namespace Portal.Controllers
                         }); 
             }
         }
+
+        [Route("procurement/tender")]
+        public ActionResult Tender()
+        {
+            return View();
+        }
     }
 }
