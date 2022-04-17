@@ -11,10 +11,10 @@ namespace Portal.Controllers
         private readonly IExcelDataService ExcelDataService;
         private readonly IProcurementPlanDataService ProcurementPlanDataService;
 
-        public ProcurementPlansController(IWebHostEnvironment _environment, IExcelDataService excelDataService,
+        public ProcurementPlansController(IWebHostEnvironment environment, IExcelDataService excelDataService,
             IProcurementPlanDataService procurementPlanDataService)
         {
-            Environment = _environment;
+            Environment = environment;
             ExcelDataService = excelDataService;
             ProcurementPlanDataService = procurementPlanDataService;
         }
@@ -23,17 +23,16 @@ namespace Portal.Controllers
         [Route("upload-plan")]
         public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
         {
-            var wwwPath = this.Environment.WebRootPath;
-            var contentPath = this.Environment.ContentRootPath;
+            var wwwPath = Environment.WebRootPath;
+            var contentPath = Environment.ContentRootPath;
 
-            var path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            var path = Path.Combine(Environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-
-            var response = "";
             
+            var savedProcurementPlanItems = new List<CdfPlanItem>();            
             foreach (var postedFile in file)
             {
                 var fileName = Path.GetFileName(postedFile.FileName);
@@ -47,11 +46,11 @@ namespace Portal.Controllers
 
                 if(procurementPlanItems.Any())
                 {
-                   response = await ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
+                    savedProcurementPlanItems = ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
                 }                
             }
 
-            return Ok(new { success = true, message = "File Uploaded Successfully", payload = response });
+            return Ok(new { success = true, message = "File Uploaded Successfully", payload = savedProcurementPlanItems });
 
         }
      
@@ -99,7 +98,5 @@ namespace Portal.Controllers
                         }); 
             }
         }
-
-
     }
 }

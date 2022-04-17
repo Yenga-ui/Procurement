@@ -55,9 +55,34 @@ namespace Core.Services
             db.SaveChanges();
             return planItem;
         }
-        public Task<string> SaveAll(List<ProcurementPlanItem> procurementPlanItems)
+       
+        public List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems)
         {
-            throw new NotImplementedException();
+
+            var cdfPlanItems = procurementPlanItems.Select(item => new CdfPlanItem
+                {
+                    Class = item.Class,
+                    Unspsc = item.UNSPSC,
+                    Description = item.Description,
+                    RefNo = item.Ref_No,
+                    ProjectCode = item.Project_Code,
+                    Unitofmeasure = item.Unit_of_Measure,
+                    Quantity = Convert.ToInt32(item.Quantity),
+                    SourceOfFunds = item.Source_of_Funds,
+                    Prequalification = item.Prequalification,
+                    ProcurementMethod = item.Procurement_Method,
+                    Publication = item.Publication,
+                    Award = item.Award,
+                    Start = Convert.ToDateTime(item.Start),
+                    Comments = item.Comments,
+                    Typeofentry = item.Type_of_Entry
+                })
+                .ToList();
+
+            db.CdfPlanItems.AddRange(cdfPlanItems);
+            db.SaveChanges();
+            
+           return cdfPlanItems;
         }
     }
 }
