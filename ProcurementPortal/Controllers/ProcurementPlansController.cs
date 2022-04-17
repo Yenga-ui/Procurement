@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -8,6 +9,7 @@ namespace Portal.Controllers
     {
         private readonly IWebHostEnvironment Environment;
         private readonly IExcelDataService   ExcelDataService;
+        private MyPayrollContext db = new MyPayrollContext();
 
         public ProcurementPlansController(IWebHostEnvironment _environment, IExcelDataService excelDataService)
         {
@@ -17,17 +19,6 @@ namespace Portal.Controllers
 
         public IActionResult UploadPlan(List<IFormFile> file)
         {
-
-            /*HttpFileCollection MyFileCollection;
-        HttpPostedFile MyFile;
-        int FileLen;
-        System.IO.Stream MyStream;
-
-        MyFileCollection = Request.Files;
-        MyFile = MyFileCollection[0];
-
-        FileLen = MyFile.ContentLength;
-        //byte[] input = new byte[FileLen];*/
             string wwwPath = this.Environment.WebRootPath;
             string contentPath = this.Environment.ContentRootPath;
 
@@ -55,10 +46,20 @@ namespace Portal.Controllers
             return View();
         }
 
-        public ActionResult ProcurementPlanCreate()
+        [HttpGet]
+        public ActionResult Create()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(ProcurementPlanItem plan)
+		{
+            
+            return Ok(plan);
+		}
+
+
 
 
     }
