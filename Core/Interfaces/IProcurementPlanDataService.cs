@@ -6,6 +6,6 @@ namespace Core.Interfaces
     {
         List<CdfPlanItem> SaveAll(List<CdfPlanItem> procurementPlanItems);
         CdfPlanItem Save(ProcurementPlanItem procurementPlanItems);
-        Task<string> SaveAll(List<ProcurementPlanItem> procurementPlanItems);
+        List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems);
     }
 }

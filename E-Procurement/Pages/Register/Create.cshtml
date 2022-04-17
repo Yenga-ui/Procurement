@@ -26,7 +26,7 @@
     <link href="~/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="~/vendor/jquery/jquery.min.js"></script>
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
@@ -44,58 +44,58 @@
 </head>
 <body class="bg-gradient-primary">
 
-    <div class="container">
+<div class="container">
 
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
 
-            <div class="col-xl-10 col-lg-12 col-md-9">
+        <div class="col-xl-10 col-lg-12 col-md-9">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-2 d-none d-lg-block bg-login-imageW" style="background-image:url('/img/3.jpg');display:none"></div>
-                            <div class="col-lg-12">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Supplier Registration!</h1>
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-2 d-none d-lg-block bg-login-imageW" style="background-image:url('/img/3.jpg');display:none"></div>
+                        <div class="col-lg-12">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Supplier Registration!</h1>
+                                </div>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <form method="post" class="user">
+
+                                    <div class="form-group">
+
+                                        <input asp-for="SupplierRegistation.OrganizationName" class="form-control form-control-user" placeholder="Organization Name"/>
+                                        <span asp-validation-for="SupplierRegistation.OrganizationName" class="text-danger"></span>
                                     </div>
-                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                    <form method="post" class="user">
 
-                                          <div class="form-group">
+                                    <div class="form-group row">
 
-                                            <input asp-for="SupplierRegistation.OrganizationName" class="form-control form-control-user" placeholder="Organization Name" />
-                                            <span asp-validation-for="SupplierRegistation.OrganizationName" class="text-danger"></span>
+                                        <div class="col-lg-6">
+                                            <input asp-for="SupplierRegistation.CompanyRegistrationNumber" class="form-control form-control-user" placeholder="Company Registration Number"/>
+                                            <span asp-validation-for="SupplierRegistation.CompanyRegistrationNumber" class="text-danger"></span>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input asp-for="SupplierRegistation.Tpin" class="form-control form-control-user" placeholder="TPIN"/>
+                                            <span asp-validation-for="SupplierRegistation.Tpin" class="text-danger"></span>
                                         </div>
 
-                                        <div class="form-group row">
+                                    </div>
 
-                                            <div class="col-lg-6">
-                                                <input asp-for="SupplierRegistation.CompanyRegistrationNumber" class="form-control form-control-user" placeholder="Company Registration Number" />
-                                                <span asp-validation-for="SupplierRegistation.CompanyRegistrationNumber" class="text-danger"></span>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <input asp-for="SupplierRegistation.Tpin" class="form-control form-control-user" placeholder="TPIN" />
-                                                <span asp-validation-for="SupplierRegistation.Tpin" class="text-danger"></span>
-                                            </div>
-                                           
-                                        </div>
-                           
-                                      
-                                        <div class="form-group row">
-                                            <div class="col-lg-6">
 
-                                                  <select asp-items="@Model.organizationType" id="organizationType" asp-for="SupplierRegistation.OrganizationType" class="form-control-user" style="width:395px">
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
+
+                                            <select asp-items="@Model.organizationType" id="organizationType" asp-for="SupplierRegistation.OrganizationType" class="form-control-user" style="width:395px">
                                                 <option value="0">Organization Type</option>
 
                                             </select>
                                             <span asp-validation-for="SupplierRegistation.OrganizationType" class="text-danger"></span>
-                                            </div>
-                                                                    <div class="col-lg-6">
+                                        </div>
+                                        <div class="col-lg-6">
 
-                                          
+
                                             <select asp-for="SupplierRegistation.CountryOfRegistration" id="CountryOfRegistration" class="form-control-user" asp-items="@Model.country" style="width:395px">
 
                                                 <option value="0">Country Of Registration</option>
@@ -104,79 +104,71 @@
                                             </select>
                                             <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
                                         </div>
-                                        </div>
+                                    </div>
 
 
+                                    <div class="form-group" style="display:none">
+
+                                        <select asp-for="SupplierRegistation.Country" class="form-control " id="country" asp-items="@Model.country">
+                                            <option value="0">Country</option>
 
 
-                                        <div class="form-group" style="display:none">
+                                        </select>
+                                        <span asp-validation-for="SupplierRegistation.Country" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-6">
 
-                                            <select asp-for="SupplierRegistation.Country" class="form-control " id="country" asp-items="@Model.country">
-                                                <option value="0">Country</option>
-
-
-                                            </select>
-                                            <span asp-validation-for="SupplierRegistation.Country" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group row">
-                                                  <div class="col-lg-6">
-
-                                            <input asp-for="SupplierRegistation.Email" class="form-control form-control-user" placeholder="Email" />
+                                            <input asp-for="SupplierRegistation.Email" class="form-control form-control-user" placeholder="Email"/>
                                             <span asp-validation-for="SupplierRegistation.Email" class="text-danger"></span>
-                                       </div>
-                                               <div class="col-lg-6">
+                                        </div>
+                                        <div class="col-lg-6">
 
-                                            <input asp-for="SupplierRegistation.Phone" class="form-control form-control-user" placeholder="Contact Number" />
+                                            <input asp-for="SupplierRegistation.Phone" class="form-control form-control-user" placeholder="Contact Number"/>
                                             <span asp-validation-for="SupplierRegistation.Phone" class="text-danger"></span>
-                                       </div>
-                                 
-                                        </div>
-             
-                                        <div class="form-group">
-
-                                            <input asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.." />
-                                            <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
                                         </div>
 
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <input asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.."/>
+                                        <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
+                                    </div>
 
 
-                                        <div class="form-group" style="display:none">
+                                    <div class="form-group" style="display:none">
 
-                                            <input asp-for="SupplierRegistation.CompanyStatusZra" placeholder="Company Status(ZRA)" class="form-control form-control-user" />
-                                            <span asp-validation-for="SupplierRegistation.CompanyStatusZra" class="text-danger"></span>
-                                        </div>
-                                        <div class="form-group" style="display:none">
+                                        <input asp-for="SupplierRegistation.CompanyStatusZra" placeholder="Company Status(ZRA)" class="form-control form-control-user"/>
+                                        <span asp-validation-for="SupplierRegistation.CompanyStatusZra" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-group" style="display:none">
 
-                                            <input asp-for="SupplierRegistation.CompanyStatusNapsa" class="form-control form-control-user" placeholder="Company Status(Napsa" />
-                                            <span asp-validation-for="SupplierRegistation.CompanyStatusNapsa" class="text-danger"></span>
-                                        </div>
+                                        <input asp-for="SupplierRegistation.CompanyStatusNapsa" class="form-control form-control-user" placeholder="Company Status(Napsa"/>
+                                        <span asp-validation-for="SupplierRegistation.CompanyStatusNapsa" class="text-danger"></span>
+                                    </div>
 
-                                    
 
-                                        <div class="form-group">
-                                            <input type="submit" value="Create" class="btn btn-primary" />
-                                            <a class="btn btn-warning" href="~/Login/Login">Login</a>
-                                        </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Create" class="btn btn-primary"/>
+                                        <a class="btn btn-warning" href="~/Login/Login">Login</a>
+                                    </div>
 
-                                    </form>
-                                </div>
+                                </form>
                             </div>
                         </div>
-            </div>
+                    </div>
+                </div>
 
-            <div>
-          
+                <div>
+
+                </div>
             </div>
         </div>
     </div>
+</div>
 </body>
-    <script>
 
-        $(document).ready(function () {
-
-        }
-    </script>
-
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

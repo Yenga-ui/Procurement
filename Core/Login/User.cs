@@ -21,21 +21,11 @@ namespace Core.Login
             _context = new Models.MyPayrollContext();
         }
 
-        public bool login(String username,String password)
+        public bool login(String username, String password)
         {
             var userCount = 1;
             userCount = _context.CdfUsers.Where(p => p.Email == username).Count();
-            if (userCount >= 1)
-            {
-               
-                return true;
-
-
-            }
-           
-
-                return false;
-
+            return userCount >= 1;
         }
     }
 }

@@ -11,10 +11,10 @@ namespace Portal.Controllers
         private readonly IExcelDataService ExcelDataService;
         private readonly IProcurementPlanDataService ProcurementPlanDataService;
 
-        public ProcurementPlansController(IWebHostEnvironment _environment, IExcelDataService excelDataService,
+        public ProcurementPlansController(IWebHostEnvironment environment, IExcelDataService excelDataService,
             IProcurementPlanDataService procurementPlanDataService)
         {
-            Environment = _environment;
+            Environment = environment;
             ExcelDataService = excelDataService;
             ProcurementPlanDataService = procurementPlanDataService;
         }
@@ -23,35 +23,34 @@ namespace Portal.Controllers
         [Route("upload-plan")]
         public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
         {
-            string wwwPath = this.Environment.WebRootPath;
-            string contentPath = this.Environment.ContentRootPath;
+            var wwwPath = Environment.WebRootPath;
+            var contentPath = Environment.ContentRootPath;
 
-            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            var path = Path.Combine(Environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-
-            string response = "";
-            List<string> uploadedFiles = new List<string>();
-            foreach (IFormFile postedFile in file)
+            
+            var savedProcurementPlanItems = new List<CdfPlanItem>();            
+            foreach (var postedFile in file)
             {
-                string fileName = Path.GetFileName(postedFile.FileName);
+                var fileName = Path.GetFileName(postedFile.FileName);
                 var uploadPath = Path.Combine(path, fileName);
-                List<ProcurementPlanItem> procurementPlanItems = new List<ProcurementPlanItem>();
-                using (FileStream stream = new FileStream(uploadPath, FileMode.Create))
+                List<ProcurementPlanItem> procurementPlanItems;
+                await using (var stream = new FileStream(uploadPath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
                     procurementPlanItems = await ExcelDataService.ParseExcelData(uploadPath);
                 }
 
-                if (procurementPlanItems != null && procurementPlanItems.Any())
+                if(procurementPlanItems.Any())
                 {
-                    response = await ProcurementPlanDataService.SaveAll(procurementPlanItems);
-                }
+                    savedProcurementPlanItems = ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
+                }                
             }
 
-            return Ok(new { success = true, message = "File Uploaded Successfully", payload = response });
+            return Ok(new { success = true, message = "File Uploaded Successfully", payload = savedProcurementPlanItems });
 
         }
      
@@ -99,9 +98,5 @@ namespace Portal.Controllers
                         }); 
             }
         }
-
-
-
-
     }
 }

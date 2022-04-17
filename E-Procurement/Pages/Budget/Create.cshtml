@@ -20,7 +20,6 @@
                 <div class="col-md-12">
 
 
-
                     <div class="form-group">
                         <label asp-for="CdfBudget.BudgetName" class="control-label">Description</label>
                         <textarea asp-for="CdfBudget.BudgetName" class="form-control" rows="5"></textarea>
@@ -41,7 +40,7 @@
                         <span asp-validation-for="CdfBudget.Period" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit" value="Create" class="btn btn-primary"/>
                     </div>
 
                 </div>
@@ -49,24 +48,22 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label asp-for="CdfBudget.BudgetYear" class="control-label">Budget Year</label>
-                        <input asp-for="CdfBudget.BudgetYear" class="form-control" />
+                        <input asp-for="CdfBudget.BudgetYear" class="form-control"/>
                         <span asp-validation-for="CdfBudget.BudgetYear" class="text-danger"></span>
                     </div>
                     <div class="form-group" style="display:none">
                         <label asp-for="CdfBudget.CreatedBy" class="control-label"></label>
-                        <input asp-for="CdfBudget.CreatedBy" class="form-control" />
+                        <input asp-for="CdfBudget.CreatedBy" class="form-control"/>
                         <span asp-validation-for="CdfBudget.CreatedBy" class="text-danger"></span>
                     </div>
 
-                   
+
                 </div>
 
             </div>
         </div>
     </form>
 </div>
-
-    </div>
 
 <div>
     <a asp-page="Index">Back to List</a>
