@@ -1,0 +1,166 @@
+﻿<div class="modal fade" id="addProcurementPlanModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content card">
+            <form id="procurementForm">
+                <div class="card-header">
+                    <h3 class="text-muted">ADD PROCUREMENT PLAN</h3>
+                </div>
+                <div class="card-body">
+
+                    <p class="mb-3 text-primary font-weight-bolder">ProcurementDetails</p>
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label>Class</label>
+                            <input type="text" class="form-control"
+                                   name="Class"
+                                   placeholder="Enter full name" required />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>UNSPSC</label>
+                            <input type="number"
+                                   name="UNSPSC"
+                                   class="form-control" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Reference Number</label>
+                            <input type="text" class="form-control"
+                                   name="Ref_No"
+                                   placeholder="Enter reference number" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label>Project Code</label>
+                            <input type="text"
+                                   name="Project_Code" class="form-control" placeholder="Enter project code" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Unit of Measure</label>
+                            <select name="Unit_of_Measure"
+                                    class="form-control selectpicker">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>
+                                    <b>Relish</b>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Quantity</label>
+                            <input type="number"
+                                   name="Quantity"
+                                   class="form-control" placeholder="Enter quantity" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label>Source of Funds</label>
+                            <select name="Source_of_Funds" class="form-control selectpicker">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>
+                                    <b>Relish</b>
+                                </option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Prequalification (Y/N)</label>
+                            <input name="Prequalification"
+                                   type="number" class="form-control" placeholder="Enter quantity" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Procurement Method</label>
+                            <select name="Procurement_Method" class="form-control selectpicker">
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>
+                                    <b>Relish</b>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="mb-3 text-primary font-weight-bolder">Estimated Dates</p>
+                    <div class="form-group row">
+                        <div class="col-lg-4">
+                            <label>Publication</label>
+                            <input type="text" class="form-control" placeholder="Enter full name" required />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Award</label>
+                            <input name="Publication" type="number" class="form-control" placeholder="Enter email" />
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Start</label>
+                            <input name="Start" type="text" class="form-control" placeholder="Enter reference number" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+
+                        <div class="col-lg-4">
+                            <label>Description</label>
+                            <textarea name="Description"
+                                      class="form-control" style="height: 100px;"></textarea>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Comment</label>
+                            <textarea name="Comment"
+                                      class="form-control" style="height: 100px;"></textarea>
+                        </div>
+                        <div class="col-lg-4">
+                            <label>Type of Entry</label>
+                            <input type="text"
+                                   name="Type_of_Entry"
+                                   class="form-control" placeholder="Enter full name" required />
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8 text-right">
+                            <button type="button" id="saveData" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="bulkUploadProcurementPlanModal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content card">
+            <form id="procurementForm">
+                <div class="card-header">
+                    <h3 class="text-muted">ADD PROCUREMENT PLAN</h3>
+                </div>
+                <div class="card-body">
+                    <div class="form-group row">
+                        <label class="col-form-label col-lg-3 col-sm-12 text-lg-right"></label>
+                        <div class="col-lg-4 col-md-9 col-sm-12">
+                            <div class="dropzone dropzone-default dz-clickable" id="kt_dropzone_1">
+                                <div class="dropzone-msg dz-message needsclick">
+                                    <h3 class="dropzone-msg-title">Drop files here or click to upload.</h3>
+                                    <span class="dropzone-msg-desc">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer d-none">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8 text-right">
+                            <button type="button" id="saveData" class="btn btn-primary">Submit</button>
+                            <button type="reset" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
