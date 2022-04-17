@@ -7,31 +7,34 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using E_Procurement.Models;
 using Microsoft.EntityFrameworkCore;
+using E_Procurement.Services;
 
 namespace E_Procurement.Pages.Users
 {
     public class CreateModel : PageModel
     {
         private readonly E_Procurement.Models.MyPayrollContext _context;
+        private IMailService mailService;
 
         public CreateModel(E_Procurement.Models.MyPayrollContext context)
         {
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task OnGetAsync()
         {
+            CdfUsers = await _context.CdfUser.ToListAsync();
             populateDepartmet(_context);
             populateRole(_context);
             populateDepartmet(_context);
             populateUserType(_context);
             populateStatus(_context);
-            return Page();
+            
         }
-
         [BindProperty]
         public CdfUser CdfUser { get; set; }
 
+        public IList<CdfUser> CdfUsers { get; set; }
         public SelectList usertype { get; set; }
 
         public SelectList status { get; set; }
@@ -88,11 +91,28 @@ namespace E_Procurement.Pages.Users
             {
                 return Page();
             }
-
+             
+           
             _context.CdfUser.Add(CdfUser);
             await _context.SaveChangesAsync();
-
+            MailRequest mailRequest = new MailRequest(CdfUser.Email, "User Registration", CdfUser.Username + " Kindly note that your account has been created. You can log in to the application using your email " + CdfUser.Email + " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
             return RedirectToPage("./Index");
+        }
+
+        public async void SendMail(MailRequest request)
+        {
+            try
+            {
+                await mailService.SendEmailAsync(request);
+                return;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+
+            }
+
         }
     }
 }
