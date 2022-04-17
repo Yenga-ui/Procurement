@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-    public interface IExcelDataService
+    public interface IProcurementPlanDataService
     {
-        Task<List<ProcurementPlanItem>> ParseExcelData(string uploadPath);
+        Task<string> SaveAll(List<ProcurementPlanItem> procurementPlanItems);
     }
 }
