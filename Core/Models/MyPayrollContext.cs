@@ -136,7 +136,7 @@ namespace Core.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                //optionsBuilder.UseSqlServer("DBConnection");
                 optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
             }
         }
@@ -269,6 +269,7 @@ namespace Core.Models
                 entity.Property(e => e.BranchCode)
                     .HasMaxLength(10)
                     .IsUnicode(false);
+
 
                 entity.Property(e => e.BranchName)
                     .HasMaxLength(50)

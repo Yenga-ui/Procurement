@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
@@ -7,52 +8,97 @@ namespace Portal.Controllers
     public class ProcurementPlansController : Controller
     {
         private readonly IWebHostEnvironment Environment;
-        private readonly IExcelDataService   ExcelDataService;
+        private readonly IExcelDataService ExcelDataService;
+        private readonly IProcurementPlanDataService ProcurementPlanDataService;
 
-        public ProcurementPlansController(IWebHostEnvironment _environment, IExcelDataService excelDataService)
+        public ProcurementPlansController(IWebHostEnvironment environment, IExcelDataService excelDataService,
+            IProcurementPlanDataService procurementPlanDataService)
         {
-            Environment = _environment;
+            Environment = environment;
             ExcelDataService = excelDataService;
+            ProcurementPlanDataService = procurementPlanDataService;
         }
 
-        public IActionResult UploadPlan(List<IFormFile> file)
+        [HttpPost]
+        [Route("upload-plan")]
+        public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
         {
+            var wwwPath = Environment.WebRootPath;
+            var contentPath = Environment.ContentRootPath;
 
-            /*HttpFileCollection MyFileCollection;
-        HttpPostedFile MyFile;
-        int FileLen;
-        System.IO.Stream MyStream;
-
-        MyFileCollection = Request.Files;
-        MyFile = MyFileCollection[0];
-
-        FileLen = MyFile.ContentLength;
-        //byte[] input = new byte[FileLen];*/
-            string wwwPath = this.Environment.WebRootPath;
-            string contentPath = this.Environment.ContentRootPath;
-
-            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            var path = Path.Combine(Environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-
-            List<string> uploadedFiles = new List<string>();
-            foreach (IFormFile postedFile in file)
+            
+            var savedProcurementPlanItems = new List<CdfPlanItem>();            
+            foreach (var postedFile in file)
             {
-                string fileName = Path.GetFileName(postedFile.FileName);
+                var fileName = Path.GetFileName(postedFile.FileName);
                 var uploadPath = Path.Combine(path, fileName);
-                using (FileStream stream = new FileStream(uploadPath, FileMode.Create))
+                List<ProcurementPlanItem> procurementPlanItems;
+                await using (var stream = new FileStream(uploadPath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
-                    ExcelDataService.ParseExcelData(uploadPath);
+                    procurementPlanItems = await ExcelDataService.ParseExcelData(uploadPath);
                 }
+
+                if(procurementPlanItems.Any())
+                {
+                    savedProcurementPlanItems = ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
+                }                
             }
-            return Ok(new {success = true, message = "File Uploaded Successfully" });
+
+            return Ok(new { success = true, message = "File Uploaded Successfully", payload = savedProcurementPlanItems });
+
         }
-        public IActionResult Index()
+     
+
+        [HttpGet]
+        [Route("procurement-plan")]
+        public ActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        [Route("procurement-plan/create")]
+        public ActionResult Create([FromBody] ProcurementPlanItem plan)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Ok(
+                        new
+                        {
+                            success = false,
+                            message = "Validation Failed"
+                        });
+                }
+
+               var savedPlanItem = ProcurementPlanDataService.Save(plan);
+
+                return Ok(
+                        new
+                        {
+                            success = true,
+                            message = "Successfully added",
+                            payload = savedPlanItem,
+                        });
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+                //log exception
+                return Ok(
+                        new
+                        {
+                            success = false,
+                            message = "message"
+                        }); 
+            }
         }
     }
 }
