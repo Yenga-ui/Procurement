@@ -8,7 +8,7 @@ builder.Services.AddMvc()
       .AddSessionStateTempDataProvider();
 builder.Services.AddSession();
 
-var connectionString = builder.Configuration.GetConnectionString("MyConnection");
+var connectionString = builder.Configuration.GetConnectionString("DBConnection");
 builder.Services.AddDbContext<MyPayrollContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();

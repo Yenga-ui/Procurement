@@ -136,7 +136,8 @@ namespace Core.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("MyConnection");
+                //optionsBuilder.UseSqlServer("DBConnection");
+                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
             }
         }
 
