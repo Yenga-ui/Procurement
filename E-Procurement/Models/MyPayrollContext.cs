@@ -55,7 +55,11 @@ namespace E_Procurement.Models
         public virtual DbSet<CdfOrganizationjobs> CdfOrganizationjobs { get; set; }
         public virtual DbSet<CdfOrganizationprofile> CdfOrganizationprofile { get; set; }
         public virtual DbSet<CdfPermission> CdfPermission { get; set; }
+        public virtual DbSet<CdfPlanItems> CdfPlanItems { get; set; }
+        public virtual DbSet<CdfProcPlan> CdfProcPlan { get; set; }
         public virtual DbSet<CdfProcurement> CdfProcurement { get; set; }
+        public virtual DbSet<CdfProcurementEntity> CdfProcurementEntity { get; set; }
+        public virtual DbSet<CdfProcurementEntityType> CdfProcurementEntityType { get; set; }
         public virtual DbSet<CdfRole> CdfRole { get; set; }
         public virtual DbSet<CdfRoles> CdfRoles { get; set; }
         public virtual DbSet<CdfRoles1> CdfRoles1 { get; set; }
@@ -137,7 +141,7 @@ namespace E_Procurement.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus");
+                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
             }
         }
 
@@ -400,6 +404,7 @@ namespace E_Procurement.Models
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Amount)
+                    .IsRequired()
                     .HasColumnName("amount")
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -407,6 +412,7 @@ namespace E_Procurement.Models
                 entity.Property(e => e.BudgetId).HasColumnName("budget_id");
 
                 entity.Property(e => e.Code)
+                    .IsRequired()
                     .HasColumnName("code")
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -417,6 +423,7 @@ namespace E_Procurement.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Description)
+                    .IsRequired()
                     .HasColumnName("description")
                     .HasMaxLength(200)
                     .IsUnicode(false);
@@ -843,6 +850,85 @@ namespace E_Procurement.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<CdfPlanItems>(entity =>
+            {
+                entity.ToTable("CDF_PlanItems");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Award).IsUnicode(false);
+
+                entity.Property(e => e.Class)
+                    .HasColumnName("class")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Comments).IsUnicode(false);
+
+                entity.Property(e => e.Description).IsUnicode(false);
+
+                entity.Property(e => e.Prequalification).IsUnicode(false);
+
+                entity.Property(e => e.ProcurementMethod)
+                    .HasColumnName("procurement_method")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProjectCode)
+                    .HasColumnName("Project_Code")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Publication)
+                    .HasColumnName("publication")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.RefNo)
+                    .HasColumnName("Ref_No")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SourceOfFunds)
+                    .HasColumnName("source_of_funds")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Start).HasColumnType("datetime");
+
+                entity.Property(e => e.Typeofentry)
+                    .HasColumnName("typeofentry")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Unitofmeasure)
+                    .HasColumnName("unitofmeasure")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Unspsc)
+                    .HasColumnName("UNSPSC")
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CdfProcPlan>(entity =>
+            {
+                entity.ToTable("CDF_ProcPlan");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Comments)
+                    .HasColumnName("comments")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EntityId).HasColumnName("entityID");
+
+                entity.Property(e => e.Modified)
+                    .HasColumnName("modified")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Version).HasColumnName("version");
+
+                entity.Property(e => e.Year)
+                    .HasColumnName("year")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<CdfProcurement>(entity =>
             {
                 entity.ToTable("CDF_Procurement");
@@ -855,6 +941,33 @@ namespace E_Procurement.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.NumberOfBidders).HasColumnName("numberOfBidders");
+            });
+
+            modelBuilder.Entity<CdfProcurementEntity>(entity =>
+            {
+                entity.ToTable("CDF_ProcurementEntity");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.EntityName)
+                    .HasColumnName("entityName")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Type)
+                    .HasColumnName("type")
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CdfProcurementEntityType>(entity =>
+            {
+                entity.ToTable("CDF_ProcurementEntityType");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Type)
+                    .HasColumnName("type")
+                    .HasMaxLength(300)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<CdfRole>(entity =>
@@ -1122,6 +1235,8 @@ namespace E_Procurement.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
+                entity.Property(e => e.EmailConfirmed).HasColumnName("emailConfirmed");
+
                 entity.Property(e => e.Fname)
                     .HasColumnName("fname")
                     .HasMaxLength(100)
@@ -1159,6 +1274,10 @@ namespace E_Procurement.Models
             modelBuilder.Entity<CdfUser1>(entity =>
             {
                 entity.ToTable("CdfUser");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<CdfUserType>(entity =>

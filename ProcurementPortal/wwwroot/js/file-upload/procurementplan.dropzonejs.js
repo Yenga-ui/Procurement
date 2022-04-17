@@ -6,7 +6,7 @@ var KTDropzoneDemo = function () {
     var demo1 = function () {
         // single file upload
         $('#kt_dropzone_1').dropzone({
-            url: window.location.href +"/uploadplan", // Set the url for your upload script location
+            url: "upload-plan", // Set the url for your upload script location
             paramName: "file", // The name that will be used to transfer the file
             maxFiles: 1,
             maxFilesize: 10, // MB

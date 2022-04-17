@@ -19,6 +19,8 @@ namespace Portal.Controllers
             ProcurementPlanDataService = procurementPlanDataService;
         }
 
+        [HttpPost]
+        [Route("upload-plan")]
         public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
         {
             var wwwPath = this.Environment.WebRootPath;
@@ -52,14 +54,50 @@ namespace Portal.Controllers
             return Ok(new { success = true, message = "File Uploaded Successfully", payload = response });
 
         }
-        public IActionResult Index()
+     
+
+        [HttpGet]
+        [Route("procurement-plan")]
+        public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult ProcurementPlanCreate()
+        [HttpPost]
+        public ActionResult Create(ProcurementPlanItem plan)
         {
-            return View();
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return Ok(
+                        new
+                        {
+                            success = false,
+                            message = "Validation Failed"
+                        });
+                }
+
+               var savedPlanItem = ProcurementPlanDataService.Save(plan);
+
+                return Ok(
+                        new
+                        {
+                            success = true,
+                            message = "Successfully added",
+                            payload = savedPlanItem,
+                        });
+            }
+            catch (Exception)
+            {
+                //log exception
+                return Ok(
+                        new
+                        {
+                            success = false,
+                            message = "message"
+                        }); 
+            }
         }
 
 

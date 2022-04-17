@@ -18,5 +18,6 @@ namespace E_Procurement.Models
         public int? Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public string CreatedBy { get; set; }
+        public string Password { get; set; }
     }
 }
