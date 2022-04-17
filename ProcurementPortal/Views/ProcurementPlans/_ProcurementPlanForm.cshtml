@@ -13,7 +13,7 @@
                             <label>Class</label>
                             <input type="text" class="form-control"
                                    name="Class"
-                                   placeholder="Enter full name" required />
+                                   required />
                         </div>
                         <div class="col-lg-4">
                             <label>UNSPSC</label>
@@ -25,23 +25,24 @@
                             <label>Reference Number</label>
                             <input type="text" class="form-control"
                                    name="Ref_No"
-                                   placeholder="Enter reference number" required />
+                                   required />
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-4">
                             <label>Project Code</label>
                             <input type="text"
-                                   name="Project_Code" class="form-control" placeholder="Enter project code" />
+                                   name="Project_Code" 
+                                   class="form-control" />
                         </div>
                         <div class="col-lg-4">
                             <label>Unit of Measure</label>
                             <select name="Unit_of_Measure"
                                     class="form-control selectpicker">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
+                                <option>Lot</option>
+                                <option>Each</option>
                                 <option>
-                                    <b>Relish</b>
+                                    <b>Person</b>
                                 </option>
                             </select>
                         </div>
@@ -49,7 +50,7 @@
                             <label>Quantity</label>
                             <input type="number"
                                    name="Quantity"
-                                   class="form-control" placeholder="Enter quantity" />
+                                   class="form-control"/>
                         </div>
                     </div>
 
@@ -57,26 +58,24 @@
                         <div class="col-lg-4">
                             <label>Source of Funds</label>
                             <select name="Source_of_Funds" class="form-control selectpicker">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>
-                                    <b>Relish</b>
-                                </option>
+                                <option>GRZ</option>
+                                <option>Other</option>
                             </select>
                         </div>
                         <div class="col-lg-4">
                             <label>Prequalification (Y/N)</label>
                             <input name="Prequalification"
-                                   type="number" class="form-control" placeholder="Enter quantity" />
+                                   type="number" class="form-control"/>
                         </div>
                         <div class="col-lg-4">
                             <label>Procurement Method</label>
                             <select name="Procurement_Method" class="form-control selectpicker">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
+                                <option>sb</option>
+                                <option>db</option>
                                 <option>
-                                    <b>Relish</b>
+                                    <b>lbn</b>
                                 </option>
+                                <option>lsn</option>
                             </select>
                         </div>
                     </div>
@@ -84,15 +83,46 @@
                     <div class="form-group row">
                         <div class="col-lg-4">
                             <label>Publication</label>
-                            <input type="text" class="form-control" placeholder="Enter full name" required />
+                            <div class="input-group">
+								<input type="text" 
+                                class="form-control kt_datepicker" 
+                                name="Publication" 
+                                placeholder="Select date" 
+                                />
+								<div class="input-group-append">
+									<span class="input-group-text">
+										<i class="la la-calendar-check-o"></i>
+									</span>
+								</div>
+							</div>
                         </div>
                         <div class="col-lg-4">
                             <label>Award</label>
-                            <input name="Publication" type="number" class="form-control" placeholder="Enter email" />
+                            <div class="input-group">
+								<input type="text" 
+                                class="form-control kt_datepicker" 
+                                name="Award" 
+                                placeholder="Select date" />
+								<div class="input-group-append">
+									<span class="input-group-text">
+										<i class="la la-calendar-check-o"></i>
+									</span>
+								</div>
+							</div>
                         </div>
                         <div class="col-lg-4">
                             <label>Start</label>
-                            <input name="Start" type="text" class="form-control" placeholder="Enter reference number" required />
+                            <div class="input-group">
+								<input type="text" 
+                                class="form-control kt_datepicker" 
+                                name="Start" 
+                                placeholder="Select date" />
+								<div class="input-group-append">
+									<span class="input-group-text">
+										<i class="la la-calendar-check-o"></i>
+									</span>
+								</div>
+							</div>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -100,18 +130,20 @@
                         <div class="col-lg-4">
                             <label>Description</label>
                             <textarea name="Description"
-                                      class="form-control" style="height: 100px;"></textarea>
+                                      class="form-control" 
+                                      style="height: 100px;"></textarea>
                         </div>
                         <div class="col-lg-4">
-                            <label>Comment</label>
-                            <textarea name="Comment"
-                                      class="form-control" style="height: 100px;"></textarea>
+                            <label>Comments</label>
+                            <textarea name="Comments"
+                                      class="form-control" 
+                                      style="height: 100px;"></textarea>
                         </div>
                         <div class="col-lg-4">
                             <label>Type of Entry</label>
                             <input type="text"
                                    name="Type_of_Entry"
-                                   class="form-control" placeholder="Enter full name" required />
+                                   class="form-control" required />
                         </div>
                     </div>
                 </div>

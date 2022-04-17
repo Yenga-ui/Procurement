@@ -2943,6 +2943,7 @@
     <ItemGroup>
       <Folder Include="Views\Shared\Menus\" />
       <Folder Include="wwwroot\Style\" />
+      <Folder Include="wwwroot\Uploads\" />
     </ItemGroup>
 
     <ItemGroup>

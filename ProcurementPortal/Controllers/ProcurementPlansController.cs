@@ -63,7 +63,8 @@ namespace Portal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(ProcurementPlanItem plan)
+        [Route("procurement-plan/create")]
+        public ActionResult Create([FromBody] ProcurementPlanItem plan)
         {
             try
             {
@@ -87,8 +88,9 @@ namespace Portal.Controllers
                             payload = savedPlanItem,
                         });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.Write(ex.Message);
                 //log exception
                 return Ok(
                         new
