@@ -12,5 +12,7 @@ namespace E_Procurement.Models
         public int Id { get; set; }
         public string EntityName { get; set; }
         public string Type { get; set; }
+        public string Email { get; set; }
+        public string Description { get; set; }
     }
 }

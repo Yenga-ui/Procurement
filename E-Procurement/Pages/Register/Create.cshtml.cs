@@ -24,11 +24,14 @@ namespace E_Procurement.Pages.Register
         public IActionResult OnGet()
         {
             PopulateCountry(_context);
+            PopulateCategory(_context);
             PopulateOrganizationType(_context);
             return Page();
         }
 
         public SelectList country { get; set; }
+
+        public SelectList category { get; set; }
 
         public SelectList organizationType { get; set; }
 
@@ -44,8 +47,22 @@ namespace E_Procurement.Pages.Register
                         "CompanyType", "CompanyType", selectedDepartment);
 
 
+
         }
 
+        public void PopulateCategory(MyPayrollContext _context,
+       object selectedDepartment = null)
+        {
+
+            var constituencyQuery = from d in _context.CdfTenderCategory
+                                    orderby d.Category // Sort by name.
+                                    select d;
+
+            this.category = new SelectList(constituencyQuery.AsNoTracking(),
+                        "Category", "Category", selectedDepartment);
+
+
+        }
         public void PopulateCountry(MyPayrollContext _context,
         object selectedDepartment = null)
         {

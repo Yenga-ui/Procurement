@@ -949,6 +949,14 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Email)
+                    .HasColumnName("email")
+                    .IsUnicode(false);
+
                 entity.Property(e => e.EntityName)
                     .HasColumnName("entityName")
                     .IsUnicode(false);

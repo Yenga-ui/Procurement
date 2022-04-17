@@ -28,6 +28,8 @@
     <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link href="~/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <script src="~/vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="~/vendor/datatables/dataTables.bootstrap4.min.js"></script>
@@ -126,9 +128,31 @@
 
                                             <input asp-for="SupplierRegistation.Phone" class="form-control form-control-user" placeholder="Contact Number"/>
                                             <span asp-validation-for="SupplierRegistation.Phone" class="text-danger"></span>
+
+             
+                                        <div class="form-group row">
+                                                      <div class="col-lg-6">
+
+                                          
+                                            <select  multiple="true" id="category" class="select2 form-control" asp-items="@Model.category" style="width:395px">
+
+                                                <option value="0">Category</option>
+
+
+                                            </select>
+                                            <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
+                                        </div>
+                                            <div class="col-lg-6">
+                                            <textarea rows="4" asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.." /></textarea>
+                                            <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
+                                            </div>
+                                     
+                                            
                                         </div>
 
+
                                     </div>
+
 
                                     <div class="form-group">
 
@@ -168,6 +192,15 @@
     </div>
 </div>
 </body>
+
+    <script>
+
+              $('#category').select2({
+  placeholder: 'Select an option'
+});
+    </script>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

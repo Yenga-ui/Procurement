@@ -1,17 +1,16 @@
 ﻿@page
-@model E_Procurement.Pages.Entity.DetailsModel
+@model E_Procurement.Pages.DetailsModel
 
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Pages/Shared/_metronicLayout.cshtml";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>CdfProcurementEntity</h4>
-    <hr />
-    <dl class="row">
+<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Row-->
+								<div class="row gy-1 g-xl-12">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CdfProcurementEntity.EntityName)
         </dt>
@@ -41,4 +40,7 @@
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.CdfProcurementEntity.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
+</div>
+</div>
+</div>
 </div>
