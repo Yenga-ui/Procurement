@@ -2,6 +2,10 @@ using Core.Interfaces;
 using Core.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMvc()
+      .AddSessionStateTempDataProvider();
+builder.Services.AddSession();
+
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
 builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
 // Add services to the container.
@@ -22,6 +26,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 
 app.UseAuthorization();
 

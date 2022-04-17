@@ -56,5 +56,12 @@ namespace Portal.Controllers
         {
             return View();
         }
+
+        public ActionResult ProcurementPlanCreate()
+        {
+            return View();
+        }
+
+
     }
 }
