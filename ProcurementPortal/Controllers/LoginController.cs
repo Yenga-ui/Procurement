@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Core;
+
 namespace Portal.Controllers
 {
     public class LoginController : Controller
     {
-
         public IActionResult Index()
         {
             return View();
@@ -14,31 +14,24 @@ namespace Portal.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            Core.Login.User user = new Core.Login.User();
-
+            var user = new Core.Login.User();
             if (user.login(username, password))
             {
                 HttpContext.Session.SetString("username", username);
                 return View("Success");
-
-            }
-           
-                
-            
-            else
-            {
-                ViewBag.error = "Invalid Account";
-                return View("Index");
             }
 
-
+            ViewBag.error = "Invalid Account";
+            return View("Index");
         }
+
         [Route("logout")]
         [HttpGet]
         public IActionResult Logout()
         {
             HttpContext.Session.Remove("username");
+            HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
     }
-    }
+}

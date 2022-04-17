@@ -21,29 +21,29 @@ namespace Portal.Controllers
 
         public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
         {
-            string wwwPath = this.Environment.WebRootPath;
-            string contentPath = this.Environment.ContentRootPath;
+            var wwwPath = this.Environment.WebRootPath;
+            var contentPath = this.Environment.ContentRootPath;
 
-            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            var path = Path.Combine(this.Environment.WebRootPath, "Uploads");
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
 
-            string response = "";
-            List<string> uploadedFiles = new List<string>();
-            foreach (IFormFile postedFile in file)
+            var response = "";
+            
+            foreach (var postedFile in file)
             {
-                string fileName = Path.GetFileName(postedFile.FileName);
+                var fileName = Path.GetFileName(postedFile.FileName);
                 var uploadPath = Path.Combine(path, fileName);
-                List<ProcurementPlanItem> procurementPlanItems = new List<ProcurementPlanItem>();
-                using (FileStream stream = new FileStream(uploadPath, FileMode.Create))
+                List<ProcurementPlanItem> procurementPlanItems;
+                await using (var stream = new FileStream(uploadPath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
                     procurementPlanItems = await ExcelDataService.ParseExcelData(uploadPath);
                 }
 
-                if(procurementPlanItems != null && procurementPlanItems.Any())
+                if(procurementPlanItems.Any())
                 {
                    response = await ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
                 }                
