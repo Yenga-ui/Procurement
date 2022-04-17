@@ -1,10 +1,15 @@
 using Core.Interfaces;
+using Core.Models;
 using Core.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc()
       .AddSessionStateTempDataProvider();
 builder.Services.AddSession();
+
+var connectionString = builder.Configuration.GetConnectionString("MyConnection");
+builder.Services.AddDbContext<MyPayrollContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
 builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
