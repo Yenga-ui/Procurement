@@ -30,12 +30,7 @@ namespace Core.Services
             }
 
         }
-
-        public Task<string> SaveAll(List<ProcurementPlanItem> procurementPlanItems)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         CdfPlanItem IProcurementPlanDataService.Save(ProcurementPlanItem procurementPlanItems)
         {
             var planItem = new CdfPlanItem
