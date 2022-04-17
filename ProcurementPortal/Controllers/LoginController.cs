@@ -19,7 +19,7 @@ namespace Portal.Controllers
             if (user.login(username, password))
             {
                 HttpContext.Session.SetString("username", username);
-                return View("Success");
+                return RedirectToAction("Index", "Home");
 
             }
            

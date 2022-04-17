@@ -51,6 +51,8 @@ namespace Core.Models
         public virtual DbSet<CdfOrganizationjob> CdfOrganizationjobs { get; set; }
         public virtual DbSet<CdfOrganizationprofile> CdfOrganizationprofiles { get; set; }
         public virtual DbSet<CdfPermission> CdfPermissions { get; set; }
+        public virtual DbSet<CdfPlanItem> CdfPlanItems { get; set; }
+        public virtual DbSet<CdfProcPlan> CdfProcPlans { get; set; }
         public virtual DbSet<CdfProcurement> CdfProcurements { get; set; }
         public virtual DbSet<CdfProcurementEntity> CdfProcurementEntities { get; set; }
         public virtual DbSet<CdfProcurementEntityType> CdfProcurementEntityTypes { get; set; }
@@ -848,6 +850,85 @@ namespace Core.Models
                     .HasColumnName("permission");
             });
 
+            modelBuilder.Entity<CdfPlanItem>(entity =>
+            {
+                entity.ToTable("CDF_PlanItems");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Award).IsUnicode(false);
+
+                entity.Property(e => e.Class)
+                    .IsUnicode(false)
+                    .HasColumnName("class");
+
+                entity.Property(e => e.Comments).IsUnicode(false);
+
+                entity.Property(e => e.Description).IsUnicode(false);
+
+                entity.Property(e => e.Prequalification).IsUnicode(false);
+
+                entity.Property(e => e.ProcurementMethod)
+                    .IsUnicode(false)
+                    .HasColumnName("procurement_method");
+
+                entity.Property(e => e.ProjectCode)
+                    .IsUnicode(false)
+                    .HasColumnName("Project_Code");
+
+                entity.Property(e => e.Publication)
+                    .IsUnicode(false)
+                    .HasColumnName("publication");
+
+                entity.Property(e => e.Quantity).HasColumnName("quantity");
+
+                entity.Property(e => e.RefNo)
+                    .IsUnicode(false)
+                    .HasColumnName("Ref_No");
+
+                entity.Property(e => e.SourceOfFunds)
+                    .IsUnicode(false)
+                    .HasColumnName("source_of_funds");
+
+                entity.Property(e => e.Start).HasColumnType("datetime");
+
+                entity.Property(e => e.Typeofentry)
+                    .IsUnicode(false)
+                    .HasColumnName("typeofentry");
+
+                entity.Property(e => e.Unitofmeasure)
+                    .IsUnicode(false)
+                    .HasColumnName("unitofmeasure");
+
+                entity.Property(e => e.Unspsc)
+                    .IsUnicode(false)
+                    .HasColumnName("UNSPSC");
+            });
+
+            modelBuilder.Entity<CdfProcPlan>(entity =>
+            {
+                entity.ToTable("CDF_ProcPlan");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Comments)
+                    .IsUnicode(false)
+                    .HasColumnName("comments");
+
+                entity.Property(e => e.EntityId).HasColumnName("entityID");
+
+                entity.Property(e => e.Modified)
+                    .HasColumnType("datetime")
+                    .HasColumnName("modified");
+
+                entity.Property(e => e.Version).HasColumnName("version");
+
+                entity.Property(e => e.Year)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("year");
+            });
+
             modelBuilder.Entity<CdfProcurement>(entity =>
             {
                 entity.ToTable("CDF_Procurement");
@@ -1153,6 +1234,8 @@ namespace Core.Models
                     .HasMaxLength(100)
                     .IsUnicode(false)
                     .HasColumnName("email");
+
+                entity.Property(e => e.EmailConfirmed).HasColumnName("emailConfirmed");
 
                 entity.Property(e => e.Fname)
                     .HasMaxLength(100)
