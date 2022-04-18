@@ -209,14 +209,13 @@
 
        $("#saveData").on('click', function(){
 
-           console.log('Clicked')
+           $('#addProcurementPlanModal').modal('hide');
 
            let formData = new FormData($("#procurementForm")[0]);
            let payload = {};
            for(var pair of formData.entries()) {
                 payload[pair[0]]= pair[1];
            }
-
 
            let settings = {
               url: "procurement-plan/create",
@@ -225,10 +224,21 @@
               data: JSON.stringify(payload),
               contentType: 'application/json'
            };
+
            $.ajax(settings)
            .done(function(response){
+               setTimeout(function(){
+                   if(response.success){
+                        swal.fire('Plan Item Submission !', response.message, 'success');
+                   }else{
+                        swal.fire('Oops !', message, 'error');
+                   }
+               },300);
+           })
+           .fail(function(xhr){
+               $('#addProcurementPlanModal').modal('show');
 
-           }).fail(function(xhr){
+               swal.fire('Oops !',"Failed to process request", 'error');
            });
        })
     });

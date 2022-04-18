@@ -57,7 +57,11 @@ namespace Core.Services
                         {
                             string nameOfProperty = SanitizePropertyName(headerColumns[j - 1]);
                             var propertyInfo = mutablePropertyValue?.GetType().GetProperty(nameOfProperty);
-                            propertyInfo?.SetValue(mutablePropertyValue, positionalValue?.Value2.ToString(), null);
+                            var value = positionalValue?.Value2;
+
+                            //var finalValue = value
+
+                            propertyInfo?.SetValue(mutablePropertyValue, value?.ToString(), null);
                         }                        
                     }
                 }

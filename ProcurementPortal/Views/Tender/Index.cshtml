@@ -1,563 +1,181 @@
 ﻿@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewBag.Title = "Form Builder";
 }
 <link type="text/css" rel="stylesheet" href="~/assets/css/form.builder.css" />
-<div class="container-fluid">
-<div class="row">
-<div class="col-sm-8">
-<h3 class="text-center text-muted">
-    The <a href="https://github.com/formio/formio.js" target="_blank">Form Builder</a> allows you to build a
-    <select class="form-control" id="form-select" style="display: inline-block; width: 150px;">
-        <option value="form">Form</option><option value="wizard">Wizard</option><option value="pdf">PDF</option>
-    </select>
-</h3>
-<div id="builder">
-<div class="formio builder row formbuilder">
-<div class="col-xs-4 col-sm-3 col-md-2 formcomponents">
-<div ref="sidebar" class="accordion builder-sidebar builder-sidebar_scroll" id="builder-sidebar-e07ngsi">
-<input placeholder="Search field(s)" ref="sidebar-search" type="search" class="form-control builder-sidebar_search">
-<div ref="sidebar-groups">
-
-<div ref="group-panel-basic" class="card form-builder-panel">
-    <div id="heading-basic" class="card-header form-builder-group-header">
-        <h5 class="mb-0 mt-0">
-            <button ref="sidebar-anchor" aria-controls="group-basic" aria-expanded="true" data-parent="#builder-sidebar-e07ngsi" data-target="#group-basic" data-toggle="collapse" type="button" class="btn btn-block builder-group-button">
-                Basic
-            </button>
-        </h5>
-    </div>
-    <div ref="sidebar-group" aria-labelledby="heading-basic" data-default="true" data-parent="#builder-sidebar-e07ngsi" class="collapse  show" id="group-basic">
-        <div ref="sidebar-container" class="card-body no-drop p-2" id="group-container-basic">
-
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="textfield" data-key="textfield" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-terminal"></i>
-
-                Text Field
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="textarea" data-key="textarea" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-font"></i>
-
-                Text Area
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="number" data-key="number" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-hashtag"></i>
-
-                Number
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="password" data-key="password" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-asterisk"></i>
-
-                Password
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="checkbox" data-key="checkbox" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-check-square"></i>
-
-                Checkbox
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="selectboxes" data-key="selectboxes" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-plus-square"></i>
-
-                Select Boxes
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="select" data-key="select" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-th-list"></i>
-
-                Select
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="radio" data-key="radio" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-dot-circle-o"></i>
-
-                Radio
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="button" data-key="button" data-group="basic">
-
-                <i style="margin-right: 5px;" class="fa fa-stop"></i>
-
-                Button
-            </span>
-
-
-        </div>
-    </div>
-</div>
-
-
-<div ref="group-panel-advanced" class="card form-builder-panel">
-    <div id="heading-advanced" class="card-header form-builder-group-header">
-        <h5 class="mb-0 mt-0">
-            <button ref="sidebar-anchor" aria-controls="group-advanced" aria-expanded="" data-parent="#builder-sidebar-e07ngsi" data-target="#group-advanced" data-toggle="collapse" type="button" class="btn btn-block builder-group-button">
-                Advanced
-            </button>
-        </h5>
-    </div>
-    <div ref="sidebar-group" aria-labelledby="heading-advanced" data-default="" data-parent="#builder-sidebar-e07ngsi" class="collapse" id="group-advanced">
-        <div ref="sidebar-container" class="card-body no-drop p-2" id="group-container-advanced">
-
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="email" data-key="email" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-at"></i>
-
-                Email
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="url" data-key="url" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-link"></i>
-
-                Url
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="phoneNumber" data-key="phoneNumber" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-phone-square"></i>
-
-                Phone Number
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="tags" data-key="tags" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-tags"></i>
-
-                Tags
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="address" data-key="address" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-home"></i>
-
-                Address
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="datetime" data-key="datetime" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-calendar"></i>
-
-                Date / Time
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="day" data-key="day" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-calendar"></i>
-
-                Day
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="time" data-key="time" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-clock-o"></i>
-
-                Time
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="currency" data-key="currency" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-usd"></i>
-
-                Currency
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="survey" data-key="survey" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-list"></i>
-
-                Survey
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="signature" data-key="signature" data-group="advanced">
-
-                <i style="margin-right: 5px;" class="fa fa-pencil"></i>
-
-                Signature
-            </span>
-
-
-        </div>
-    </div>
-</div>
-
-
-<div ref="group-panel-layout" class="card form-builder-panel">
-    <div id="heading-layout" class="card-header form-builder-group-header">
-        <h5 class="mb-0 mt-0">
-            <button ref="sidebar-anchor" aria-controls="group-layout" aria-expanded="" data-parent="#builder-sidebar-e07ngsi" data-target="#group-layout" data-toggle="collapse" type="button" class="btn btn-block builder-group-button">
-                Layout
-            </button>
-        </h5>
-    </div>
-    <div ref="sidebar-group" aria-labelledby="heading-layout" data-default="" data-parent="#builder-sidebar-e07ngsi" class="collapse" id="group-layout">
-        <div ref="sidebar-container" class="card-body no-drop p-2" id="group-container-layout">
-
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="htmlelement" data-key="htmlelement" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-code"></i>
-
-                HTML Element
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="content" data-key="content" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-html5"></i>
-
-                Content
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="columns" data-key="columns" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-columns"></i>
-
-                Columns
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="fieldset" data-key="fieldset" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-th-large"></i>
-
-                Field Set
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="panel" data-key="panel" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-list-alt"></i>
-
-                Panel
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="table" data-key="table" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-table"></i>
-
-                Table
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="tabs" data-key="tabs" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-folder-o"></i>
-
-                Tabs
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="well" data-key="well" data-group="layout">
-
-                <i style="margin-right: 5px;" class="fa fa-square-o"></i>
-
-                Well
-            </span>
-
-
-        </div>
-    </div>
-</div>
-
-
-<div ref="group-panel-data" class="card form-builder-panel">
-    <div id="heading-data" class="card-header form-builder-group-header">
-        <h5 class="mb-0 mt-0">
-            <button ref="sidebar-anchor" aria-controls="group-data" aria-expanded="" data-parent="#builder-sidebar-e07ngsi" data-target="#group-data" data-toggle="collapse" type="button" class="btn btn-block builder-group-button">
-                Data
-            </button>
-        </h5>
-    </div>
-    <div ref="sidebar-group" aria-labelledby="heading-data" data-default="" data-parent="#builder-sidebar-e07ngsi" class="collapse" id="group-data">
-        <div ref="sidebar-container" class="card-body no-drop p-2" id="group-container-data">
-
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="hidden" data-key="hidden" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-user-secret"></i>
-
-                Hidden
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="container" data-key="container" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-folder-open"></i>
-
-                Container
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="datamap" data-key="datamap" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-th-list"></i>
-
-                Data Map
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="datagrid" data-key="datagrid" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-th"></i>
-
-                Data Grid
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="editgrid" data-key="editgrid" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-tasks"></i>
-
-                Edit Grid
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="tree" data-key="tree" data-group="data">
-
-                <i style="margin-right: 5px;" class="fa fa-indent"></i>
-
-                Tree
-            </span>
-
-
-        </div>
-    </div>
-</div>
-
-
-<div ref="group-panel-premium" class="card form-builder-panel">
-    <div id="heading-premium" class="card-header form-builder-group-header">
-        <h5 class="mb-0 mt-0">
-            <button ref="sidebar-anchor" aria-controls="group-premium" aria-expanded="" data-parent="#builder-sidebar-e07ngsi" data-target="#group-premium" data-toggle="collapse" type="button" class="btn btn-block builder-group-button">
-                Premium
-            </button>
-        </h5>
-    </div>
-    <div ref="sidebar-group" aria-labelledby="heading-premium" data-default="" data-parent="#builder-sidebar-e07ngsi" class="collapse" id="group-premium">
-        <div ref="sidebar-container" class="card-body no-drop p-2" id="group-container-premium">
-
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="recaptcha" data-key="recaptcha" data-group="premium">
-
-                <i style="margin-right: 5px;" class="fa fa-refresh"></i>
-
-                reCAPTCHA
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="resource" data-key="resource" data-group="premium">
-
-                <i style="margin-right: 5px;" class="fa fa-files-o"></i>
-
-                Resource
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="file" data-key="file" data-group="premium">
-
-                <i style="margin-right: 5px;" class="fa fa-file"></i>
-
-                File
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="form" data-key="form" data-group="premium">
-
-                <i style="margin-right: 5px;" class="fa fa-wpforms"></i>
-
-                Nested Form
-            </span>
-
-            <span class="btn btn-primary btn-sm btn-block formcomponent drag-copy" data-type="custom" data-key="unknown" data-group="premium">
-
-                <i style="margin-right: 5px;" class="fa fa-cubes"></i>
-
-                Custom
-            </span>
-
-
-        </div>
-    </div>
-</div>
-
-
-</div>
-</div>
-
-</div>
-<div ref="form" class="col-xs-8 col-sm-9 col-md-10 formarea">
-    <div ref="component" class="formio-component   formio-component-label-hidden" id="e0490mv">
-
-
-        <div novalidate="" ref="webform" class="formio-form">
-            <div ref="-container" class="builder-components drag-container formio-builder-form">
-                <div data-position="0" data-noattach="true" role="alert" style="text-align:center;" class="drag-and-drop-alert alert alert-info no-drag">
-                    Drag and Drop a form component
-                </div>
-                <div ref="dragComponent" class="builder-component">
-
-                    <div data-noattach="true" class="component-btn-group">
-                        <div ref="removeComponent" class="btn btn-xxs btn-danger component-settings-button component-settings-button-remove" tabindex="-1" aria-label="Remove button. Click to remove component from the form" role="button">
-                            <i class="fa fa-remove"></i>
-                        </div>
-                        <div ref="copyComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-copy" tabindex="-1" aria-label="Copy button. Click to copy component" role="button">
-                            <i class="fa fa-copy"></i>
-                        </div>
-                        <div ref="pasteComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-paste" tabindex="-1" aria-label="Paste below button. Click to paste component below the current component" role="button">
-                            <i class="fa fa-download"></i>
-                        </div>
-                        <div ref="editJson" class="btn btn-xxs btn-default component-settings-button component-settings-button-edit-json" tabindex="-1" aria-label="Edit json button. Click to edit json of the current component" role="button">
-                            <i class="fa fa-wrench"></i>
-                        </div>
-                        <div ref="moveComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-move" tabindex="-1" aria-label="Move button" role="button">
-                            <i class="fa fa-arrows"></i>
-                        </div>
-                        <div ref="editComponent" class="btn btn-xxs btn-secondary component-settings-button component-settings-button-edit" tabindex="-1" aria-label="Edit button. Click to open component settings modal window" role="button">
-                            <i class="fa fa-cog"></i>
-                        </div>
-                    </div>
-
-                    <div ref="component" class="form-group has-feedback formio-component formio-component-button formio-component-submit  form-group" id="ekmjldb">
-
-
-                        <button lang="en" class="btn btn-primary btn-md" type="submit" name="data[submit]" ref="button">
-
-                            Submit
-
-
-                        </button>
-                        <div ref="buttonMessageContainer">
-                            <span ref="buttonMessage" class="help-block"></span>
-                        </div>
-
-
-                        <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-
-
-        <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
-
-    </div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-4">
-    <h3 class="text-center text-muted">as JSON Schema</h3>
-    <div class="card card-body bg-light jsonviewer">
-        <pre id="json"></pre>
-    </div>
-</div>
-</div>
-<div class="row mt-4">
-    <div class="col-sm-8 offset-sm-2">
-        <h3 class="text-center text-muted">which <a href="https://github.com/formio/ngFormio" target="_blank">Renders as a Form</a> in your Application</h3>
-        <div id="formio" class="card card-body bg-light"></div>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div class="row mt-4">
-    <div class="col-sm-8 offset-sm-2">
-        <h3 class="text-center text-muted">which creates a Submission JSON</h3>
-        <div class="card card-body bg-light jsonviewer">
-            <pre id="subjson"></pre>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<div class="row mt-4">
-    <div class="col-sm-10 offset-sm-1 text-center">
-        <h3 class="text-center text-muted">which submits to our API Platform</h3>
-        <p>hosted or on-premise</p>
-        <a href="https://form.io" target="_blank">
-            <img style="width:100%" src="https://help.form.io/assets/img/formioapi2.png">
-        </a>
-    </div>
-</div>
-<div class="row" style="margin-top: 40px;">
-    <div class="col-sm-12 text-center">
-        <a href="https://form.io" target="_blank" class="btn btn-lg btn-success">Get Started</a>
-    </div>
-</div>
-<div class="row card card-body bg-light mt-4">
-    <div class="container">
-        <div class="row">
-
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="https://github.com/formio/formio" target="_blank">
-                    <img style="width: 100%" class="img-responsive" src="https://github.githubassets.com/images/modules/logos_page/Octocat.png">
-                </a>
-            </div>
-            <div class="col-md-8">
-                <p>Getting started is as easy as...</p>
-                <pre style="background-color: white;">git clone https://github.com/formio/formio.git
-cd formio
-npm install
-node server</pre>
-            </div>
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-var jsonElement = document.getElementById('json');
-var formElement = document.getElementById('formio');
-var subJSON = document.getElementById('subjson');
-var builder = new Formio.FormBuilder(document.getElementById("builder"), {
-  display: 'form',
-  components: [],
-  settings: {
-    pdf: {
-      "id": "1ec0f8ee-6685-5d98-a847-26f67b67d6f0",
-      "src": "https://files.form.io/pdf/5692b91fd1028f01000407e3/file/1ec0f8ee-6685-5d98-a847-26f67b67d6f0"
+<link type="text/css" rel="stylesheet" href="~/assets/fontawesome/css/font-awesome.min.css" />
+<style>
+    .btn.btn-primary:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-primary:focus:not(.btn-text), .btn.btn-primary.focus:not(.btn-text) {
+        color: #fff;
+        background-color: #2780e3;
+        border-color: #2780e3;
     }
-  }
-}, {
-  baseUrl: 'https://examples.form.io'
-});
+</style>
 
-var onForm = function(form) {
-  form.on('change', function() {
-    subJSON.innerHTML = '';
-    subJSON.appendChild(document.createTextNode(JSON.stringify(form.submission, null, 4)));
-  });
-};
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+            <div id="builder">
+                <div class="formio builder row formbuilder">
+                    <div class="col-xs-4 col-sm-3 col-md-2 formcomponents">
+                        <div ref="sidebar" class="accordion builder-sidebar builder-sidebar_scroll" id="builder-sidebar-e07ngsi">
+                            <input placeholder="Search field(s)" ref="sidebar-search" type="search" class="form-control builder-sidebar_search">
+                            <div ref="sidebar-groups">
 
-var onBuild = function(build) {
-  jsonElement.innerHTML = '';
-  formElement.innerHTML = '';
-  jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.instance.schema, null, 4)));
-  Formio.createForm(formElement, builder.instance.form).then(onForm);
-};
+                                <partial name="_FormBuilderControls.cshtml"/>
 
-var onReady = function() {
-  var jsonElement = document.getElementById('json');
-  var formElement = document.getElementById('formio');
-  builder.instance.on('change', onBuild);
-};
+                            </div>
+                        </div>
 
-var setDisplay = function(display) {
-  builder.setDisplay(display).then(onReady);
-};
+                    </div>
+                    <div ref="form" class="col-xs-8 col-sm-9 col-md-10 formarea">
+                        <div ref="component" class="formio-component   formio-component-label-hidden" id="e0490mv">
 
-// Handle the form selection.
-var formSelect = document.getElementById('form-select');
-formSelect.addEventListener("change", function() {
-  setDisplay(this.value);
-});
 
-builder.instance.ready.then(onReady);
+                            <div novalidate="" ref="webform" class="formio-form">
+                                <div ref="-container" class="builder-components drag-container formio-builder-form">
+                                    <div data-position="0" data-noattach="true" role="alert" style="text-align:center;" class="drag-and-drop-alert alert alert-info no-drag">
+                                        Drag and Drop a form component
+                                    </div>
+                                    <div ref="dragComponent" class="builder-component">
+
+                                        <div data-noattach="true" class="component-btn-group">
+                                            <div ref="removeComponent" class="btn btn-xxs btn-danger component-settings-button component-settings-button-remove" tabindex="-1" aria-label="Remove button. Click to remove component from the form" role="button">
+                                                <i class="fa fa-remove"></i>
+                                            </div>
+                                            <div ref="copyComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-copy" tabindex="-1" aria-label="Copy button. Click to copy component" role="button">
+                                                <i class="fa fa-copy"></i>
+                                            </div>
+                                            <div ref="pasteComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-paste" tabindex="-1" aria-label="Paste below button. Click to paste component below the current component" role="button">
+                                                <i class="fa fa-download"></i>
+                                            </div>
+                                            <div ref="editJson" class="btn btn-xxs btn-default component-settings-button component-settings-button-edit-json" tabindex="-1" aria-label="Edit json button. Click to edit json of the current component" role="button">
+                                                <i class="fa fa-wrench"></i>
+                                            </div>
+                                            <div ref="moveComponent" class="btn btn-xxs btn-default component-settings-button component-settings-button-move" tabindex="-1" aria-label="Move button" role="button">
+                                                <i class="fa fa-arrows"></i>
+                                            </div>
+                                            <div ref="editComponent" class="btn btn-xxs btn-secondary component-settings-button component-settings-button-edit" tabindex="-1" aria-label="Edit button. Click to open component settings modal window" role="button">
+                                                <i class="fa fa-cog"></i>
+                                            </div>
+                                        </div>
+
+                                        <div ref="component" class="form-group has-feedback formio-component formio-component-button formio-component-submit  form-group" id="ekmjldb">
+
+
+                                            <button lang="en" class="btn btn-primary btn-md" type="submit" name="data[submit]" ref="button">
+
+                                                Submit
+
+
+                                            </button>
+                                            <div ref="buttonMessageContainer">
+                                                <span ref="buttonMessage" class="help-block"></span>
+                                            </div>
+
+
+                                            <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <div class="formio-errors invalid-feedback" ref="messageContainer"></div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card card-body bg-light jsonviewer">
+                <pre id="json"></pre>
+            </div>
+        </div>
+    </div>
+
+    <!---To be removed--->
+    <div class="row mt-4 d-none">
+        <div class="col-sm-8 offset-sm-2">
+            <h3 class="text-center text-muted">which 
+                <a href="https://github.com/formio/ngFormio" target="_blank">
+                    Renders as a Form</a> in your Application</h3>
+            <div id="formio" class="card card-body bg-light"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="row mt-4 d-none">
+        <div class="col-sm-8 offset-sm-2">
+            <h3 class="text-center text-muted">which creates a Submission JSON</h3>
+            <div class="card card-body bg-light jsonviewer">
+                <pre id="subjson"></pre>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+
+@section Scripts{
+<script src='~/assets/js/formiojs/formio.full.min.js'></script>
+<script type='text/javascript'>
+    window.onload = function() {
+      Formio.builder(document.getElementById('builder'), {}, {});
+    };
 </script>
 
+    <script type="text/javascript">
+        var jsonElement = document.getElementById('json');
+        var formElement = document.getElementById('formio');
+        var subJSON = document.getElementById('subjson');
+        var builder = new Formio.FormBuilder(document.getElementById("builder"), {
+          display: 'form',
+          components: [],
+          settings: {
+            pdf: {
+              "id": "1ec0f8ee-6685-5d98-a847-26f67b67d6f0",
+              "src": "https://files.form.io/pdf/5692b91fd1028f01000407e3/file/1ec0f8ee-6685-5d98-a847-26f67b67d6f0"
+            }
+          }
+        }, {
+          baseUrl: 'https://examples.form.io'
+        });
 
-</div>
+        var onForm = function(form) {
+          form.on('change', function() {
+            subJSON.innerHTML = '';
+            subJSON.appendChild(document.createTextNode(JSON.stringify(form.submission, null, 4)));
+          });
+        };
+
+        var onBuild = function(build) {
+          jsonElement.innerHTML = '';
+          formElement.innerHTML = '';
+          jsonElement.appendChild(document.createTextNode(JSON.stringify(builder.instance.schema, null, 4)));
+          Formio.createForm(formElement, builder.instance.form).then(onForm);
+        };
+
+        var onReady = function() {
+          var jsonElement = document.getElementById('json');
+          var formElement = document.getElementById('formio');
+          builder.instance.on('change', onBuild);
+        };
+
+        var setDisplay = function(display) {
+          builder.setDisplay(display).then(onReady);
+        };
+
+        // Handle the form selection.
+        var formSelect = document.getElementById('form-select');
+        formSelect.addEventListener("change", function() {
+          setDisplay(this.value);
+        });
+
+        builder.instance.ready.then(onReady);
+    </script>
+}

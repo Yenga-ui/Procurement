@@ -1,22 +1,25 @@
 ﻿using Core.Interfaces;
 using Core.Models;
 using Microsoft.AspNetCore.Mvc;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Portal.Controllers
 {
     public class ProcurementPlansController : Controller
     {
+        private readonly ILogger<ProcurementPlansController> Logger;
         private readonly IWebHostEnvironment Environment;
         private readonly IExcelDataService ExcelDataService;
         private readonly IProcurementPlanDataService ProcurementPlanDataService;
 
-        public ProcurementPlansController(IWebHostEnvironment environment, IExcelDataService excelDataService,
-            IProcurementPlanDataService procurementPlanDataService)
+        public ProcurementPlansController(IWebHostEnvironment environment,
+            IExcelDataService excelDataService,
+            IProcurementPlanDataService procurementPlanDataService,
+            ILogger<ProcurementPlansController> logger)
         {
             Environment = environment;
             ExcelDataService = excelDataService;
             ProcurementPlanDataService = procurementPlanDataService;
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpPost]
@@ -31,8 +34,8 @@ namespace Portal.Controllers
             {
                 Directory.CreateDirectory(path);
             }
-            
-            var savedProcurementPlanItems = new List<CdfPlanItem>();            
+
+            var savedProcurementPlanItems = new List<CdfPlanItem>();
             foreach (var postedFile in file)
             {
                 var fileName = Path.GetFileName(postedFile.FileName);
@@ -44,16 +47,16 @@ namespace Portal.Controllers
                     procurementPlanItems = await ExcelDataService.ParseExcelData(uploadPath);
                 }
 
-                if(procurementPlanItems.Any())
+                if (procurementPlanItems.Any())
                 {
-                    savedProcurementPlanItems = ProcurementPlanDataService.SaveAll(procurementPlanItems);                    
-                }                
+                    savedProcurementPlanItems = ProcurementPlanDataService.SaveAll(procurementPlanItems);
+                }
             }
 
             return Ok(new { success = true, message = "File Uploaded Successfully", payload = savedProcurementPlanItems });
 
         }
-     
+
 
         [HttpGet]
         [Route("procurement-plan")]
@@ -78,7 +81,9 @@ namespace Portal.Controllers
                         });
                 }
 
-               var savedPlanItem = ProcurementPlanDataService.Save(plan);
+                var savedPlanItem = ProcurementPlanDataService.Save(plan);
+
+                if (savedPlanItem == null) throw new Exception("Failed To Save Plan Item");
 
                 return Ok(
                         new
@@ -90,14 +95,14 @@ namespace Portal.Controllers
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
-                //log exception
+                Logger.LogError(ex.StackTrace);
+                
                 return Ok(
                         new
                         {
                             success = false,
                             message = "message"
-                        }); 
+                        });
             }
         }
     }
