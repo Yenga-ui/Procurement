@@ -23,5 +23,6 @@ namespace Core.Models
         public string Typeofentry { get; set; }
         public decimal? Budget { get; set; }
         public string CreatedBy { get; set; }
+        public int? ProcPlanId { get; set; }
     }
 }

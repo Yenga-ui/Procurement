@@ -877,6 +877,8 @@ namespace Core.Models
 
                 entity.Property(e => e.Prequalification).IsUnicode(false);
 
+                entity.Property(e => e.ProcPlanId).HasColumnName("procPlanID");
+
                 entity.Property(e => e.ProcurementMethod)
                     .IsUnicode(false)
                     .HasColumnName("procurement_method");

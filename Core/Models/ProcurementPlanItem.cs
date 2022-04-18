@@ -15,6 +15,10 @@ namespace Core.Models
         public string UNSPSC { get; set; }
         [Required]
         public string Description { get; set; }
+
+        public String budget { get; set; }
+
+        public string procPlanId { get; set; }
         public string Ref_No { get; set; }
         public string? Project_Code { get; set; }
         public string? Unit_of_Measure { get; set; }

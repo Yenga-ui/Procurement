@@ -25,7 +25,19 @@ namespace Core.Services
             }
 
         }
-        
+
+        List<CdfPlanItem> IProcurementPlanDataService.getAllPlanItems(int id)
+        {
+            try
+            {
+                List<CdfPlanItem> planItems = db.CdfPlanItems.ToList().Where(x => x.ProcPlanId == id).ToList();
+                return planItems;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
         CdfPlanItem IProcurementPlanDataService.Save(ProcurementPlanItem procurementPlanItems)
         {
             if(procurementPlanItems == null) return null;
@@ -42,6 +54,7 @@ namespace Core.Services
                 SourceOfFunds = procurementPlanItems.Source_of_Funds,
                 Prequalification = procurementPlanItems.Prequalification,
                 ProcurementMethod = procurementPlanItems.Procurement_Method,
+                Budget = Decimal.Parse(procurementPlanItems.budget),
                 Publication = Util.ToDateTime(procurementPlanItems.Publication).ToString(),
                 Award = Util.ToDateTime(procurementPlanItems.Award).ToString(),
                 Start = Util.ToDateTime(procurementPlanItems.Start),
@@ -83,6 +96,23 @@ namespace Core.Services
             db.SaveChanges();
             
            return cdfPlanItems;
+        }
+
+        public int createProcPlan(CdfProcPlan cdfProcPlan)
+        {
+
+            try
+            {
+                db.CdfProcPlans.Add(cdfProcPlan);
+                db.SaveChanges();
+                return cdfProcPlan.Id;
+
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
         }
     }
 }

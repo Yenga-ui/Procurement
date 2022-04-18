@@ -1,8 +1,9 @@
 "use strict";
+var table = "";
 var KTDatatablesBasicHeaders = function() {
 
 	var initTable1 = function() {
-		var table = $('#kt_datatable');
+		table = $('#kt_datatable');
 
 		// begin first table
 		table.DataTable({
