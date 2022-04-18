@@ -11,7 +11,7 @@ namespace Core.Models
         public string Lname { get; set; }
         public int? ConsituencyId { get; set; }
         public int? Type { get; set; }
-        public int? Status { get; set; }
+        public string Status { get; set; }
         public DateTime? DateCreated { get; set; }
         public string CreatedBy { get; set; }
         public int? RoleId { get; set; }
@@ -21,5 +21,6 @@ namespace Core.Models
         public string Email { get; set; }
         public string Password { get; set; }
         public int? EmailConfirmed { get; set; }
+        public string ProcEntity { get; set; }
     }
 }

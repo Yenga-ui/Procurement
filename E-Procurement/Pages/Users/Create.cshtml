@@ -171,17 +171,17 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label asp-for="CdfUser.Username" class="control-label">Username</label>
-                        <input asp-for="CdfUser.Username" class="form-control" />
+                        <input asp-for="CdfUser.Username"  name="Username" class="form-control" />
                         <span asp-validation-for="CdfUser.Username" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CdfUser.Fname" class="control-label">First Name</label>
-                        <input asp-for="CdfUser.Fname" class="form-control" />
+                        <input asp-for="CdfUser.Fname" name="Fname" class="form-control" />
                         <span asp-validation-for="CdfUser.Fname" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CdfUser.Lname" class="control-label">Last Name</label>
-                        <input asp-for="CdfUser.Lname" class="form-control" />
+                        <input asp-for="CdfUser.Lname" name="Lname" class="form-control" />
                         <span asp-validation-for="CdfUser.Lname" class="text-danger"></span>
                         <br/>
                     </div>
@@ -194,15 +194,15 @@
 
                     <div class="form-group">
                         <label asp-for="CdfUser.Type" class="control-label"></label>
-                        <select asp-for="CdfUser.Type" class="form-control" asp-items="@Model.usertype">
+                        <select asp-for="CdfUser.Type" name="type" class="form-control" asp-items="@Model.usertype">
 
                             <option>--select--</option>
                         </select>
                         <span asp-validation-for="CdfUser.Type" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="CdfUser.Status" class="control-label">Status</label>
-                        <select asp-for="CdfUser.Status" class="form-control" asp-items="@Model.status">
+                        <label asp-for="CdfUser.Status"  class="control-label">Status</label>
+                        <select asp-for="CdfUser.Status" name="status" class="form-control" asp-items="@Model.status">
                             <options>--Select--</options>
 
                         </select>
@@ -210,7 +210,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="CdfUser.Email" class="control-label">Email</label>
-                        <input asp-for="CdfUser.Email" class="form-control" />
+                        <input asp-for="CdfUser.Email" name="email" class="form-control" />
                            
 
                       
@@ -218,7 +218,7 @@
                     </div>
                     <div class="form-group" style="display:none">
                         <label asp-for="CdfUser.CreatedBy" class="control-label"></label>
-                        <input asp-for="CdfUser.CreatedBy" class="form-control" />
+                        <input asp-for="CdfUser.CreatedBy"  class="form-control" />
                         <span asp-validation-for="CdfUser.CreatedBy" class="text-danger"></span>
                     </div>
                 </div>
@@ -229,16 +229,16 @@
 
 
                     <div class="form-group role">
-                        <label asp-for="CdfUser.RoleId" class="control-label">Role</label>
-                        <select asp-for="CdfUser.RoleId" class="form-control" asp-items="@Model.role">
+                        <label asp-for="CdfUser.ProcEntity" class="control-label">Procurement Entity</label>
+                        <select asp-for="CdfUser.ProcEntity" name="procEntity" class="form-control" asp-items="@Model.procEntity">
                             <options>--Select--</options>
 
                         </select>
-                        <span asp-validation-for="CdfUser.RoleId" class="text-danger"></span>
+                        <span asp-validation-for="CdfUser.ProcEntity" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="CdfUser.DepartmentId" class="control-label">Department</label>
-                        <select asp-for="CdfUser.DepartmentId" class="form-control" asp-items="@Model.department">
+                        <select asp-for="CdfUser.DepartmentId" name="departmentId" class="form-control" asp-items="@Model.department">
 
                             <options>--Select--</options>
                         </select>
@@ -246,7 +246,7 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="CdfUser.Phone" class="control-label">Phone</label>
-                        <input asp-for="CdfUser.Phone" class="form-control" />
+                        <input asp-for="CdfUser.Phone" name="phone" class="form-control" />
 
 
 
@@ -274,7 +274,7 @@
             </th>                                          
                                                       
             <th>                                           
-                @Html.DisplayNameFor(model => model.CdfUsers[0].Type)
+                Procurement Entity
             </th>                                          
                                                      
             <th>                                           
@@ -288,7 +288,8 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.CdfUsers) {
+	
+@if(Model.CdfUsers!=null){foreach (var item in Model.CdfUsers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Username)
@@ -301,7 +302,7 @@
             </td>
            
             <td>
-                @Html.DisplayFor(modelItem => item.Type)
+                @Html.DisplayFor(modelItem => item.ProcEntity)
             </td>
             
             <td>
@@ -317,7 +318,7 @@
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+}}
     </tbody>
 </table>
 

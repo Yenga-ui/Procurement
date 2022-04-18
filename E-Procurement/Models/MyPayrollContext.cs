@@ -1267,9 +1267,17 @@ namespace E_Procurement.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.ProcEntity)
+                    .HasColumnName("procEntity")
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .HasColumnName("status")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Type).HasColumnName("type");
 
@@ -1332,6 +1340,11 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.Password)
                     .HasColumnName("password")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ProcEntity)
+                    .HasColumnName("procEntity")
+                    .HasMaxLength(300)
                     .IsUnicode(false);
 
                 entity.Property(e => e.RoleId).HasColumnName("role_id");

@@ -4,14 +4,16 @@ using E_Procurement.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_Procurement.Migrations
 {
     [DbContext(typeof(MyPayrollContext))]
-    partial class MyPayrollContextModelSnapshot : ModelSnapshot
+    [Migration("20220418085900_updatedUser")]
+    partial class updatedUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1728,12 +1730,6 @@ namespace E_Procurement.Migrations
                         .HasColumnName("phone")
                         .HasColumnType("varchar(50)")
                         .HasMaxLength(50)
-                        .IsUnicode(false);
-
-                    b.Property<string>("ProcEntity")
-                        .HasColumnName("procEntity")
-                        .HasColumnType("varchar(200)")
-                        .HasMaxLength(200)
                         .IsUnicode(false);
 
                     b.Property<int?>("RoleId")

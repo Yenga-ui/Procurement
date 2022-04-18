@@ -94,7 +94,7 @@ namespace E_Procurement.Pages.Register
             user.Username = SupplierRegistation.Email;
             user.Email = SupplierRegistation.Email;
             user.RoleId = 2;
-            user.Status = 1;
+            user.Status = "1";
             _context.CdfUser.Add(user);
 
 

@@ -136,7 +136,7 @@ namespace Core.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //optionsBuilder.UseSqlServer("DBConnection");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
             }
         }
@@ -269,7 +269,6 @@ namespace Core.Models
                 entity.Property(e => e.BranchCode)
                     .HasMaxLength(10)
                     .IsUnicode(false);
-
 
                 entity.Property(e => e.BranchName)
                     .HasMaxLength(50)
@@ -859,11 +858,20 @@ namespace Core.Models
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
+                entity.Property(e => e.Budget)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("budget");
+
                 entity.Property(e => e.Class)
                     .IsUnicode(false)
                     .HasColumnName("class");
 
                 entity.Property(e => e.Comments).IsUnicode(false);
+
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("createdBy");
 
                 entity.Property(e => e.Description).IsUnicode(false);
 
@@ -949,6 +957,14 @@ namespace Core.Models
                 entity.ToTable("CDF_ProcurementEntity");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Description)
+                    .IsUnicode(false)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Email)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
 
                 entity.Property(e => e.EntityName)
                     .IsUnicode(false)
@@ -1260,9 +1276,17 @@ namespace Core.Models
                     .IsUnicode(false)
                     .HasColumnName("phone");
 
+                entity.Property(e => e.ProcEntity)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("procEntity");
+
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("status");
 
                 entity.Property(e => e.Type).HasColumnName("type");
 
@@ -1300,6 +1324,11 @@ namespace Core.Models
                 entity.Property(e => e.Password)
                     .IsUnicode(false)
                     .HasColumnName("password");
+
+                entity.Property(e => e.ProcEntity)
+                    .HasMaxLength(300)
+                    .IsUnicode(false)
+                    .HasColumnName("procEntity");
 
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 

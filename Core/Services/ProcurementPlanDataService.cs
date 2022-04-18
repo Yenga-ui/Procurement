@@ -55,7 +55,7 @@ namespace Core.Services
             return planItem;
         }
        
-        public List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems)
+        public List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems )
         {
 
             var cdfPlanItems = procurementPlanItems.Select(item => new CdfPlanItem
@@ -77,6 +77,7 @@ namespace Core.Services
                     Typeofentry = item.Type_of_Entry ?? ""
             })
                 .ToList();
+     
 
             db.CdfPlanItems.AddRange(cdfPlanItems);
             db.SaveChanges();

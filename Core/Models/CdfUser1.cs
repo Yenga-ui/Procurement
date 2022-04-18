@@ -14,5 +14,6 @@ namespace Core.Models
         public int? RoleId { get; set; }
         public DateTime? DateCreated { get; set; }
         public string CreatedBy { get; set; }
+        public string ProcEntity { get; set; }
     }
 }

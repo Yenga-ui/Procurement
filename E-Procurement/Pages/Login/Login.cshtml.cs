@@ -51,7 +51,7 @@ namespace E_Procurement.Pages.Login
                     Console.WriteLine("Data found");
                     HttpContext.Session.SetString("username", username);
                     HttpContext.Session.SetString("supplierID", cdfUser.Id.ToString());
-                    return RedirectToPage("/Login/Index");
+                    return RedirectToPage("../Index");
                 }
                 if (cdfUser.RoleId == 3)
                 {
@@ -59,13 +59,13 @@ namespace E_Procurement.Pages.Login
                     Console.WriteLine("Data found");
                     HttpContext.Session.SetString("username", username);
                     HttpContext.Session.SetString("ID", cdfUser.Id.ToString());
-                    return RedirectToPage("/Login/Index");
+                    return RedirectToPage("../Index");
                   }
 
                 Console.WriteLine("Data found");
                 HttpContext.Session.SetString("username", username);
                 HttpContext.Session.SetString("supplierID", cdfUser.Id.ToString());
-                return RedirectToPage("/Login/Index");
+                return RedirectToPage("../Index");
             }
 
             else
