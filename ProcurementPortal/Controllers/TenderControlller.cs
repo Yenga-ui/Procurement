@@ -9,4 +9,9 @@ public class TenderController : Controller
     {
         return View();
     }
+
+    public ActionResult Create()
+    {
+        return View();
+    }
 }
