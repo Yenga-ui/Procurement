@@ -22,7 +22,7 @@ var KTTinymce = function () {
         });
         
         tinymce.init({
-            selector: '#kt-tinymce-4',
+            selector: '.kt-tinymce-4',
             menubar: false,
             toolbar: ['styleselect fontselect fontsizeselect',
                 'undo redo | cut copy paste | bold italic | link image | alignleft aligncenter alignright alignjustify',
