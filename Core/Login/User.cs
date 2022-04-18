@@ -17,8 +17,7 @@ namespace Core.Login
 
         public User()
         {
-            MyPayrollContext context = new MyPayrollContext();
-            _context = new Models.MyPayrollContext();
+            _context = new MyPayrollContext();
         }
 
         public bool login(String username, String password)
