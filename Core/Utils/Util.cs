@@ -14,7 +14,7 @@ namespace Core.Utils
                 System.Globalization.CultureInfo.InvariantCulture);
         }
 
-        public static DateTime? ToDateTime(string start)
+        public static DateTime ToDateTime(string start)
         {
             return ToLocalDate(start);
         }
