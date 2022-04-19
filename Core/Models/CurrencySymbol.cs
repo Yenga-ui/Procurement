@@ -6,9 +6,9 @@ namespace Core.Models
     public partial class CurrencySymbol
     {
         public int Id { get; set; }
-        public string Country { get; set; }
-        public string Currency { get; set; }
-        public string Code { get; set; }
-        public string Symbol { get; set; }
+        public string Country { get; set; } = null!;
+        public string Currency { get; set; } = null!;
+        public string Code { get; set; } = null!;
+        public string Symbol { get; set; } = null!;
     }
 }

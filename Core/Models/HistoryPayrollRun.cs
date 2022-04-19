@@ -8,6 +8,6 @@ namespace Core.Models
         public int Id { get; set; }
         public DateTime? DateCreated { get; set; }
         public int? PayPeriod { get; set; }
-        public string CreatedBy { get; set; }
+        public string? CreatedBy { get; set; }
     }
 }

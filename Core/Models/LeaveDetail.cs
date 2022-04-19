@@ -12,6 +12,6 @@ namespace Core.Models
         public decimal? LeaveBalance { get; set; }
         public decimal? MonetaryEquivalent { get; set; }
 
-        public virtual Employee Employee { get; set; }
+        public virtual Employee Employee { get; set; } = null!;
     }
 }

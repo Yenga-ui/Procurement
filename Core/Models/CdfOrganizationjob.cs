@@ -7,7 +7,7 @@ namespace Core.Models
     {
         public int Id { get; set; }
         public int? OrganizationLevel { get; set; }
-        public string OrganizationTitle { get; set; }
+        public string? OrganizationTitle { get; set; }
         public int? Strength { get; set; }
         public int? OrganizationGrade { get; set; }
         public int? OrganizationId { get; set; }

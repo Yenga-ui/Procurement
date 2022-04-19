@@ -11,8 +11,8 @@ namespace Core.Models
         }
 
         public int JobGeneralId { get; set; }
-        public string LongDescription { get; set; }
-        public string Status { get; set; }
+        public string? LongDescription { get; set; }
+        public string? Status { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
     }

@@ -11,7 +11,7 @@ namespace Core.Models
         }
 
         public int TitleId { get; set; }
-        public string TitleDescription1 { get; set; }
+        public string? TitleDescription1 { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
     }

@@ -9,7 +9,7 @@ namespace Core.Models
         public int? UserRoleId { get; set; }
         public int? UserMenuId { get; set; }
 
-        public virtual UserMenu UserMenu { get; set; }
-        public virtual UserRole UserRole { get; set; }
+        public virtual UserMenu? UserMenu { get; set; }
+        public virtual UserRole? UserRole { get; set; }
     }
 }

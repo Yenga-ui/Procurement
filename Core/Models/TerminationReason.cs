@@ -11,9 +11,9 @@ namespace Core.Models
         }
 
         public int TerminationReasonId { get; set; }
-        public string Code { get; set; }
-        public string Description { get; set; }
-        public string Status { get; set; }
+        public string Code { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public string Status { get; set; } = null!;
         public DateTime? DateCreated { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
