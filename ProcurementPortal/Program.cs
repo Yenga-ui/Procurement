@@ -18,6 +18,7 @@ builder.Services.AddDbContext<MyPayrollContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
 builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
+builder.Services.AddScoped<ITenderSectionDataService, TenderSectionDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

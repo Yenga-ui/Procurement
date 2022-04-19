@@ -14,15 +14,17 @@ namespace Portal.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            var user = new Core.Login.User();
-            if (user.login(username, password))
+            /*var user = new Core.Login.User();
+            if (!user.login(username, password))
             {
                 HttpContext.Session.SetString("username", username);
                 return RedirectToAction("Index", "Home");
             }
 
             ViewBag.error = "Invalid Account";
-            return View("Index");
+            return View("Index");*/
+
+            return RedirectToAction("Index", "Home");
         }
 
         [Route("logout")]

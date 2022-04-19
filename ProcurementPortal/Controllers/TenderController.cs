@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Core.Interfaces;
+using Core.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Portal.Controllers;
 
 public class TenderController : Controller
 {
+    
     // GET
     public IActionResult Index()
     {
@@ -14,4 +17,5 @@ public class TenderController : Controller
     {
         return View();
     }
+
 }
