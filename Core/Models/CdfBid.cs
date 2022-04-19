@@ -9,6 +9,6 @@ namespace Core.Models
         public int? SupplierId { get; set; }
         public int? TenderId { get; set; }
         public DateTime? DateCreated { get; set; }
-        public string Details { get; set; }
+        public string? Details { get; set; }
     }
 }

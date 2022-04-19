@@ -6,6 +6,6 @@ namespace Core.Models
     public partial class CdfIdentityType
     {
         public int Id { get; set; }
-        public string Type { get; set; }
+        public string? Type { get; set; }
     }
 }

@@ -12,9 +12,9 @@ namespace Core.Models
         }
 
         public int JobGradeId { get; set; }
-        public string JobGradeCode { get; set; }
-        public string JobGradeDescription { get; set; }
-        public string Status { get; set; }
+        public string? JobGradeCode { get; set; }
+        public string? JobGradeDescription { get; set; }
+        public string? Status { get; set; }
 
         public virtual ICollection<Employee> Employees { get; set; }
         public virtual ICollection<JobTitle> JobTitles { get; set; }

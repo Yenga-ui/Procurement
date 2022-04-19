@@ -11,8 +11,8 @@ namespace Core.Models
         }
 
         public int MaritalStatusId { get; set; }
-        public string LongDescription { get; set; }
-        public string Status { get; set; }
+        public string? LongDescription { get; set; }
+        public string? Status { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
     }

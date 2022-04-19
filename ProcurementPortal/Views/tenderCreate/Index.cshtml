@@ -1,0 +1,422 @@
+﻿
+@{
+    ViewData["Title"] = "View";
+
+}
+    <div class="d-flex flex-column-fluid">
+        <form method="post" id="formTender">
+      
+                            <!--begin::Container-->
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Tender Details</h3>
+                                                <div class="card-toolbar">
+                                                    <div class="example-tools justify-content-center">
+                                                        <span class="example-toggle" data-toggle="tooltip" title="Input tender details"></span>
+                                                        <span class="example-copy" data-toggle="tooltip" title="Input tender details"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--begin::Form-->
+                                           
+                                                <div class="card-body">
+                                                    <div class="form-group mb-8">
+                                                        <div class="alert alert-custom alert-default" role="alert">
+                                                            <div class="alert-icon">
+                                                                <span class="svg-icon svg-icon-primary svg-icon-xl">
+                                                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect x="0" y="0" width="24" height="24" />
+                                                                            <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3" />
+                                                                            <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
+                                                                        </g>
+                                                                    </svg>
+                                                                    <!--end::Svg Icon-->
+                                                                </span>
+                                                            </div>
+                                                            <div class="alert-text">This section requires you to fill in all information related to the tender.</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Title
+                                                        <span class="text-danger">*</span></label>
+                                                        <input type="text" name="title" id="title" class="form-control" placeholder="Enter tender header " />
+                                                        <span class="form-text text-muted">This will be on the header of the tender information sent to suppliers.</span>
+                                                    </div>
+                                                        <div class="form-group">
+                                                        <label for="category">Category
+                                                        <span class="text-danger">*</span></label>
+                                                        <select class="form-control"  id="category" name="category">
+                                                       
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="tenderProcedure">Tender Procedure
+                                                        <span class="text-danger">*</span></label>
+                                                        <select  class="form-control" name="tenderProcedure" id="tenderProcedure">
+                                                            <option>1</option> 
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="procTechnique">Procurement Technique
+                                                        <span class="text-danger">*</span></label>
+                                                        <select  class="form-control" id="procTechnique" name="procurementTechnique">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                 
+                                                    <!--begin: Code-->
+                                                  
+                                           
+                            
+                                            <!--end::Form-->
+                                        </div>
+                                        <!--end::Card-->
+                                        <!--begin::Card-->
+
+                                        <!--end::Card-->
+                                        <!--begin::Card-->
+
+                                        <!--end::Card-->
+                                    </div>
+                                </div>
+                                    <div class="col-md-4">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Tender Dates</h3>
+                                                <div class="card-toolbar">
+                                                    <div class="example-tools justify-content-center">
+                                                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+                                                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--begin::Form-->
+
+                                                <div class="card-body">
+                                                    <div class="form-group form-group-last">
+                                                        <div class="alert alert-custom alert-default" role="alert">
+                                                            <div class="alert-icon">
+                                                                <span class="svg-icon svg-icon-primary svg-icon-xl">
+                                                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect x="0" y="0" width="24" height="24" />
+                                                                            <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3" />
+                                                                            <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
+                                                                        </g>
+                                                                    </svg>
+                                                                    <!--end::Svg Icon-->
+                                                                </span>
+                                                            </div>
+                                                            <div class="alert-text">Provide all relevant date information related to the tender
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+
+                            <label>Bid Invitation</label>
+                            <div class="input-group">
+                                <input type="text"  id="bidInvitationDate"
+                                class="form-control kt_datepicker" 
+                                name="bidInvitationDate" 
+                                placeholder="Select date" 
+                                />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="form-group">
+
+                            <label>Clarification Deadline</label>
+                            <div class="input-group">
+                                <input type="text"  
+                                class="form-control kt_datepicker" 
+                                name="clarificationDeadline" 
+                                placeholder="Select date" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+
+                            </div>
+                        </div>
+                        <br />
+
+                      <div class="form-group">
+                            <label>Submission Deadline</label>
+                            <div class="input-group">
+                                <input type="text" 
+                                class="form-control kt_datepicker" 
+                                name="submissionDeadline" 
+                                placeholder="Select date" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="form-group">
+                            <label>Contract Notice Date</label>
+                            <div class="input-group">
+                                <input type="text" 
+                                class="form-control kt_datepicker" 
+                                name="contractNoticeDate" 
+                                placeholder="Select date" />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">
+                                        <i class="la la-calendar-check-o"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                                                 
+
+                                                    <!--end: Code-->
+                                                </div>
+
+
+
+                                        </div>
+                                        </div>
+                                        </div>
+                                                                            <div class="col-md-4">
+                                        <!--begin::Card-->
+                                        <div class="card card-custom gutter-b example example-compact">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Procurement Plan</h3>
+                                                <div class="card-toolbar">
+                                                    <div class="example-tools justify-content-center">
+                                                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+                                                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--begin::Form-->
+                                            
+                                                <div class="card-body">
+                                                    <div class="form-group form-group-last">
+                                                        <div class="alert alert-custom alert-default" role="alert">
+                                                            <div class="alert-icon">
+                                                                <span class="svg-icon svg-icon-primary svg-icon-xl">
+                                                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                            <rect x="0" y="0" width="24" height="24" />
+                                                                            <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3" />
+                                                                            <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
+                                                                        </g>
+                                                                    </svg>
+                                                                    <!--end::Svg Icon-->
+                                                                </span>
+                                                            </div>
+                                                            <div class="alert-text">Choose procurement plan and its associated items related to the tender being created
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Procurement Plan</label>
+                                                        <select class="form-control" id="procPlan">
+                                                            <option>1</option>
+                                                            <option>2</option>
+                                                            <option>3</option>
+                                                            <option>4</option>
+                                                            <option>5</option>
+                                                        </select>
+                                                    </div>
+                                                        <div class="form-group">
+                                                        <label>Procurement Plan Items</label>
+                                                        <select class="form-control" multiple="true" id="procPlanItems">
+                                                        
+                                                        </select>
+                                                    </div>
+                                                   
+                                                       <div class="form-group">
+                                                        <label for="exampleTextarea">Message to Bidders</label>
+                                                        <textarea class="form-control" id="longDescription" name="longDescription"   rows="3"></textarea>
+                                                    </div>
+
+                                                   
+                                                    <!--begin: Code-->
+                                                    
+                                                    <!--end: Code-->
+                                                </div>
+                                                <div class="card-footer">
+                                              
+                                                    <button type="submit" id="btnSave" class="btn btn-primary mr-2 pull-right">Submit</button>
+                                                    <button type="reset" class="btn btn-secondary pull-right">Cancel</button>
+
+                                                </div>
+                                            
+                                            <!--end::Form-->
+                             </div>
+
+                            </div>
+                            </div>
+                            </div>
+
+                            </form>
+                            @section Scripts{
+<!--begin::Page Vendors(used by this page)-->
+@*<script src="~/assets/plugins/custom/datatables/datatables.bundle.js" asp-append-version="true"></script>
+*@<!--begin::Page Vendors(used by this page)-->
+<script src="~/assets/plugins/dataTables/jquery.dataTables.js" asp-append-version="true"></script>
+<!--end::Page Vendors-->
+<!--begin::Page Scripts(used by this page)-->
+@*<script src="~/assets/js/pages/crud/datatables/basic/headers.js" asp-append-version="true"></script>
+*@<!--end::Page Scripts-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="~/assets/js/pages/crud/forms/widgets/bootstrap-select.js"></script>
+<!--end::Page Scripts-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="~/js/file-upload/procurementplan.dropzonejs.js" asp-append-version="true"></script>
+<!--end::Page Scripts-->
+<!--begin::Page Scripts(used by this page)-->
+<script src="~/assets/js/pages/crud/forms/validation/form-widgets.js" asp-append-version="true"></script>
+
+  <script type="text/javascript">
+ 
+      
+$(document).ready(function () {
+
+    
+
+
+    $("#procPlan").change(function(){
+   
+      var ids=$("#procPlan").val();
+    
+      $.ajax({
+url: "procItems",
+type: "GET",
+data: { 
+    ids:ids
+    
+
+    
+  },
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+    $("#procPlanItems").empty();
+$(result.payload).each(function () {
+$("#procPlanItems").append($("<option></option>").val(this.id).html(this.description));
+});
+},
+error: function (data) { }
+});
+ });
+$("#category").empty();
+$("#tenderProcedure").empty();
+$("#procTechnique").empty();
+$("#procPlan").empty();
+$.ajax({
+url: "tenderCategory",
+type: "GET",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+$(result.payload).each(function () {
+$("#category").append($("<option></option>").val(this.category).html(this.category));
+});
+},
+error: function (data) { }
+});
+
+$.ajax({
+url: "tenderProcedure",
+type: "GET",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+$(result.payload).each(function () {
+$("#tenderProcedure").append($("<option></option>").val(this.tenderProcedure).html(this.tenderProcedure));
+});
+},
+error: function (data) { }
+});
+$.ajax({
+url: "tenderTechnique",
+type: "GET",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+$(result.payload).each(function () {
+$("#procTechnique").append($("<option></option>").val(this.method).html(this.method));
+});
+},
+error: function (data) { }
+});
+$.ajax({
+url: "tenderProcPlan",
+type: "GET",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+$(result.payload).each(function () {
+$("#procPlan").append($("<option></option>").val(this.id).html(this.comments));
+});
+},
+error: function (data) { }
+});
+});
+</script>                      
+<script>
+                         
+        $("form#formTender").on('submit', function(e){
+           e.preventDefault();
+           e.stopPropagation();
+
+           let formData = new FormData($("#formTender")[0]);
+           let payload = {};
+           for(var pair of formData.entries()) {
+                payload[pair[0]]= pair[1];
+           }
+           console.log(JSON.stringify(payload));
+           let settings = {
+              url: "create-tender",
+              method: "POST",
+              dataType: "json",
+              data: JSON.stringify(payload),
+              contentType: 'application/json'
+           };
+           $.ajax(settings)
+           .done(function(response){
+               if(response.success){
+               alert("here");
+               }
+
+           }).fail(function(xhr){
+               swal.fire('Error','Failed to save Data','error');
+           });
+       });
+                          
+                        </script>
+
+
+ }  

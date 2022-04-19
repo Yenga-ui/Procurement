@@ -25,7 +25,19 @@ namespace Core.Services
             }
 
         }
+        int IProcurementPlanDataService.saveTender(CdfTender cdfTender)
+        {
+            try
+            {
+                db.CdfTenders.Add(cdfTender);
+                return cdfTender.Id;
+            }
+            catch(Exception ex)
+            {
 
+                return 0;
+            }
+        }
         List<CdfPlanItem> IProcurementPlanDataService.getAllPlanItems(int id)
         {
             try

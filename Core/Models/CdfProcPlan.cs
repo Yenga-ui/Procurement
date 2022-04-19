@@ -7,9 +7,9 @@ namespace Core.Models
     {
         public int Id { get; set; }
         public int? EntityId { get; set; }
-        public string Year { get; set; }
+        public string? Year { get; set; }
         public int? Version { get; set; }
         public DateTime? Modified { get; set; }
-        public string Comments { get; set; }
+        public string? Comments { get; set; }
     }
 }

@@ -44,16 +44,13 @@ namespace Core.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -71,11 +68,9 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleId")
@@ -99,11 +94,9 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -117,35 +110,29 @@ namespace Core.Migrations
                         .HasColumnType("datetimeoffset");
 
                     b.Property<string>("NormalizedEmail")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("NormalizedUserName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("bit");
 
                     b.Property<string>("SecurityStamp")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
@@ -163,11 +150,9 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ClaimType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ClaimValue")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -193,7 +178,6 @@ namespace Core.Migrations
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
@@ -222,7 +206,6 @@ namespace Core.Migrations
                         .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
@@ -240,7 +223,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BankId"), 1L, 1);
 
                     b.Property<string>("BankName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -255,7 +237,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -282,13 +263,11 @@ namespace Core.Migrations
                         .HasColumnName("BankID");
 
                     b.Property<string>("BranchCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("BranchName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -297,7 +276,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -307,7 +285,8 @@ namespace Core.Migrations
                     b.HasIndex("BankId");
 
                     b.HasIndex(new[] { "BranchCode" }, "IX_BankBranch")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[BranchCode] IS NOT NULL");
 
                     b.ToTable("BankBranch", (string)null);
                 });
@@ -324,16 +303,13 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Fname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("FName");
 
                     b.Property<string>("Lname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("LName");
 
@@ -342,7 +318,6 @@ namespace Core.Migrations
                         .HasColumnName("Organization_Id");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -360,21 +335,18 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Asset")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)")
                         .HasColumnName("asset");
 
                     b.Property<string>("AssetType")
-                        .IsRequired()
                         .HasMaxLength(250)
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)")
                         .HasColumnName("asset_type");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -401,14 +373,12 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AssetType")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("assetType");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -441,7 +411,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Details")
-                        .IsRequired()
                         .HasMaxLength(350)
                         .IsUnicode(false)
                         .HasColumnType("varchar(350)")
@@ -470,7 +439,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BudgetName")
-                        .IsRequired()
                         .HasMaxLength(300)
                         .IsUnicode(false)
                         .HasColumnType("varchar(300)")
@@ -481,7 +449,6 @@ namespace Core.Migrations
                         .HasColumnName("budgetYear");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -494,7 +461,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Period")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -533,7 +499,6 @@ namespace Core.Migrations
                         .HasColumnName("code");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
@@ -565,7 +530,6 @@ namespace Core.Migrations
                         .HasColumnName("budget_id");
 
                     b.Property<string>("Period")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -586,7 +550,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Amount")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -603,14 +566,12 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("currency");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
@@ -631,7 +592,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -644,14 +604,12 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.CdfConstituency", b =>
                 {
                     b.Property<string>("Constituency")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("constituency");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -665,21 +623,18 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Latitude")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("latitude");
 
                     b.Property<string>("Longitude")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("longitude");
 
                     b.Property<string>("Province")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -697,23 +652,18 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Constituency")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Latitude")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Longitude")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Province")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -737,7 +687,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Department")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -764,7 +713,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Method")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -785,7 +733,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -798,7 +745,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("ExpenseType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -812,7 +758,6 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.CdfFund", b =>
                 {
                     b.Property<string>("Amount")
-                        .IsRequired()
                         .HasMaxLength(500)
                         .IsUnicode(false)
                         .HasColumnType("varchar(500)")
@@ -825,21 +770,18 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("currency");
 
                     b.Property<string>("CurrencyCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("currency_code");
 
                     b.Property<string>("Fund")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -864,22 +806,18 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Amount")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CurrencyCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Fund")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -897,7 +835,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -915,7 +852,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -960,7 +896,6 @@ namespace Core.Migrations
                         .HasColumnName("name");
 
                     b.Property<string>("Activated")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -973,28 +908,24 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("FirstAdminEmail")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("first_Admin_Email");
 
                     b.Property<string>("FirstAdminId")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("first_Admin_ID");
 
                     b.Property<string>("FirstAdminIdentityType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("first_Admin_Identity_Type");
 
                     b.Property<string>("FirstAdminPhone")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1008,7 +939,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<byte[]>("Logo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)")
                         .HasColumnName("logo");
 
@@ -1026,40 +956,32 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Activated")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FirstAdminEmail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstAdminId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstAdminIdentityType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstAdminPhone")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstAdminUsername")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<byte[]>("Logo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1094,14 +1016,12 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.CdfOrganizationbranch", b =>
                 {
                     b.Property<string>("BranchAddress")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("branchAddress");
 
                     b.Property<string>("BranchName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1124,7 +1044,6 @@ namespace Core.Migrations
                         .HasColumnName("departmentHeadJobID");
 
                     b.Property<string>("DepartmentName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1162,7 +1081,6 @@ namespace Core.Migrations
                         .HasColumnName("organization_level");
 
                     b.Property<string>("OrganizationTitle")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -1178,27 +1096,23 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.CdfOrganizationprofile", b =>
                 {
                     b.Property<string>("CompanyAddress")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("companyAddress");
 
                     b.Property<string>("CompanyEmail")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("companyEmail");
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("CompanyWebsite")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -1208,7 +1122,6 @@ namespace Core.Migrations
                         .HasColumnName("ID");
 
                     b.Property<string>("LegalName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -1237,7 +1150,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Permission")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1256,7 +1168,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Award")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -1265,30 +1176,25 @@ namespace Core.Migrations
                         .HasColumnName("budget");
 
                     b.Property<string>("Class")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("class");
 
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("createdBy");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("Prequalification")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -1297,19 +1203,16 @@ namespace Core.Migrations
                         .HasColumnName("procPlanID");
 
                     b.Property<string>("ProcurementMethod")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("procurement_method");
 
                     b.Property<string>("ProjectCode")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("Project_Code");
 
                     b.Property<string>("Publication")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("publication");
@@ -1319,13 +1222,11 @@ namespace Core.Migrations
                         .HasColumnName("quantity");
 
                     b.Property<string>("RefNo")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("Ref_No");
 
                     b.Property<string>("SourceOfFunds")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("source_of_funds");
@@ -1334,19 +1235,16 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Typeofentry")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("typeofentry");
 
                     b.Property<string>("Unitofmeasure")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("unitofmeasure");
 
                     b.Property<string>("Unspsc")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("UNSPSC");
@@ -1366,7 +1264,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Comments")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("comments");
@@ -1384,7 +1281,6 @@ namespace Core.Migrations
                         .HasColumnName("version");
 
                     b.Property<string>("Year")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1405,7 +1301,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Method")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1430,25 +1325,21 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("description");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("email");
 
                     b.Property<string>("EntityName")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("entityName");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("type");
@@ -1468,7 +1359,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasMaxLength(300)
                         .IsUnicode(false)
                         .HasColumnType("varchar(300)")
@@ -1489,7 +1379,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -1506,7 +1395,6 @@ namespace Core.Migrations
                         .HasColumnName("levelID");
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1527,7 +1415,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1551,7 +1438,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Role")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Status")
@@ -1572,7 +1458,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1585,7 +1470,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Service")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1612,7 +1496,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1635,7 +1518,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -1653,7 +1535,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1666,14 +1547,12 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Stock")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("stock");
 
                     b.Property<string>("StockCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1702,7 +1581,6 @@ namespace Core.Migrations
                         .HasColumnName("budget_id");
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("category");
@@ -1722,7 +1600,6 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Department")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1733,7 +1610,6 @@ namespace Core.Migrations
                         .HasColumnName("dueDate");
 
                     b.Property<string>("EvaluationMechanism")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -1744,20 +1620,17 @@ namespace Core.Migrations
                         .HasColumnName("invitationDate");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("longDescription");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("shortDescription");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -1770,28 +1643,24 @@ namespace Core.Migrations
                         .HasColumnName("submissionDeadline");
 
                     b.Property<string>("TenderProcedure")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("tenderProcedure");
 
                     b.Property<string>("TenderProcurementTechnique")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("tenderProcurementTechnique");
 
                     b.Property<string>("TenderSerial")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("tenderSerial");
 
                     b.Property<string>("Units")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1812,14 +1681,12 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("category");
 
                     b.Property<string>("Uom")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1850,7 +1717,6 @@ namespace Core.Migrations
                         .HasColumnName("numberofBidders");
 
                     b.Property<string>("TenderProcedure")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("tenderProcedure");
@@ -1874,7 +1740,6 @@ namespace Core.Migrations
                         .HasColumnName("consituency_id");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
@@ -1891,7 +1756,6 @@ namespace Core.Migrations
                         .HasColumnName("department_id");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
@@ -1902,40 +1766,34 @@ namespace Core.Migrations
                         .HasColumnName("emailConfirmed");
 
                     b.Property<string>("Fname")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("fname");
 
                     b.Property<string>("Lname")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("lname");
 
                     b.Property<byte[]>("Logo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)")
                         .HasColumnName("logo");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("password");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("phone");
 
                     b.Property<string>("ProcEntity")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
@@ -1946,7 +1804,6 @@ namespace Core.Migrations
                         .HasColumnName("role_id");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -1957,7 +1814,6 @@ namespace Core.Migrations
                         .HasColumnName("type");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -1978,7 +1834,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
@@ -1991,14 +1846,12 @@ namespace Core.Migrations
                         .HasDefaultValueSql("(getdate())");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("email");
 
                     b.Property<byte[]>("Logo")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)")
                         .HasColumnName("logo");
 
@@ -2007,13 +1860,11 @@ namespace Core.Migrations
                         .HasColumnName("organization_id");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("password");
 
                     b.Property<string>("ProcEntity")
-                        .IsRequired()
                         .HasMaxLength(300)
                         .IsUnicode(false)
                         .HasColumnType("varchar(300)")
@@ -2024,7 +1875,6 @@ namespace Core.Migrations
                         .HasColumnName("role_id");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -2047,22 +1897,18 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Fname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Lname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2074,7 +1920,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -2092,7 +1937,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -2112,7 +1956,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -2123,7 +1966,6 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.CeecCategory", b =>
                 {
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -2148,7 +1990,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyId"), 1L, 1);
 
                     b.Property<string>("CompanyName")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -2169,13 +2010,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CountryCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("CountryName1")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
@@ -2185,7 +2024,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(1)
                         .IsUnicode(false)
                         .HasColumnType("varchar(1)");
@@ -2193,7 +2031,8 @@ namespace Core.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "CountryCode" }, "IX_CountryNames")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[CountryCode] IS NOT NULL");
 
                     b.ToTable("CountryNames");
                 });
@@ -2245,19 +2084,15 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Currency")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Symbol")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -2275,7 +2110,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"), 1L, 1);
 
                     b.Property<string>("ChangedByUser")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2290,13 +2124,11 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .ValueGeneratedOnAdd()
                         .HasMaxLength(1)
                         .IsUnicode(false)
@@ -2320,30 +2152,25 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CaseId"), 1L, 1);
 
                     b.Property<string>("CaseDescription")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("CaseOutcome")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("CaseType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Category")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -2355,7 +2182,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -2364,13 +2190,11 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2409,7 +2233,6 @@ namespace Core.Migrations
                         .HasColumnType("nvarchar(250)");
 
                     b.Property<string>("FileType")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -2451,7 +2274,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<int?>("DepartmentId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("DepartmentID");
 
@@ -2462,7 +2284,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<int?>("EmployeeStatusId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("EmployeeStatusID");
 
@@ -2471,17 +2292,14 @@ namespace Core.Migrations
                         .HasColumnName("EntityID");
 
                     b.Property<int?>("JobGeneralId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("JobGeneralID");
 
                     b.Property<int?>("JobGradeId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("JobGradeID");
 
                     b.Property<int?>("JobTitleId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("JobTitleID");
 
@@ -2495,7 +2313,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<int?>("NatureOfContractId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("NatureOfContractID");
 
@@ -2510,7 +2327,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<int?>("TerminationReasonId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("TerminationReasonID");
 
@@ -2548,13 +2364,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("AccountName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -2566,7 +2380,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -2588,7 +2401,8 @@ namespace Core.Migrations
                     b.HasIndex("EmployeeId");
 
                     b.HasIndex(new[] { "AccountNumber" }, "IX_EmployeeBankDetails")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[AccountNumber] IS NOT NULL");
 
                     b.ToTable("EmployeeBankDetails");
                 });
@@ -2596,31 +2410,26 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.EmployeeBankDetailsView", b =>
                 {
                     b.Property<string>("AccountName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("BankName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("BranchCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("BranchName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2629,7 +2438,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2638,7 +2446,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("StatusCode")
-                        .IsRequired()
                         .HasMaxLength(2)
                         .IsUnicode(false)
                         .HasColumnType("varchar(2)");
@@ -2652,7 +2459,6 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("BirthDate")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2664,13 +2470,11 @@ namespace Core.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("DateEngaged")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Department")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -2692,7 +2496,6 @@ namespace Core.Migrations
                         .HasColumnName("EmployeeID");
 
                     b.Property<string>("EmployeeStatus")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2707,13 +2510,11 @@ namespace Core.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("IdType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2726,19 +2527,16 @@ namespace Core.Migrations
                         .HasColumnName("IDNumber");
 
                     b.Property<string>("JobGeneral")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("JobGrade")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("JobTitle")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -2749,43 +2547,36 @@ namespace Core.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("LeaveStartDate")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("MaidenName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("MaritalStatus")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("MiddleName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Nationality")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("NatureOfContract")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("PensionStartDate")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2796,7 +2587,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("PositionCode")
-                        .IsRequired()
                         .HasMaxLength(113)
                         .IsUnicode(false)
                         .HasColumnType("varchar(113)");
@@ -2808,19 +2598,16 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TerminationDate")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("TerminationReason")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2873,7 +2660,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PositionCode")
-                        .IsRequired()
                         .HasMaxLength(15)
                         .IsUnicode(false)
                         .HasColumnType("varchar(15)");
@@ -2902,26 +2688,22 @@ namespace Core.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("DocumentName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("DocumentType")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
 
                     b.Property<int?>("EmployeeId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("date");
 
                     b.Property<string>("FieldOfStudy")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -2932,7 +2714,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("QualificationType")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -2954,19 +2735,16 @@ namespace Core.Migrations
                         .HasColumnType("varbinary(max)");
 
                     b.Property<string>("DocumentName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("DocumentType")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -2978,7 +2756,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("FieldOfStudy")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -2987,7 +2764,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -2998,13 +2774,11 @@ namespace Core.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("QualificationType")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3037,7 +2811,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Reason")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .IsUnicode(false)
                         .HasColumnType("varchar(80)");
@@ -3071,13 +2844,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"), 1L, 1);
 
                     b.Property<string>("StatusCode")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
 
                     b.Property<string>("StatusDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3085,7 +2856,8 @@ namespace Core.Migrations
                     b.HasKey("StatusId");
 
                     b.HasIndex(new[] { "StatusCode" }, "IX_EmployeeStatus")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[StatusCode] IS NOT NULL");
 
                     b.ToTable("EmployeeStatus", (string)null);
                 });
@@ -3099,7 +2871,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ApprovedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -3120,7 +2891,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3129,7 +2899,6 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3141,7 +2910,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3160,13 +2928,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EntityCode"), 1L, 1);
 
                     b.Property<string>("AccountName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3183,18 +2949,15 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("CellNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<int?>("CountryOfBirthId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("CountryOfBirthID");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3203,19 +2966,16 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("DisplayName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<int?>("EmployeeStatusId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("EmployeeStatusID");
 
@@ -3252,29 +3012,24 @@ namespace Core.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("MaidenName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<int?>("MaritalStatusId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("MaritalStatusID");
 
                     b.Property<string>("Nationality")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("PhysicalAddress")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("SecondName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -3283,17 +3038,14 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("TitleId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("TitleID");
 
                     b.Property<string>("WorkAddress")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("WorkNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3329,12 +3081,10 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("ErrorDescription")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -3354,13 +3104,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenderId"), 1L, 1);
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasMaxLength(2)
                         .HasColumnType("nchar(2)")
                         .IsFixedLength();
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -3368,7 +3116,8 @@ namespace Core.Migrations
                     b.HasKey("GenderId");
 
                     b.HasIndex(new[] { "Code" }, "IX_Gender")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Code] IS NOT NULL");
 
                     b.ToTable("Gender", (string)null);
                 });
@@ -3382,7 +3131,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -3408,20 +3156,17 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdnumberTypeId"), 1L, 1);
 
                     b.Property<string>("Idcode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)")
                         .HasColumnName("IDCode");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -3429,7 +3174,8 @@ namespace Core.Migrations
                     b.HasKey("IdnumberTypeId");
 
                     b.HasIndex(new[] { "Idcode" }, "IX_IDNumberType")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[IDCode] IS NOT NULL");
 
                     b.ToTable("IDNumberType", (string)null);
                 });
@@ -3454,7 +3200,6 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,5)");
 
                     b.Property<string>("IncreaseAppliedOn")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3523,7 +3268,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IncreaseReasonId"), 1L, 1);
 
                     b.Property<string>("Code")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -3532,25 +3276,21 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)")
@@ -3559,7 +3299,8 @@ namespace Core.Migrations
                     b.HasKey("IncreaseReasonId");
 
                     b.HasIndex(new[] { "Code" }, "IX_IncreaseReason")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Code] IS NOT NULL");
 
                     b.ToTable("IncreaseReason", (string)null);
                 });
@@ -3574,13 +3315,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobGeneralId"), 1L, 1);
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -3600,19 +3339,16 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobGradeId"), 1L, 1);
 
                     b.Property<string>("JobGradeCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("JobGradeDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -3620,7 +3356,8 @@ namespace Core.Migrations
                     b.HasKey("JobGradeId");
 
                     b.HasIndex(new[] { "JobGradeCode" }, "IX_JobGrade")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[JobGradeCode] IS NOT NULL");
 
                     b.ToTable("JobGrade", (string)null);
                 });
@@ -3634,13 +3371,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobTitleId"), 1L, 1);
 
                     b.Property<string>("ChangedByUser")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<int?>("JobGradeId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Jobcode")
@@ -3653,18 +3388,15 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -3721,7 +3453,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("LeaveAccrualStartDate")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3730,7 +3461,6 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("LeaveTypeDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3750,7 +3480,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ApprovedBy")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3762,24 +3491,20 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("FirstName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Guid")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -3794,7 +3519,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
@@ -3822,7 +3546,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("BalanceBroughtForwardOption")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3834,13 +3557,11 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Cycle")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3874,13 +3595,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaritalStatusId"), 1L, 1);
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -3908,7 +3627,6 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,4)");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -3937,19 +3655,16 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ContractTypeCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("ContractTypeDecsription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -3957,7 +3672,8 @@ namespace Core.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex(new[] { "ContractTypeCode" }, "IX_NatureOfContract")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[ContractTypeCode] IS NOT NULL");
 
                     b.ToTable("NatureOfContract", (string)null);
                 });
@@ -3971,7 +3687,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4006,7 +3721,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DefId"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4018,19 +3732,16 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("DeductionCode")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("DeductionDecsription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Formula")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .IsUnicode(false)
                         .HasColumnType("varchar(255)");
@@ -4039,13 +3750,11 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -4053,7 +3762,8 @@ namespace Core.Migrations
                     b.HasKey("DefId");
 
                     b.HasIndex(new[] { "DeductionCode" }, "IX_PayrollDeductionDef")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[DeductionCode] IS NOT NULL");
 
                     b.ToTable("PayrollDeductionDef", (string)null);
                 });
@@ -4068,7 +3778,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DefId"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4080,19 +3789,16 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("EarningLineCode")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("EarningLineDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Formula")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)");
@@ -4101,13 +3807,11 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ModifiedBy")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -4115,7 +3819,8 @@ namespace Core.Migrations
                     b.HasKey("DefId");
 
                     b.HasIndex(new[] { "EarningLineCode" }, "IX_PayrollEarningDef")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[EarningLineCode] IS NOT NULL");
 
                     b.ToTable("PayrollEarningDef", (string)null);
                 });
@@ -4135,7 +3840,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4151,19 +3855,16 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.PayrollRunDetailsView", b =>
                 {
                     b.Property<string>("AccountName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("AccountNumber")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("BankName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -4172,19 +3873,16 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("BranchCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("BranchName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("DateEngaged")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -4202,7 +3900,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4214,19 +3911,16 @@ namespace Core.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("JobGeneral")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("JobGrade")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("JobTitle")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -4251,7 +3945,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -4260,7 +3953,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("OccurenceCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4269,7 +3961,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("PayrollDefinitionCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4290,7 +3981,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(20)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4390,7 +4080,6 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.PositionCodesView", b =>
                 {
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -4399,25 +4088,21 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("Department")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("EmployeeName")
-                        .IsRequired()
                         .HasMaxLength(201)
                         .IsUnicode(false)
                         .HasColumnType("varchar(201)");
 
                     b.Property<string>("JobGrade")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4429,7 +4114,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(80)
                         .IsUnicode(false)
                         .HasColumnType("varchar(80)");
@@ -4447,7 +4131,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(30)
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
@@ -4456,7 +4139,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4473,7 +4155,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PositionCodeId"), 1L, 1);
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -4485,7 +4166,6 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EmployeeCode")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4497,7 +4177,6 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("LongDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -4509,13 +4188,11 @@ namespace Core.Migrations
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("ReportsToPositionCode")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("ShortDescription")
-                        .IsRequired()
                         .HasMaxLength(25)
                         .IsUnicode(false)
                         .HasColumnType("varchar(25)");
@@ -4524,7 +4201,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4591,7 +4267,6 @@ namespace Core.Migrations
                         .HasColumnName("ID");
 
                     b.Property<string>("Reference1")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -4610,13 +4285,11 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"), 1L, 1);
 
                     b.Property<string>("StatusCode")
-                        .IsRequired()
                         .HasMaxLength(2)
                         .IsUnicode(false)
                         .HasColumnType("varchar(2)");
 
                     b.Property<string>("StausDescription")
-                        .IsRequired()
                         .HasMaxLength(10)
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
@@ -4633,14 +4306,12 @@ namespace Core.Migrations
             modelBuilder.Entity("Core.Models.SupplierRegAttachment", b =>
                 {
                     b.Property<string>("Attachment")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("attachment");
 
                     b.Property<string>("AttachmentType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -4666,91 +4337,78 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("CompanyRegistrationNumber")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("companyRegistrationNumber");
 
                     b.Property<string>("CompanyStatusNapsa")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("companyStatusNapsa");
 
                     b.Property<string>("CompanyStatusZra")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("companyStatusZRA");
 
                     b.Property<string>("ConfirmationCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("confirmationCode");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("country");
 
                     b.Property<string>("CountryOfRegistration")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("countryOfRegistration");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
                         .HasColumnName("email");
 
                     b.Property<string>("OrganizationName")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .IsUnicode(false)
                         .HasColumnType("varchar(200)")
                         .HasColumnName("organizationName");
 
                     b.Property<string>("OrganizationType")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
                         .HasColumnName("organizationType");
 
                     b.Property<string>("Phone")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("phone");
 
                     b.Property<string>("Shareholders")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("shareholders");
 
                     b.Property<string>("SupplierRegistrationCode")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
                         .HasColumnName("supplierRegistrationCode");
 
                     b.Property<string>("Tpin")
-                        .IsRequired()
                         .HasMaxLength(150)
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
@@ -4774,13 +4432,11 @@ namespace Core.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("BandDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4801,7 +4457,6 @@ namespace Core.Migrations
                         .HasColumnType("date");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasMaxLength(5)
                         .IsUnicode(false)
                         .HasColumnType("varchar(5)");
@@ -4860,7 +4515,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TitleId"), 1L, 1);
 
                     b.Property<string>("TitleDescription1")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)")
@@ -4881,7 +4535,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AuditId"), 1L, 1);
 
                     b.Property<string>("Action")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -4889,7 +4542,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("ActionType")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -4898,31 +4550,26 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FieldName")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Guid")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)")
                         .HasColumnName("GUID");
 
                     b.Property<string>("NewValue")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("OldValue")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4944,7 +4591,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("EmailAddress")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -4963,7 +4609,6 @@ namespace Core.Migrations
                         .HasColumnName("organization_id");
 
                     b.Property<string>("Password")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -4971,12 +4616,10 @@ namespace Core.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("UserRoleId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("UserRoleID");
 
                     b.Property<string>("Username")
-                        .IsRequired()
                         .HasMaxLength(20)
                         .IsUnicode(false)
                         .HasColumnType("varchar(20)");
@@ -4992,7 +4635,8 @@ namespace Core.Migrations
                         .HasFilter("[EmployeId] IS NOT NULL");
 
                     b.HasIndex(new[] { "Username" }, "IX_UserDetail_1")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[Username] IS NOT NULL");
 
                     b.ToTable("UserDetail", (string)null);
                 });
@@ -5007,7 +4651,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("MenuDescription")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -5026,12 +4669,10 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserMenuMappingId"), 1L, 1);
 
                     b.Property<int?>("UserMenuId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("UserMenuID");
 
                     b.Property<int?>("UserRoleId")
-                        .IsRequired()
                         .HasColumnType("int")
                         .HasColumnName("UserRoleID");
 
@@ -5054,7 +4695,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ResetId"), 1L, 1);
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -5063,7 +4703,6 @@ namespace Core.Migrations
                         .HasColumnType("datetime");
 
                     b.Property<string>("ResetToken")
-                        .IsRequired()
                         .IsUnicode(false)
                         .HasColumnType("varchar(max)");
 
@@ -5072,11 +4711,9 @@ namespace Core.Migrations
                         .HasColumnName("TokenStatusID");
 
                     b.Property<int?>("UserId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -5102,7 +4739,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserRoleId"), 1L, 1);
 
                     b.Property<string>("RoleDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)");
@@ -5122,7 +4758,6 @@ namespace Core.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StatusId"), 1L, 1);
 
                     b.Property<string>("StatusDescription")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
@@ -5218,15 +4853,11 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.Department", "Department")
                         .WithMany("Employees")
                         .HasForeignKey("DepartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_Department");
 
                     b.HasOne("Core.Models.EmployeeStatus", "EmployeeStatus")
                         .WithMany("Employees")
                         .HasForeignKey("EmployeeStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_EmployeeStatus");
 
                     b.HasOne("Core.Models.Entity", "Entity")
@@ -5238,36 +4869,26 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.JobGeneral", "JobGeneral")
                         .WithMany("Employees")
                         .HasForeignKey("JobGeneralId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_JobGeneral");
 
                     b.HasOne("Core.Models.JobGrade", "JobGrade")
                         .WithMany("Employees")
                         .HasForeignKey("JobGradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_JobGrade");
 
                     b.HasOne("Core.Models.JobTitle", "JobTitle")
                         .WithMany("Employees")
                         .HasForeignKey("JobTitleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_JobTitle");
 
                     b.HasOne("Core.Models.NatureOfContract", "NatureOfContract")
                         .WithMany("Employees")
                         .HasForeignKey("NatureOfContractId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_NatureOfContract");
 
                     b.HasOne("Core.Models.TerminationReason", "TerminationReason")
                         .WithMany("Employees")
                         .HasForeignKey("TerminationReasonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Employee_TerminationReason");
 
                     b.Navigation("Department");
@@ -5303,8 +4924,6 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.Employee", "Employee")
                         .WithMany("EmployeeQualifications")
                         .HasForeignKey("EmployeeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_EmployeeQualifications_Employee");
 
                     b.Navigation("Employee");
@@ -5326,15 +4945,11 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.CountryName", "CountryOfBirth")
                         .WithMany("Entities")
                         .HasForeignKey("CountryOfBirthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Entity_CountryNames");
 
                     b.HasOne("Core.Models.EmployeeStatus", "EmployeeStatus")
                         .WithMany("Entities")
                         .HasForeignKey("EmployeeStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Entity_EmployeeStatus");
 
                     b.HasOne("Core.Models.IdnumberType", "IdnumberTypeNavigation")
@@ -5345,15 +4960,11 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.MaritalStatus", "MaritalStatus")
                         .WithMany("Entities")
                         .HasForeignKey("MaritalStatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Entity_MaritalStatus");
 
                     b.HasOne("Core.Models.TitleDescription", "Title")
                         .WithMany("Entities")
                         .HasForeignKey("TitleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_Entity_TitleDescription");
 
                     b.Navigation("CountryOfBirth");
@@ -5372,8 +4983,6 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.JobGrade", "JobGrade")
                         .WithMany("JobTitles")
                         .HasForeignKey("JobGradeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_JobTitle_JobGrade");
 
                     b.Navigation("JobGrade");
@@ -5402,8 +5011,6 @@ namespace Core.Migrations
                         .WithMany("PayslipDefinitions")
                         .HasForeignKey("OccurenceCode")
                         .HasPrincipalKey("Code")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_PayslipDefinition_PayrollLinesFrequecyCodes");
 
                     b.Navigation("Employee");
@@ -5441,8 +5048,6 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.UserRole", "UserRole")
                         .WithMany("UserDetails")
                         .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_UserDetail_UserRoles");
 
                     b.Navigation("ProfileStatusNavigation");
@@ -5455,15 +5060,11 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.UserMenu", "UserMenu")
                         .WithMany("UserMenuMappings")
                         .HasForeignKey("UserMenuId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_UserMenuMapping_UserMenu");
 
                     b.HasOne("Core.Models.UserRole", "UserRole")
                         .WithMany("UserMenuMappings")
                         .HasForeignKey("UserRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_UserMenuMapping_UserRoles");
 
                     b.Navigation("UserMenu");
@@ -5476,8 +5077,6 @@ namespace Core.Migrations
                     b.HasOne("Core.Models.UserDetail", "User")
                         .WithMany("UserPasswordResets")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
                         .HasConstraintName("FK_UserPasswordResets_UserDetail");
 
                     b.Navigation("User");
