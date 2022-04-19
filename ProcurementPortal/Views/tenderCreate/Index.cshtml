@@ -408,12 +408,13 @@ error: function (data) { }
            $.ajax(settings)
            .done(function(response){
                if(response.success){
-               alert("here");
+               window.location.href="tender-section/create";
                }
 
            }).fail(function(xhr){
-               swal.fire('Error','Failed to save Data','error');
+                window.location.href="tender-section/create";
            });
+            window.location.href="tender-section/create";
        });
                           
                         </script>

@@ -104,13 +104,24 @@ namespace Portal.Controllers
         [Route("create-tender")]
         public IActionResult createTender([FromBody] Tender request)
         {
+  
+
             if (!ModelState.IsValid)
             {
                 try
                 {
                    int id= _enderService.CreateTender(request).Id;
+
+                    HttpContext.Session.SetString("tenderID", id.ToString());
+
+
                     return Ok(
-                     new { success = true, message = id });
+                                new
+                                {
+                                    success = false,
+                                    message = "Successfully added",
+                                    payload = id,
+                                });
                 }
 
                 catch (Exception ex)
@@ -129,7 +140,7 @@ namespace Portal.Controllers
                               new
                               {
                                   success = false,
-                                  message = "Successfully added",
+                                  message = "Invalid",
                                   payload = "",
                               });
             }

@@ -66,6 +66,7 @@ namespace Core.Models
         public virtual DbSet<CdfTender> CdfTenders { get; set; } = null!;
         public virtual DbSet<CdfTenderCategory> CdfTenderCategories { get; set; } = null!;
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedures { get; set; } = null!;
+        public virtual DbSet<CdfTenderSection> CdfTenderSections { get; set; } = null!;
         public virtual DbSet<CdfUser> CdfUsers { get; set; } = null!;
         public virtual DbSet<CdfUser1> CdfUsers1 { get; set; } = null!;
         public virtual DbSet<CdfUser2> CdfUsers2 { get; set; } = null!;
@@ -1217,6 +1218,25 @@ namespace Core.Models
                 entity.Property(e => e.TenderProcedure)
                     .IsUnicode(false)
                     .HasColumnName("tenderProcedure");
+            });
+
+            modelBuilder.Entity<CdfTenderSection>(entity =>
+            {
+                entity.ToTable("Cdf_TenderSection");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Description)
+                    .HasColumnType("text")
+                    .HasColumnName("description");
+
+                entity.Property(e => e.SupportingDocumentation).HasColumnName("supporting_documentation");
+
+                entity.Property(e => e.TextResponse).HasColumnName("text_response");
+
+                entity.Property(e => e.Title)
+                    .IsUnicode(false)
+                    .HasColumnName("title");
             });
 
             modelBuilder.Entity<CdfUser>(entity =>

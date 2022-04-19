@@ -97,7 +97,18 @@
 
                     <form id="procurementForm">
                         <div class="card-header">
-                            <h3 class="text-muted">ADD PROCUREMENT PLAN ITEMS</h3>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h3 class="text-muted">ADD PROCUREMENT PLAN ITEMS</h3>
+                                </div>
+                                <div id="submissionBtn" class="col-sm-6 text-right d-none">
+                                    <button type="button" id="proceedBtn" class="btn btn-sm btn-light-success">
+                                        <i class="la la-arrow-right"></i>
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-body">
 
@@ -259,7 +270,7 @@
         </div>
     </div>
     <div class="row d-none" id="addedItemsContent">
-        <div class="card card-custom gutter-b example example-compact  col-md-12">
+        <div class="card card-custom gutter-b example example-compact  table-responsive">
             <table class="table table-bordered table-hover table-checkable mt-10" id="kt_datatable">
                 <thead>
                     <tr>
@@ -278,6 +289,7 @@
                         <th>Start</th>
                         <th>Type Of Entry</th>
                         <th>Budget</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -447,6 +459,7 @@
                    if($("#addedItemsContent").hasClass('d-none'))
                    {
                        $("#addedItemsContent").removeClass('d-none');
+                       $("#submissionBtn").removeClass('d-none');
                    }
 
                    let row = `<tr>
@@ -465,6 +478,26 @@
                         <td>${data.start}</td>
                         <td>${data.typeofentry}</td>
                         <td>${data.budget}</td>
+                        <td>
+                            <div class="dropdown dropdown-inline">
+                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" data-toggle="dropdown">
+                                    <i class="la la-cog"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                    <ul class="nav nav-hoverable flex-column">
+                                        <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-edit"></i><span class="nav-text">Edit Details</span></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-leaf"></i><span class="nav-text">Update Status</span></a></li>
+                                        <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-print"></i><span class="nav-text">Print</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Edit details">
+                                <i class="la la-edit"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">
+                                <i class="la la-trash"></i>
+                            </a>
+                        </td>
                     </tr>`;
 
                     $('#kt_datatable > tbody').append(row);
@@ -475,6 +508,10 @@
            }).fail(function(xhr){
            });
        });
+
+       $("#proceedBtn").on('click', function(){
+           window.location.href="/"
+       })
     });
 </script>
 

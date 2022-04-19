@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Form Builder";
+}
+<link type="text/css" rel="stylesheet" href="~/assets/css/form.builder.css" />
+<link type="text/css" rel="stylesheet" href="~/assets/fontawesome/css/font-awesome.min.css" />
+<style>
+    .btn.btn-primary:hover:not(.btn-text):not(:disabled):not(.disabled), .btn.btn-primary:focus:not(.btn-text), .btn.btn-primary.focus:not(.btn-text) {
+        color: #fff;
+        background-color: #2780e3;
+        border-color: #2780e3;
+        border-radius: 0;
+    }
+
+    .accordion input {
+        border-radius: 0 !important;
+        border: none !important;
+        /*border-bottom: 1px solid grey !important;*/
+    }
+
+    textarea {
+        border-radius: 0 !important;
+    }
+
+</style>
+
+<div class="container">
+    <div id="kt_repeater_1">
+        <div class="form-group row">
+            <div data-repeater-list="" class="col-lg-10">
+                <div data-repeater-item="" class="form-group row align-items-center p-3">
+                    <div class="col-md-12 mb-3">
+
+                        <partial name="_Accordion.cshtml" />
+
+                        <!-- TinyMCE-->
+                        @*<partial name="_Editor.cshtml" />*@
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-lg-2">
+                <div class="row mt-2">
+                    <div class="col-sm-12 mb-3">
+                        <a href="javascript:;" data-repeater-create="" class="btn btn-block btn-sm font-weight-bolder btn-light-primary">
+                            <i class="la la-plus-circle"></i>Add Section
+                        </a>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="button" id="saveSubmitSection" class="btn font-weight-bold btn-block btn-success">
+                            <i class="la la-check-circle"></i> Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+@*<script src="~/assets/js/pages/crud/forms/widgets/form-repeater.js"></script>
+*@<script src="~/assets/plugins/custom/tinymce/tinymce.bundle.js"></script>
+<script src="~/assets/js/pages/crud/forms/editors/tinymce.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+        $("#saveSection").on('click', function(e){
+   
+            let formData = new FormData($("#sectionDataform")[0]);
+            let payload = {};
+            for(var pair of formData.entries()) {
+                payload[pair[0]]= pair[1];
+            }
+
+            console.log("payload", payload)
+
+            let settings = {
+                url: "/tender-section/create",
+                method: "POST",
+                dataType: "json",
+                data: JSON.stringify(payload),
+                contentType: 'application/json'
+            }
+
+            $.ajax(settings).done(function(response){
+                setTimeout(function(){
+                   if(response.success){
+                        swal.fire('Tender Submission !', response.message, 'success');
+                   }else{
+                        swal.fire('Oops !', message, 'error');
+                   }
+               },300);
+            })
+            .fail(function(xhr){
+               swal.fire('Oops !',"Failed to process request", 'error');
+           });
+        })
+    })
+</script>
+}
