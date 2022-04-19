@@ -30,6 +30,7 @@ namespace Core.Services
         {
             return db.CdfTenderCategories.ToList();
 
+
         }
 
         public List<CdfEvaluationmethod> cdfEvaluationmethods()
