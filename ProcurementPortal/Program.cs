@@ -16,6 +16,7 @@ builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataServi
 builder.Services.AddScoped<IDropDownService, DropDownService>();
 builder.Services.AddScoped<ITenderService, TenderService > ();
 builder.Services.AddScoped<ITenderSectionDataService, TenderSectionDataService>();
+builder.Services.AddScoped<ISupplierDataService, SupplierDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

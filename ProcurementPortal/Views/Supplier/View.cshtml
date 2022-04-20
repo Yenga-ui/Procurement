@@ -1,0 +1,137 @@
+﻿@model IEnumerable<Core.Models.CdfPlanItem>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>View</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unspsc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Unitofmeasure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SourceOfFunds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prequalification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcurementMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publication)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Award)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Start)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Typeofentry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Budget)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProcPlanId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unspsc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unitofmeasure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceOfFunds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prequalification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcurementMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publication)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Award)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comments)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Typeofentry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Budget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProcPlanId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
