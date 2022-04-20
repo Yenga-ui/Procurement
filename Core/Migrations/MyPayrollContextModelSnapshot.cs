@@ -1726,6 +1726,42 @@ namespace Core.Migrations
                     b.ToTable("CDF_TenderProcedure", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Models.CdfTenderSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text")
+                        .HasColumnName("description");
+
+                    b.Property<int?>("SupportingDocumentation")
+                        .HasColumnType("int")
+                        .HasColumnName("supporting_documentation");
+
+                    b.Property<int?>("TenderId")
+                        .HasColumnType("int")
+                        .HasColumnName("tenderID");
+
+                    b.Property<int?>("TextResponse")
+                        .HasColumnType("int")
+                        .HasColumnName("text_response");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cdf_TenderSection", (string)null);
+                });
+
             modelBuilder.Entity("Core.Models.CdfUser", b =>
                 {
                     b.Property<int>("Id")

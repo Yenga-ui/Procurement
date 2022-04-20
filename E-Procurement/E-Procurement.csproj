@@ -452,6 +452,10 @@
     <None Include="wwwroot\js\demo\chart-bar-demo.js" />
     <None Include="wwwroot\js\demo\chart-pie-demo.js" />
     <None Include="wwwroot\js\demo\datatables-demo.js" />
+    <None Include="wwwroot\sassets\fonts\fa-solid-900.svg" />
+    <None Include="wwwroot\sassets\fonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\sassets\fonts\Pe-icon-7-stroke.svg" />
+    <None Include="wwwroot\sassets\scripts\main.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2941,6 +2941,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Pages\Test\Section\NewFolder\" />
       <Folder Include="Views\Shared\Menus\" />
       <Folder Include="wwwroot\Style\" />
       <Folder Include="wwwroot\Uploads\" />

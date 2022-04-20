@@ -1232,6 +1232,8 @@ namespace Core.Models
 
                 entity.Property(e => e.SupportingDocumentation).HasColumnName("supporting_documentation");
 
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
                 entity.Property(e => e.TextResponse).HasColumnName("text_response");
 
                 entity.Property(e => e.Title)

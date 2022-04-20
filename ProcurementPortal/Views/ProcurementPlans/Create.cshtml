@@ -8,6 +8,79 @@
 <!--end::Card-->
 <div class="container">
     <div class="row">
+       <div class="col-md-12">
+           <div class="card text-right border-0">
+                <div class="card-toolbar">
+            <!--begin::Dropdown-->
+            <div class="dropdown dropdown-inline mr-2">
+                <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="la la-download"></i>Export
+                </button>
+
+                <!--begin::Dropdown Menu-->
+                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                    <!--begin::Navigation-->
+                    <ul class="navi flex-column navi-hover py-2">
+                        <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-icon">
+                                    <i class="la la-print"></i>
+                                </span>
+                                <span class="navi-text">Print</span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-icon">
+                                    <i class="la la-copy"></i>
+                                </span>
+                                <span class="navi-text">Copy</span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-icon">
+                                    <i class="la la-file-excel-o"></i>
+                                </span>
+                                <span class="navi-text">Excel</span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-icon">
+                                    <i class="la la-file-text-o"></i>
+                                </span>
+                                <span class="navi-text">CSV</span>
+                            </a>
+                        </li>
+                        <li class="navi-item">
+                            <a href="#" class="navi-link">
+                                <span class="navi-icon">
+                                    <i class="la la-file-pdf-o"></i>
+                                </span>
+                                <span class="navi-text">PDF</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!--end::Navigation-->
+                </div>
+                <!--end::Dropdown Menu-->
+            </div>
+            <!--end::Dropdown-->
+
+            <button data-toggle="modal"
+                    type="button"
+                    data-target="#bulkUploadProcurementPlanModal"
+                    class="btn btn-light-primary font-weight-bolder mr-2">
+                <i class="la la-upload"></i>Bulk Upload
+            </button>
+        </div>
+           </div>
+       </div>
+    </div>
+
+    <div class="row">
         <div class="col-md-4">
             <div class="card card-custom gutter-b example example-compact col-xs-6">
                 <div class="card-header">
@@ -18,86 +91,87 @@
                             <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
                         </div>
                     </div>
-
-                    <!--begin::Form-->
-                    <form id="planHeaderForm" method="post">
-                        <div class="card-body">
-                            <div class="form-group mb-8">
-                                <div class="alert alert-custom alert-default" role="alert">
-                                    <div class="alert-icon">
-                                        <span class="svg-icon svg-icon-primary svg-icon-xl">
-                                            <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <rect x="0" y="0" width="24" height="24" />
-                                                    <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3" />
-                                                    <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
-                                                </g>
-                                            </svg>
-                                            <!--end::Svg Icon-->
-                                        </span>
-                                    </div>
-                                    <div class="alert-text">Create Procurement plan header and then add its associated line items.</div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>
-                                    Procurement Plan
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Enter procurement plan" />
-                                <span class="form-text text-muted">Enter a unique procurement plan title.</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">
-                                    Description
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <textarea type="text" class="form-control" id="description" name="description" placeholder="" rows="3"></textarea>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleSelect1">
-                                    Year
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <select class="form-control" id="exampleSelect1" name="year">
-                                    <option>2022</option>
-                                    <option>2023</option>
-                                    <option>2024</option>
-                                    <option>2025</option>
-                                    <option>2026</option>
-                                </select>
-                            </div>
-
-
-
-                            <!--begin: Code-->
-                            <div class="example-code mt-10">
-                                <div class="example-highlight">
-                                    <pre style="height:400px">
-                                </div>
-                            </div>
-                            <!--end: Code-->
-                        </div>
-                        <div class="card-footer">
-                            <button type="submit" class="btn btn-primary mr-2" id="create">Create</button>
-
-                        </div>
-                    </form>
-                    <!--end::Form-->
-
                 </div>
 
+                <!--begin::Form-->
+                <form id="planHeaderForm" method="post">
+                    <div class="card-body">
+                        <div class="form-group mb-8">
+                            <div class="alert alert-custom alert-default" role="alert">
+                                <div class="alert-icon">
+                                    <span class="svg-icon svg-icon-primary svg-icon-xl">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Tools/Compass.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path d="M7.07744993,12.3040451 C7.72444571,13.0716094 8.54044565,13.6920474 9.46808594,14.1079953 L5,23 L4.5,18 L7.07744993,12.3040451 Z M14.5865511,14.2597864 C15.5319561,13.9019016 16.375416,13.3366121 17.0614026,12.6194459 L19.5,18 L19,23 L14.5865511,14.2597864 Z M12,3.55271368e-14 C12.8284271,3.53749572e-14 13.5,0.671572875 13.5,1.5 L13.5,4 L10.5,4 L10.5,1.5 C10.5,0.671572875 11.1715729,3.56793164e-14 12,3.55271368e-14 Z" fill="#000000" opacity="0.3" />
+                                                <path d="M12,10 C13.1045695,10 14,9.1045695 14,8 C14,6.8954305 13.1045695,6 12,6 C10.8954305,6 10,6.8954305 10,8 C10,9.1045695 10.8954305,10 12,10 Z M12,13 C9.23857625,13 7,10.7614237 7,8 C7,5.23857625 9.23857625,3 12,3 C14.7614237,3 17,5.23857625 17,8 C17,10.7614237 14.7614237,13 12,13 Z" fill="#000000" fill-rule="nonzero" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </div>
+                                <div class="alert-text">Create Procurement plan header and then add its associated line items.</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Procurement Plan
+                                <span class="text-danger">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="title" name="title" placeholder="Enter procurement plan" />
+                            <span class="form-text text-muted">Enter a unique procurement plan title.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">
+                                Description
+                                <span class="text-danger">*</span>
+                            </label>
+                            <textarea type="text" class="form-control" id="description" name="description" placeholder="" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleSelect1">
+                                Year
+                                <span class="text-danger">*</span>
+                            </label>
+                            <select class="form-control" id="exampleSelect1" name="year">
+                                <option>2022</option>
+                                <option>2023</option>
+                                <option>2024</option>
+                                <option>2025</option>
+                                <option>2026</option>
+                            </select>
+                        </div>
+
+
+
+                        <!--begin: Code-->
+                        <div class="example-code mt-10">
+                            <div class="example-highlight">
+                                <pre style="height:400px">
+                            </div>
+                        </div>
+                        <!--end: Code-->
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary mr-2" id="create">Create</button>
+
+                    </div>
+                </form>
+                <!--end::Form-->
+
             </div>
+
         </div>
+
         <div class="col-md-8">
             <div class="row">
                 <div class="card card-custom gutter-b example example-compact col-md-12">
 
                     <form id="procurementForm">
                         <div class="card-header">
-                            
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <h3 class="text-muted">ADD PROCUREMENT PLAN ITEMS</h3>
@@ -300,9 +374,9 @@
     </div>
 </div>
 
-
 <!--end::Content-->
 <!-- Modal Here-->
+<partial name="_ProcurementPlanForm.cshtml" />
 @section Scripts{
 <!--begin::Page Vendors(used by this page)-->
 @*<script src="~/assets/plugins/custom/datatables/datatables.bundle.js" asp-append-version="true"></script>
@@ -394,8 +468,6 @@
                 },
             ],
         });
-
-
 
         $("form#planHeaderForm").on('submit', function(e){
            e.preventDefault();
