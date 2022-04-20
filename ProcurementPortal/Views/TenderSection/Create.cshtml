@@ -69,12 +69,21 @@
         $("#saveSection").on('click', function(e){
    
             let formData = new FormData($("#sectionDataform")[0]);
-            let payload = {};
-            for(var pair of formData.entries()) {
+            let payload = {
+                Title: $("#Title").val(),
+                Description: $("#Description").val(),
+                SupportingDocumentation: $("#SupportingDocumentation").val(),
+                TextResponse: $("#TextResponse").val()
+            };
+
+            /*for(var pair of formData.entries()) {
                 payload[pair[0]]= pair[1];
-            }
+            }*/
+
+
 
             console.log("payload", payload)
+            console.log(JSON.stringify(payload))
 
             let settings = {
                 url: "/tender-section/create",
@@ -87,7 +96,7 @@
             $.ajax(settings).done(function(response){
                 setTimeout(function(){
                    if(response.success){
-                        swal.fire('Tender Submission !', response.message, 'success');
+                        swal.fire('Tender Submission !', response, 'success');
                    }else{
                         swal.fire('Oops !', message, 'error');
                    }
