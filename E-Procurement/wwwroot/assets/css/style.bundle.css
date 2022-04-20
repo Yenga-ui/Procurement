@@ -47195,9 +47195,7 @@ body {
   .header-fixed .wrapper {
     padding-top: 65px;
   }
-  .header-fixed.toolbar-fixed .wrapper {
-    padding-top: calc(65px + var(--kt-toolbar-height));
-  }
+  
 }
 @media (max-width: 991.98px) {
   .container,

@@ -40,7 +40,8 @@ public class TenderSectionController : Controller
                         message = "Validation Failed"
                     });
             }*/
-
+           String tenderID= HttpContext.Session.GetString("tenderID");
+           tenderSection.TenderId=Int32.Parse(tenderID);
             var tender = TenderSectionDataService.Save(tenderSection);
 
             if (tender == null)

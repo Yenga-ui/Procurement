@@ -1137,6 +1137,10 @@ namespace E_Procurement.Migrations
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
 
+                    b.Property<decimal?>("Budget")
+                        .HasColumnName("budget")
+                        .HasColumnType("decimal(18, 0)");
+
                     b.Property<string>("Class")
                         .HasColumnName("class")
                         .HasColumnType("varchar(max)")
@@ -1146,6 +1150,12 @@ namespace E_Procurement.Migrations
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnName("createdBy")
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
                     b.Property<string>("Description")
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
@@ -1153,6 +1163,10 @@ namespace E_Procurement.Migrations
                     b.Property<string>("Prequalification")
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
+
+                    b.Property<int?>("ProcPlanId")
+                        .HasColumnName("procPlanID")
+                        .HasColumnType("int");
 
                     b.Property<string>("ProcurementMethod")
                         .HasColumnName("procurement_method")
@@ -1664,6 +1678,37 @@ namespace E_Procurement.Migrations
                     b.ToTable("CDF_TenderProcedure");
                 });
 
+            modelBuilder.Entity("E_Procurement.Models.CdfTenderSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("SupportingDocumentation")
+                        .HasColumnName("supporting_documentation")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TextResponse")
+                        .HasColumnName("text_response")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnName("title")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cdf_TenderSection");
+                });
+
             modelBuilder.Entity("E_Procurement.Models.CdfUser", b =>
                 {
                     b.Property<int>("Id")
@@ -1740,9 +1785,11 @@ namespace E_Procurement.Migrations
                         .HasColumnName("role_id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Status")
+                    b.Property<string>("Status")
                         .HasColumnName("status")
-                        .HasColumnType("int");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
 
                     b.Property<int?>("Type")
                         .HasColumnName("type")

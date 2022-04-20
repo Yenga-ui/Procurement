@@ -1,0 +1,58 @@
+﻿@page
+@model E_Procurement.Pages.TenderSection.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Pages/Shared/_SLayout.cshtml";
+}
+
+
+<!--begin::Card-->
+<div class="card card-custom gutter-b">
+
+    <div class="card-body">
+        <!--begin::Accordion-->
+        <div class="accordion accordion-solid accordion-toggle-plus" id="accordionExample3">
+            @foreach (var item in Model.CdfTenderSection)
+            {
+                   <form method="post">
+                <div class="card">
+                    <div class="card-header" id="headingOne3">
+                        <div class="card-title" data-toggle="collapse" data-target="#collapseOne3">@Html.DisplayFor(modelItem => item.Title)</div>
+                    </div>
+                    <div id="collapseOne3" class="collapse show" data-parent="#accordionExample3">
+                        <div class="card-body">
+                            <p>
+                                @Html.DisplayFor(modelItem => item.Description)
+                            </p>
+
+                          
+                                <input type="hidden" name="itemId" value="@item.Id" />
+                                @{
+                                    if(item.TextResponse == 1)
+                                    {
+                                        <textarea class="form-control" name="textReponse"></textarea>
+                                    }
+                                }
+                                @{
+                                    if (item.SupportingDocumentation == 1)
+                                    {
+                                        <input type="file" name="documentation" class="form-control mt-3" />
+
+                                    }
+                                }
+                            
+                        </div>
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Send Response</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                </form>
+            }
+        </div>
+        <!--end::Accordion-->
+    </div>
+</div>
+<!--end::Card-->

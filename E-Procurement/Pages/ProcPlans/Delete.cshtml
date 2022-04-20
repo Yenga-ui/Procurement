@@ -1,0 +1,131 @@
+﻿@page
+@model E_Procurement.Pages.ProcPlans.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/Shared/_metronicLayout.cshtml";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CdfPlanItems</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Class)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Class)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Unspsc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Unspsc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.RefNo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.RefNo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.ProjectCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.ProjectCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Unitofmeasure)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Unitofmeasure)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Quantity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Quantity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.SourceOfFunds)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.SourceOfFunds)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Prequalification)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Prequalification)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.ProcurementMethod)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.ProcurementMethod)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Publication)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Publication)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Award)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Award)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Start)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Start)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Comments)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Typeofentry)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Typeofentry)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.Budget)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.Budget)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CdfPlanItems.ProcPlanId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CdfPlanItems.ProcPlanId)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CdfPlanItems.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

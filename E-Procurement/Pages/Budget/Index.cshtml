@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
-       Layout = "~/Pages/Shared/_metronicLayout.cshtml";
+       Layout = "~/Pages/Shared/_SLayout.cshtml";
 }
 
 <div class="card o-hidden border-0 shadow-lg col-lg-12">
@@ -19,7 +19,8 @@
     <div class="row">
         @foreach (var item in Model.CdfBudget)
         {
-            <div class="col-md-4">
+            <div class="col-md-6">
+            <div class="main-card mb-3 card">
                 <div class="card" style="width: 25rem;">
                     <div class="card-body">
                         <h5 class="card-title">@Html.DisplayFor(modelItem => item.BudgetName)</h5>
@@ -30,6 +31,7 @@
                         <a asp-page="./Delete" class="btn btn-danger " asp-route-id="@item.Id">Delete</a>
                     </div>
                 </div>
+            </div>
             </div>
 
         }

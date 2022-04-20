@@ -27,15 +27,17 @@ namespace Portal.Pages.Test
         public CdfTender CdfTender { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
+        public ActionResult OnPost()
         {
+
+            String name= Request.Form["Title"];
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            _context.CdfTenders.Add(CdfTender);
-            await _context.SaveChangesAsync();
+           // _context.CdfTenders.Add(CdfTender);
+          //  await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

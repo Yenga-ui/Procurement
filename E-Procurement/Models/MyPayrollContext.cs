@@ -67,9 +67,12 @@ namespace E_Procurement.Models
         public virtual DbSet<CdfStatus> CdfStatus { get; set; }
         public virtual DbSet<CdfStatus1> CdfStatus1 { get; set; }
         public virtual DbSet<CdfStock> CdfStock { get; set; }
+        public virtual DbSet<CdfSupplierResDocuments> CdfSupplierResDocuments { get; set; }
+        public virtual DbSet<CdfSupplierResponse> CdfSupplierResponse { get; set; }
         public virtual DbSet<CdfTender> CdfTender { get; set; }
         public virtual DbSet<CdfTenderCategory> CdfTenderCategory { get; set; }
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedure { get; set; }
+        public virtual DbSet<CdfTenderSection> CdfTenderSection { get; set; }
         public virtual DbSet<CdfUser> CdfUser { get; set; }
         public virtual DbSet<CdfUser1> CdfUser1 { get; set; }
         public virtual DbSet<CdfUserType> CdfUserType { get; set; }
@@ -858,15 +861,26 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
+                entity.Property(e => e.Budget)
+                    .HasColumnName("budget")
+                    .HasColumnType("decimal(18, 0)");
+
                 entity.Property(e => e.Class)
                     .HasColumnName("class")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Comments).IsUnicode(false);
 
+                entity.Property(e => e.CreatedBy)
+                    .HasColumnName("createdBy")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Description).IsUnicode(false);
 
                 entity.Property(e => e.Prequalification).IsUnicode(false);
+
+                entity.Property(e => e.ProcPlanId).HasColumnName("procPlanID");
 
                 entity.Property(e => e.ProcurementMethod)
                     .HasColumnName("procurement_method")
@@ -1098,6 +1112,43 @@ namespace E_Procurement.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<CdfSupplierResDocuments>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_ResDocuments");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Path)
+                    .HasColumnName("path")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.Type)
+                    .HasColumnName("type")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CdfSupplierResponse>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_Response");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.TenderId).HasColumnName("tender_id");
+
+                entity.Property(e => e.TextResponse)
+                    .HasColumnName("text_response")
+                    .HasColumnType("text");
+            });
+
             modelBuilder.Entity<CdfTender>(entity =>
             {
                 entity.ToTable("CDF_Tender");
@@ -1215,6 +1266,28 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.TenderProcedure)
                     .HasColumnName("tenderProcedure")
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CdfTenderSection>(entity =>
+            {
+                entity.ToTable("Cdf_TenderSection");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasColumnType("text");
+
+                entity.Property(e => e.SupportingDocumentation).HasColumnName("supporting_documentation");
+
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
+                entity.Property(e => e.TextResponse).HasColumnName("text_response");
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasColumnName("title")
                     .IsUnicode(false);
             });
 
