@@ -19,6 +19,7 @@ namespace Core.Services
             {
                 Id = tenderSection.Id,
                 Title = tenderSection.Title,
+                TenderId = tenderSection.TenderId,
                 Description = tenderSection.Description,
                 SupportingDocumentation = tenderSection.SupportingDocumentation,
                 TextResponse = (tenderSection.TextResponse)

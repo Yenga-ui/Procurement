@@ -28,7 +28,7 @@
         <div class="form-group row">
             <div data-repeater-list="" class="col-lg-10">
                 <div data-repeater-item="" class="form-group row align-items-center p-3">
-                    <div class="col-md-12 mb-3">
+                    <div class="col-md-12 mb-3" id="bd">
 
                         <partial name="_Accordion.cshtml" />
 
@@ -39,20 +39,7 @@
             </div>
 
 
-            <div class="col-lg-2">
-                <div class="row mt-2">
-                    <div class="col-sm-12 mb-3">
-                        <a href="javascript:;" data-repeater-create="" class="btn btn-block btn-sm font-weight-bolder btn-light-primary">
-                            <i class="la la-plus-circle"></i>Add Section
-                        </a>
-                    </div>
-                    <div class="col-sm-12">
-                        <button type="button" id="saveSubmitSection" class="btn font-weight-bold btn-block btn-success">
-                            <i class="la la-check-circle"></i> Submit
-                        </button>
-                    </div>
-                </div>
-            </div>
+       
         </div>
     </div>
 </div>
@@ -65,6 +52,11 @@
 
 <script>
     $(document).ready(function(){
+
+        $("#btnClone").on('click',function(e){
+
+            $("#cdAdd").clone().appendTo("#bd");
+        });
 
         $("#saveSection").on('click', function(e){
    

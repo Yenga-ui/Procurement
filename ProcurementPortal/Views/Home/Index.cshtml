@@ -141,7 +141,7 @@
                             <h4 class="text-warning font-weight-bolder"></h4>
                             <p class="text-dark-50 font-weight-bold mt-3"></p>
                         </div>
-                        <a href="tender-create" class="btn btn-link btn-link-warning font-weight-bold">
+                        <a href="tender-create" class="btn btn-link btn-link-warning font-weight-bold" >
 
                             Create Tender
                             <span class="svg-icon svg-icon-lg svg-icon-warning">
@@ -215,5 +215,24 @@
     <!--end::Page Vendors-->
     <!--begin::Page Scripts(used by this page)-->
     <script src="~/assets/js/pages/widgets.js"></script>
+    <script>
+    
+      let settings = {
+              url: "procurement-plan/create",
+              method: "POST",
+              dataType: "json",
+              data: JSON.stringify(payload),
+              contentType: 'application/json'
+           };
+           $.ajax(settings)
+           .done(function(response){
+
+               if(response.success){
+
+                   let data = response.payload
+
+               }
+           });
+    </script>
     <!--end::Page Scripts-->
 }

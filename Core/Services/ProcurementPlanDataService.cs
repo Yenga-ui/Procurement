@@ -57,6 +57,7 @@ namespace Core.Services
             var planItem = new CdfPlanItem
             {
                 Class = procurementPlanItems.Class,
+                ProcPlanId=Int32.Parse(procurementPlanItems.procPlanId),
                 Unspsc = procurementPlanItems.UNSPSC,
                 Description = procurementPlanItems.Description,
                 RefNo = procurementPlanItems.Ref_No,

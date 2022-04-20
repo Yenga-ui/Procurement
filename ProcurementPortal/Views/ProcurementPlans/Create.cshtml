@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <label>Procurement Method</label>
-                                    <select name="Procurement_Method" class="form-control selectpicker">
+                                    <select name="Procurement_Method" class="form-control" id="procMethod">
                                         <option>sb</option>
                                         <option>db</option>
                                         <option>
@@ -263,7 +263,7 @@
                                 <div class="col-lg-4">
                                     <label>Publication</label>
                                     <div class="input-group">
-                                        <input type="text"
+                                        <input type="text" id="publication"
                                                class="form-control kt_datepicker"
                                                name="Publication"
                                                placeholder="Select date" />
@@ -278,7 +278,7 @@
                                     <label>Award</label>
                                     <div class="input-group">
                                         <input type="text"
-                                               class="form-control kt_datepicker"
+                                               class="form-control kt_datepicker" id="award"
                                                name="Award"
                                                placeholder="Select date" />
                                         <div class="input-group-append">
@@ -292,7 +292,7 @@
                                     <label>Start</label>
                                     <div class="input-group">
                                         <input type="text"
-                                               class="form-control kt_datepicker"
+                                               class="form-control kt_datepicker" id="start"
                                                name="Start"
                                                placeholder="Select date" />
                                         <div class="input-group-append">
@@ -327,7 +327,7 @@
                             <div class="row">
                                 <div class="col-lg-4">
                                     <label>Budget</label>
-                                    <input type="text"
+                                    <input type="number"
                                            name="budget"
                                            class="form-control" required />
 
@@ -468,6 +468,41 @@
                 },
             ],
         });
+        $("#procMethod").empty();
+        $.ajax({
+url: "tenderTechnique",
+type: "GET",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+success: function (result) {
+    console.log(result.payload);
+$(result.payload).each(function () {
+$("#procMethod").append($("<option></option>").val(this.method).html(this.method));
+});
+},
+error: function (data) { }
+});
+
+        $("#start").on('change',function(e){
+
+
+
+        });
+         
+         $("#award").on('change',function(e){
+
+             
+       
+
+        });
+          $("#publication").on('change',function(e){
+
+
+          var startTime = new Date( $("#publication").val());
+          var endTime = new Date($("#award").val());
+
+        });
+        
 
         $("form#planHeaderForm").on('submit', function(e){
            e.preventDefault();
