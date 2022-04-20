@@ -1,12 +1,12 @@
 ﻿@page
-@model Portal.Pages.Test.CreateModel
+@model Portal.Pages.Test.EditModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>CdfTenderSection</h4>
 <hr />
@@ -14,6 +14,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="CdfTenderSection.Id" />
             <div class="form-group">
                 <label asp-for="CdfTenderSection.Title" class="control-label"></label>
                 <input asp-for="CdfTenderSection.Title" class="form-control" />
@@ -35,14 +36,14 @@
                 <span asp-validation-for="CdfTenderSection.TextResponse" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {

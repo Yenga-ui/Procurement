@@ -24,7 +24,7 @@ namespace Portal.Pages.Test
         }
 
         [BindProperty]
-        public CdfTender CdfTender { get; set; }
+        public CdfTenderSection CdfTenderSection { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -34,7 +34,7 @@ namespace Portal.Pages.Test
                 return Page();
             }
 
-            _context.CdfTenders.Add(CdfTender);
+            _context.CdfTenderSections.Add(CdfTenderSection);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

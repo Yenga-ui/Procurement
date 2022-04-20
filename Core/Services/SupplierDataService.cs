@@ -12,17 +12,15 @@ namespace Core.Services
     {
         private readonly MyPayrollContext _context;
 
-        public SupplierDataService(MyPayrollContext myPayrollContext)
+        public SupplierDataService()
         {
-            _context = myPayrollContext;
+            _context = new MyPayrollContext();
         }
         public List<CdfPlanItem> GetTenders()
         {
             try
-            {
-                List<CdfPlanItem> tenders = _context.CdfPlanItems.ToList();
-
-                return tenders;
+            { 
+                return _context.CdfPlanItems.ToList();
             }
             catch (Exception)
             {

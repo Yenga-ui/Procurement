@@ -29,8 +29,11 @@ namespace Core.Services
         public List<CdfTenderCategory> tenderCategories()
         {
             return db.CdfTenderCategories.ToList();
-
-
+        }
+        
+        public List<CdfTenderSection> tenderSections()
+        {
+            return db.CdfTenderSections.ToList();
         }
 
         public List<CdfEvaluationmethod> cdfEvaluationmethods()

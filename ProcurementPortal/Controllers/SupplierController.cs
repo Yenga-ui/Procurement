@@ -7,10 +7,13 @@ namespace Portal.Controllers;
 public class SupplierController : Controller
 {
     private readonly ISupplierDataService SupplierDataService;
+    private readonly IDropDownService DropDownService;
 
-    public SupplierController(ISupplierDataService supplierDataService)
+    public SupplierController(ISupplierDataService supplierDataService,
+        IDropDownService dropDownService)
     {
         SupplierDataService = supplierDataService;
+        DropDownService = dropDownService;
     }
     // GET
     public IActionResult Index()
@@ -21,7 +24,27 @@ public class SupplierController : Controller
     [HttpGet]
     public ActionResult Tenders()
     {
-        List<CdfPlanItem>? tenderItems = SupplierDataService.GetTenders();
+        var tenderItems = SupplierDataService.GetTenders();
         return View(tenderItems);
+    }
+
+    [Route("tenderSections")]
+    public ActionResult GetSections()
+    {
+        var jsonData = DropDownService.tenderSections();
+        return Ok(
+            new
+            {
+                success = true,
+                message = "Successfully fetched",
+                payload = jsonData,
+            });
+    }
+
+    [HttpGet]
+    [Route("supplier/tender/bid")]
+    public ActionResult Bid()
+    {
+        return View();
     }
 }

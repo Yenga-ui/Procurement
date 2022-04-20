@@ -12,7 +12,7 @@ namespace Core.Interfaces
         List<CdfTenderCategory> tenderCategories();
         List<CdfEvaluationmethod> cdfEvaluationmethods();
         List<CdfPlanItem> cdfPlanItems(int procPlanId);
-
+        List<CdfTenderSection> tenderSections();
         List<CdfProcPlan> cdfProcPlans();
 
     }

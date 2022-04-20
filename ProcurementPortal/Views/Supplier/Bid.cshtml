@@ -1,0 +1,124 @@
+﻿<link type="text/css" rel="stylesheet" href="~/assets/custom/jquery.dataTables.min.css" />
+@*<link href="~/assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />*@
+
+
+
+<!--begin::Card-->
+<div class="card card-custom gutter-b">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label">Solid Style</h3>
+        </div>
+    </div>
+    <div class="card-body">
+        <!--begin::Accordion-->
+        <div class="accordion accordion-solid accordion-toggle-plus" id="accordionExample3">
+            <div class="card">
+                <div class="card-header" id="headingOne3">
+                    <div class="card-title" data-toggle="collapse" data-target="#collapseOne3">Recent Reports</div>
+                </div>
+                <div id="collapseOne3" class="collapse show" data-parent="#accordionExample3">
+                    <div class="card-body">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo3">
+                    <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo3">Accounting Updates</div>
+                </div>
+                <div id="collapseTwo3" class="collapse" data-parent="#accordionExample3">
+                    <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree3">
+                    <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree3">Latest Payroll</div>
+                </div>
+                <div id="collapseThree3" class="collapse" data-parent="#accordionExample3">
+                    <div class="card-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</div>
+                </div>
+            </div>
+        </div>
+        <!--end::Accordion-->
+        <!--begin::Code example-->
+        <div class="example example-compact mt-5">
+            <div class="example-tools">
+                <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
+                <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
+            </div>
+            <div class="example-code">
+                <div class="example-highlight">
+                    <pre style="height:300px">
+                        <code class="language-html">
+                        &lt;div class="accordion accordion-solid accordion-toggle-plus" id="accordionExample3"&gt;
+                            &lt;div class="card"&gt;
+                                &lt;div class="card-header" id="headingOne3"&gt;
+                                    &lt;div class="card-title" data-toggle="collapse" data-target="#collapseOne3"&gt;
+                                        Recent Reports
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div id="collapseOne3" class="collapse show" data-parent="#accordionExample3"&gt;
+                                    &lt;div class="card-body"&gt;
+                                        ...
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="card"&gt;
+                                &lt;div class="card-header" id="headingTwo3"&gt;
+                                    &lt;div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo3"&gt;
+                                        Accounting Updates
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div id="collapseTwo3" class="collapse" data-parent="#accordionExample3"&gt;
+                                    &lt;div class="card-body"&gt;
+                                        ...
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class="card"&gt;
+                                &lt;div class="card-header" id="headingThree3"&gt;
+                                    &lt;div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree3"&gt;
+                                        Latest Payroll
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div id="collapseThree3" class="collapse" data-parent="#accordionExample3"&gt;
+                                    &lt;div class="card-body"&gt;
+                                        ...
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        </code>
+                    </pre>
+                </div>
+            </div>
+        </div>
+        <!--end::Code example-->
+    </div>
+</div>
+<!--end::Card-->
+@section Scripts{
+<script src="~/assets/custom/jquery.dataTables.min.js"></script>
+    @*<script src="~/assets/plugins/dataTables/jquery.dataTables.js" asp-append-version="true"></script>*@
+<script>
+    $(document).ready( function () {
+        $('#tenderTable').DataTable();
+
+
+        $.ajax({
+            url: "~/tenderSections",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            datatype: JSON,
+            success: function (result) {
+                console.log(result.payload);
+                
+            },
+            error: function (data) { }
+        });
+
+
+    } );
+</script>
+}
