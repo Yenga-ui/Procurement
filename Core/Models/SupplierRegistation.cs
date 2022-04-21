@@ -19,5 +19,6 @@ namespace Core.Models
         public string? CompanyStatusNapsa { get; set; }
         public string? ConfirmationCode { get; set; }
         public string? Email { get; set; }
+        public int? Paid { get; set; }
     }
 }

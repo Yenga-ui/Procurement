@@ -31,6 +31,7 @@ namespace Core.Services
 
            
             cdfTender.ClarificationDeadline = DateTime.Parse(tender.clarificationDeadline);
+            cdfTender.Amount = Decimal.Parse(tender.tenderAmount);
             cdfTender.TenderProcedure = tender.tenderProcedure;
             cdfTender.LongDescription = tender.longDescription;
             cdfTender.ShortDescription = tender.title;

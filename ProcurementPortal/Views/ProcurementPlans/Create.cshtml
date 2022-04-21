@@ -608,6 +608,7 @@ error: function (data) { }
                     </tr>`;
 
                     $('#kt_datatable > tbody').append(row);
+                       $('#procurementForm').trigger("reset");
                }else{
                    swal.fire('Error','Could not save Item','error');
                }

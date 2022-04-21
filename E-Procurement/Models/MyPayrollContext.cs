@@ -67,8 +67,10 @@ namespace E_Procurement.Models
         public virtual DbSet<CdfStatus> CdfStatus { get; set; }
         public virtual DbSet<CdfStatus1> CdfStatus1 { get; set; }
         public virtual DbSet<CdfStock> CdfStock { get; set; }
+        public virtual DbSet<CdfSupplierFee> CdfSupplierFee { get; set; }
         public virtual DbSet<CdfSupplierResDocuments> CdfSupplierResDocuments { get; set; }
         public virtual DbSet<CdfSupplierResponse> CdfSupplierResponse { get; set; }
+        public virtual DbSet<CdfSupplierTenderPayment> CdfSupplierTenderPayment { get; set; }
         public virtual DbSet<CdfTender> CdfTender { get; set; }
         public virtual DbSet<CdfTenderCategory> CdfTenderCategory { get; set; }
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedure { get; set; }
@@ -1112,6 +1114,26 @@ namespace E_Procurement.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<CdfSupplierFee>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("CDF_SupplierFee");
+
+                entity.Property(e => e.Active).HasColumnName("active");
+
+                entity.Property(e => e.DateCreated)
+                    .HasColumnName("dateCreated")
+                    .HasColumnType("datetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedOnAdd();
+
+                entity.Property(e => e.SupplierFee).HasColumnType("decimal(18, 0)");
+            });
+
             modelBuilder.Entity<CdfSupplierResDocuments>(entity =>
             {
                 entity.ToTable("Cdf_Supplier_ResDocuments");
@@ -1142,6 +1164,8 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.SectionId).HasColumnName("section_id");
 
+                entity.Property(e => e.SupplierId).HasColumnName("supplier_id");
+
                 entity.Property(e => e.TenderId).HasColumnName("tender_id");
 
                 entity.Property(e => e.TextResponse)
@@ -1149,11 +1173,34 @@ namespace E_Procurement.Models
                     .HasColumnType("text");
             });
 
+            modelBuilder.Entity<CdfSupplierTenderPayment>(entity =>
+            {
+                entity.ToTable("CDF_SupplierTenderPayment");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Paid).HasColumnName("paid");
+
+                entity.Property(e => e.SupplierCode)
+                    .HasColumnName("supplierCode")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TenderCode)
+                    .HasColumnName("tenderCode")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<CdfTender>(entity =>
             {
                 entity.ToTable("CDF_Tender");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnName("amount")
+                    .HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.BudgetExpenseId).HasColumnName("budget_expense_id");
 
@@ -3065,6 +3112,8 @@ namespace E_Procurement.Models
                     .HasColumnName("organizationType")
                     .HasMaxLength(150)
                     .IsUnicode(false);
+
+                entity.Property(e => e.Paid).HasColumnName("paid");
 
                 entity.Property(e => e.Phone)
                     .HasColumnName("phone")

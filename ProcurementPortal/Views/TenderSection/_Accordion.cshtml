@@ -2,13 +2,9 @@
 <div class="card card-custom gutter-b" id="cdAdd">
     <div class="card-header">
         <div class="card-title">
-            <h3 class="card-label text-muted">Create Tender Rules</h3>
+            <h3 class="card-label text-muted">Tender Sections</h3>
         </div>
-        <div class="text-right">
-            <button href="javascript:;" data-repeater-delete="" id="btnClone" class="btn btn-sm font-weight-bolder mt-4 btn-light-danger ">
-                <i class="la la-plus"></i>Add
-            </button>
-        </div>
+       
     </div>
     <div class="card-body">
         <!--begin::Accordion-->
@@ -31,7 +27,7 @@
                         <textarea class="form-control" name="Description" id="Description" style="height: 200px;"></textarea>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card d-none" >
                     <div class="card-header" id="headingThree2">
                         <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree2">Configurations</div>
                     </div>
@@ -53,6 +49,100 @@
                         </div>
                         <div class="form-group row">
                             <label class="col-3 col-form-label">Text Response</label>
+                            <div class="col-9 col-form-label">
+                                <div class="radio-inline">
+                                    <label class="radio radio-success">
+                                        <input type="radio" value="1" id="TextResponse" name="TextResponse" />
+                                        <span></span>Required
+                                    </label>
+                                    <label class="radio radio-primary">
+                                        <input type="radio" value="0" id="TextResponse" name="TextResponse" checked="checked" />
+                                        <span></span>Not Required
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-right mt-5">
+                    <button type="button" id="saveSection" class="btn btn-light-success">
+                        <i class="la la-save"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </form>
+        <!--end::Accordion-->
+    </div>
+</div>
+<!--end::Card-->
+<!--begin::Card-->
+<div class="card card-custom gutter-b" id="cdAddSection">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label text-muted" id="sectionHeader">Tender Sections</h3>
+        </div>
+       
+    </div>
+    <div class="card-body">
+        <!--begin::Accordion-->
+        <form id="sectionData">
+            <div class="accordion accordion-light accordion-toggle-arrow" id="accordionExample2">
+                <div class="card">
+                    <div class="card-header" id="headingOne2">
+                        <div class="card-title" data-toggle="collapse" data-target="#collapseOne2">Title</div>
+                    </div>
+                    <div id="collapseOne2" class="collapse show" data-parent="#accordionExample2">
+                        <input type="hidden" name="sectionId" value="0"/>
+                        <input type="text" name="Title" id="Title" class="form-control mb-4" placeholder="Enter section title" />
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo2">
+                        <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseTwo2">Description</div>
+                    </div>
+                    <div id="collapseTwo2" class="collapse" data-parent="#accordionExample2">
+                        <textarea class="form-control" name="Description" id="Description" style="height: 200px;"></textarea>
+                    </div>
+                </div>
+                <div class="card" >
+                    <div class="card-header" id="headingThree2">
+                        <div class="card-title collapsed" data-toggle="collapse" data-target="#collapseThree2">Configurations</div>
+                    </div>
+                    <div id="collapseThree2" class="collapse" data-parent="#accordionExample2">
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Document Upload</label>
+                            <div class="col-9 col-form-label">
+                                <div class="radio-inline">
+                                    <label class="radio radio-success">
+                                        <input type="radio" value="1" name="SupportingDocumentation" id="SupportingDocumentation" />
+                                        <span></span>Required
+                                    </label>
+                                    <label class="radio radio-primary">
+                                        <input type="radio" value="0" name="SupportingDocumentation" id="SupportingDocumentation" checked="checked" />
+                                        <span></span>Not Required
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Text Response</label>
+                            <div class="col-9 col-form-label">
+                                <div class="radio-inline">
+                                    <label class="radio radio-success">
+                                        <input type="radio" value="1" id="TextResponse" name="TextResponse" />
+                                        <span></span>Required
+                                    </label>
+                                    <label class="radio radio-primary">
+                                        <input type="radio" value="0" id="TextResponse" name="TextResponse" checked="checked" />
+                                        <span></span>Not Required
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <label class="col-3 col-form-label">Numerical Response</label>
                             <div class="col-9 col-form-label">
                                 <div class="radio-inline">
                                     <label class="radio radio-success">

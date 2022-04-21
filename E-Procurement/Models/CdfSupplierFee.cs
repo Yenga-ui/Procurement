@@ -7,12 +7,11 @@ using System.Collections.Generic;
 
 namespace E_Procurement.Models
 {
-    public partial class CdfSupplierResponse
+    public partial class CdfSupplierFee
     {
         public int Id { get; set; }
-        public int TenderId { get; set; }
-        public int SectionId { get; set; }
-        public string TextResponse { get; set; }
-        public int? SupplierId { get; set; }
+        public decimal? SupplierFee { get; set; }
+        public int? Active { get; set; }
+        public DateTime? DateCreated { get; set; }
     }
 }

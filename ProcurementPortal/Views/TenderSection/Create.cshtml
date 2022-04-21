@@ -24,22 +24,35 @@
 </style>
 
 <div class="container">
-    <div id="kt_repeater_1">
-        <div class="form-group row">
-            <div data-repeater-list="" class="col-lg-10">
-                <div data-repeater-item="" class="form-group row align-items-center p-3">
-                    <div class="col-md-12 mb-3" id="bd">
+    <div data-repeater-item="" class="form-group row p-3">
+        <div class="col-md-6" id="bd">
 
-                        <partial name="_Accordion.cshtml" />
+            <partial name="_Accordion.cshtml" />
 
-                        <!-- TinyMCE-->
-                        @*<partial name="_Editor.cshtml" />*@
+            <!-- TinyMCE-->
+            @*<partial name="_Editor.cshtml" />*@
+        </div>
+        <div class="col-md-6">
+            <div class="card card-custom gutter-b">
+                <div class="card-header">
+                    <div class="card-title">
+                        <h3 class="card-label text-muted">Sections</h3>
                     </div>
                 </div>
+                <div class="card-body">
+                    <table class="table table-hover d-none" id="sections">
+                        <thead>
+                            <tr>
+                             
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
-
-
-       
         </div>
     </div>
 </div>
@@ -53,13 +66,22 @@
 <script>
     $(document).ready(function(){
 
+
         $("#btnClone").on('click',function(e){
 
             $("#cdAdd").clone().appendTo("#bd");
         });
 
+        
+        $("#delete").on('click',function(e){
+            $(this).parent().remove();
+
+
+        });
+            
+        
         $("#saveSection").on('click', function(e){
-   
+
             let formData = new FormData($("#sectionDataform")[0]);
             let payload = {
                 Title: $("#Title").val(),
@@ -84,11 +106,28 @@
                 data: JSON.stringify(payload),
                 contentType: 'application/json'
             }
-
+            var i=1;
+   
             $.ajax(settings).done(function(response){
                 setTimeout(function(){
                    if(response.success){
+                        $("#sections").removeClass('d-none');
                         swal.fire('Tender Submission !', response, 'success');
+
+                         let data = response.payload;
+
+                          let row = `<tr>
+                           
+                            
+                            <td>${data.title}</td>
+                            <td>${data.description}</td>
+                            <td><button class="btn btn sm btn-primary">Define Section</button> </td>
+                           
+                          </tr>`;
+
+                            $('#sections > tbody').append(row);
+                       $('#sectionData').trigger("reset");
+
                    }else{
                         swal.fire('Oops !', message, 'error');
                    }
@@ -99,5 +138,6 @@
            });
         })
     })
+
 </script>
 }

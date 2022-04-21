@@ -4,6 +4,7 @@ using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Core.Migrations
 {
     [DbContext(typeof(MyPayrollContext))]
-    partial class MyPayrollContextModelSnapshot : ModelSnapshot
+    [Migration("20220421103924_updatedLink")]
+    partial class updatedLink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1563,125 +1565,6 @@ namespace Core.Migrations
                     b.ToTable("CDF_Stock", (string)null);
                 });
 
-            modelBuilder.Entity("Core.Models.CdfSupplierFee", b =>
-                {
-                    b.Property<int?>("Active")
-                        .HasColumnType("int")
-                        .HasColumnName("active");
-
-                    b.Property<DateTime?>("DateCreated")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime")
-                        .HasColumnName("dateCreated")
-                        .HasDefaultValueSql("(getdate())");
-
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<decimal?>("SupplierFee")
-                        .HasColumnType("decimal(18,0)");
-
-                    b.ToTable("CDF_SupplierFee", (string)null);
-                });
-
-            modelBuilder.Entity("Core.Models.CdfSupplierResDocument", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Name")
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(max)")
-                        .HasColumnName("name");
-
-                    b.Property<string>("Path")
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(max)")
-                        .HasColumnName("path");
-
-                    b.Property<int>("SectionId")
-                        .HasColumnType("int")
-                        .HasColumnName("section_id");
-
-                    b.Property<string>("Type")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("type");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cdf_Supplier_ResDocuments", (string)null);
-                });
-
-            modelBuilder.Entity("Core.Models.CdfSupplierResponse", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("SectionId")
-                        .HasColumnType("int")
-                        .HasColumnName("section_id");
-
-                    b.Property<int?>("SupplierId")
-                        .HasColumnType("int")
-                        .HasColumnName("supplier_id");
-
-                    b.Property<int>("TenderId")
-                        .HasColumnType("int")
-                        .HasColumnName("tender_id");
-
-                    b.Property<string>("TextResponse")
-                        .HasColumnType("text")
-                        .HasColumnName("text_response");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Cdf_Supplier_Response", (string)null);
-                });
-
-            modelBuilder.Entity("Core.Models.CdfSupplierTenderPayment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ID");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("Paid")
-                        .HasColumnType("int")
-                        .HasColumnName("paid");
-
-                    b.Property<string>("SupplierCode")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("supplierCode");
-
-                    b.Property<string>("TenderCode")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)")
-                        .HasColumnName("tenderCode");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CDF_SupplierTenderPayment", (string)null);
-                });
-
             modelBuilder.Entity("Core.Models.CdfTender", b =>
                 {
                     b.Property<int>("Id")
@@ -1690,14 +1573,6 @@ namespace Core.Migrations
                         .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int?>("Active")
-                        .HasColumnType("int")
-                        .HasColumnName("active");
-
-                    b.Property<decimal?>("Amount")
-                        .HasColumnType("decimal(18,0)")
-                        .HasColumnName("amount");
 
                     b.Property<int?>("BudgetExpenseId")
                         .HasColumnType("int")
@@ -4552,10 +4427,6 @@ namespace Core.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(150)")
                         .HasColumnName("organizationType");
-
-                    b.Property<int?>("Paid")
-                        .HasColumnType("int")
-                        .HasColumnName("paid");
 
                     b.Property<string>("Phone")
                         .HasMaxLength(50)

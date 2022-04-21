@@ -24,5 +24,7 @@ namespace Core.Models
         public string? Status { get; set; }
         public int? BudgetExpenseId { get; set; }
         public int? BudgetId { get; set; }
+        public decimal? Amount { get; set; }
+        public int? Active { get; set; }
     }
 }

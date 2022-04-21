@@ -63,6 +63,10 @@ namespace Core.Models
         public virtual DbSet<CdfStatus> CdfStatuses { get; set; } = null!;
         public virtual DbSet<CdfStatus1> CdfStatuses1 { get; set; } = null!;
         public virtual DbSet<CdfStock> CdfStocks { get; set; } = null!;
+        public virtual DbSet<CdfSupplierFee> CdfSupplierFees { get; set; } = null!;
+        public virtual DbSet<CdfSupplierResDocument> CdfSupplierResDocuments { get; set; } = null!;
+        public virtual DbSet<CdfSupplierResponse> CdfSupplierResponses { get; set; } = null!;
+        public virtual DbSet<CdfSupplierTenderPayment> CdfSupplierTenderPayments { get; set; } = null!;
         public virtual DbSet<CdfTender> CdfTenders { get; set; } = null!;
         public virtual DbSet<CdfTenderCategory> CdfTenderCategories { get; set; } = null!;
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedures { get; set; } = null!;
@@ -1100,11 +1104,95 @@ namespace Core.Models
                     .HasColumnName("stockCode");
             });
 
+            modelBuilder.Entity<CdfSupplierFee>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("CDF_SupplierFee");
+
+                entity.Property(e => e.Active).HasColumnName("active");
+
+                entity.Property(e => e.DateCreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateCreated")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.SupplierFee).HasColumnType("decimal(18, 0)");
+            });
+
+            modelBuilder.Entity<CdfSupplierResDocument>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_ResDocuments");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Name)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Path)
+                    .IsUnicode(false)
+                    .HasColumnName("path");
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.Type)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("type");
+            });
+
+            modelBuilder.Entity<CdfSupplierResponse>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_Response");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.SupplierId).HasColumnName("supplier_id");
+
+                entity.Property(e => e.TenderId).HasColumnName("tender_id");
+
+                entity.Property(e => e.TextResponse)
+                    .HasColumnType("text")
+                    .HasColumnName("text_response");
+            });
+
+            modelBuilder.Entity<CdfSupplierTenderPayment>(entity =>
+            {
+                entity.ToTable("CDF_SupplierTenderPayment");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Paid).HasColumnName("paid");
+
+                entity.Property(e => e.SupplierCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("supplierCode");
+
+                entity.Property(e => e.TenderCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("tenderCode");
+            });
+
             modelBuilder.Entity<CdfTender>(entity =>
             {
                 entity.ToTable("CDF_Tender");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Active).HasColumnName("active");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("amount");
 
                 entity.Property(e => e.BudgetExpenseId).HasColumnName("budget_expense_id");
 
@@ -3002,6 +3090,8 @@ namespace Core.Models
                     .HasMaxLength(150)
                     .IsUnicode(false)
                     .HasColumnName("organizationType");
+
+                entity.Property(e => e.Paid).HasColumnName("paid");
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(50)

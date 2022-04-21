@@ -9,6 +9,8 @@ namespace Core.ViewModels
     public class Tender
     {
         public String title { get; set; }
+
+        public String tenderAmount { get; set; }
         public String description { get; set; }    
         
         public String longDescription { get; set; }
