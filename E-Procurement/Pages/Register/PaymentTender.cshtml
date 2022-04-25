@@ -1,0 +1,233 @@
+﻿@page
+@using Microsoft.AspNetCore.Http
+@model E_Procurement.Pages.Register.PaymentTenderModel
+@{
+
+    Layout = "";
+
+}
+<!doctype html>
+                        <html>
+                            <head>
+                                <meta charset='utf-8'>
+                                <meta name='viewport' content='width=device-width, initial-scale=1'>
+                                <title>Snippet - BBBootstrap</title>
+                                <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css' rel='stylesheet'>
+                                <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+                                <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+                                <style href='https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap' type="text/css">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0C4160;
+    padding: 30px 10px
+}
+
+.card {
+    max-width: 500px;
+    margin: auto;
+    color: black;
+    border-radius: 20 px
+}
+
+p {
+    margin: 0px
+}
+
+.container .h8 {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center
+}
+
+.btn.btn-primary {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-image: linear-gradient(to right, #77A1D3 0%, #79CBCA 51%, #77A1D3 100%);
+    border: none;
+    transition: 0.5s;
+    background-size: 200% auto
+}
+
+.btn.btn.btn-primary:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none
+}
+
+.btn.btn-primary:hover .fas.fa-arrow-right {
+    transform: translate(15px);
+    transition: transform 0.2s ease-in
+}
+
+.form-control {
+    color: white;
+    background-color: #223C60;
+    border: 2px solid transparent;
+    height: 60px;
+    padding-left: 20px;
+    vertical-align: middle
+}
+
+.form-control:focus {
+    color: white;
+    background-color: #0C4160;
+    border: 2px solid #2d4dda;
+    box-shadow: none
+}
+
+.text {
+    font-size: 14px;
+    font-weight: 600
+}
+
+::placeholder {
+    font-size: 14px;
+    font-weight: 600
+}</style>
+                               
+  <body oncontextmenu='return false' class='snippet-body'>
+
+ <form action='http://localhost:8000/pg/eprocure/registration' method='post'>
+<input type="hidden" name='returnURL' value='http://localhost:8000/test/payment-status' /><br />
+<input type="hidden"  name='registrationID' value='REG220400001' /><br />
+<input type="hidden" name='supplierID' value='3007' /><br />
+<input type="hidden"  name='supplierName' value="Yenga Technologies" /><br />
+<input type="hidden"  name='amount' value='85' /><br /><br />
+ <button type='submit'>Pay</button>
+</form>
+                                <div class="container p-0" style="display:none">
+    <div class="card px-4">
+        <p class="h8 py-3">Payment Details</p>
+        <div class="row gx-3">
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Supplier</p> <input class="form-control mb-3" type="text"  placeholder="Name"  id="supplierName">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Card Number</p> <input class="form-control mb-3" type="text" value="" placeholder="1234 5678 435678">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">Expiry</p> <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="d-flex flex-column">
+                    <p class="text mb-1">CVV/CVC</p> <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="btn btn-primary mb-3" id="btnSend" onclick="send()"> <span class="ps-3">Pay ZMW @Model.amount </span> <span class="fas fa-arrow-right"></span> </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form action='http://localhost:8000/pg/eprocure/bid' method='post'>
+       <input type="hidden" name='returnURL' value='http://44313/test/payment-status' /><br />
+       <input type="hidden"  name='registrationID' id="reg"   /><br />
+       <input type="hidden" name='supplierID'  id="suppId"/><br />
+       <input type="hidden"  name='supplierName' id="name"/><br />
+       <input type="hidden"  name='amount' id="amount" /><br /><br />
+       <button type='submit'>Pay</button>
+</form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+                                <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
+                                <script type='text/javascript' src=''></script>
+                                <script type='text/javascript' src=''></script>
+                                <script type='text/Javascript'></script>
+                                </body>
+                            </html>
+<script>
+
+    $(document).ready(function(){
+    var amount=@Model.amount;
+    $("#myModal").modal('show');
+    var supplierName=@Model.supplierName;
+      var amount=@Model.amount;
+    var supplierID=@Model.supplierRegistration;
+    $("#reg").val(supplierID);
+     $("#reg").val(suppId);
+    $("#name").val(supplierName);
+    $("#amount").val(amount);
+  
+
+
+    $()
+    
+    alert(supplierID);
+
+
+        
+    });
+
+ 
+
+    function send(){
+
+        alert("hello");
+
+        
+        $.ajax({
+url: "http://d53a-69-63-76-67.ngrok.io/pg/eprocure/registration",
+type: "POST",
+contentType: "application/json; charset=utf-8",
+datatype: JSON,
+data: { 
+    returnUrl:"/Index",
+    registrationID : "3007",
+    supplierID: "3007",
+    supplierName: "85" 
+  },
+success: function (result) {
+   alert(result);
+$(result.payload).each(function () {
+$("#procTechnique").append($("<option></option>").val(this.method).html(this.method));
+});
+},
+error: function (data) { }
+});
+    }
+
+</script>

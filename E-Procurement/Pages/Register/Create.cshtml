@@ -60,11 +60,12 @@
                         <div class="col-lg-2 d-none d-lg-block bg-login-imageW" style="background-image:url('/img/3.jpg');display:none"></div>
                         <div class="col-lg-12">
                             <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Supplier Registration!</h1>
-                                </div>
+                                  <div class="text-center">
+                                        <img alt="" src="~/img/IMG.jpg" height="80"  >
+                                        
+                                    </div>
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <form method="post" class="user">
+                                <form method="post" class="user" style="border-block-color:black;padding-top:20px">
 
                                     <div class="form-group">
 
@@ -129,37 +130,15 @@
                                             <input asp-for="SupplierRegistation.Phone" class="form-control form-control-user" placeholder="Contact Number"/>
                                             <span asp-validation-for="SupplierRegistation.Phone" class="text-danger"></span>
 
+             </div>
              
-                                        <div class="form-group row">
-                                                      <div class="col-lg-6">
 
-                                          
-                                            <select  multiple="true" id="category" class="select2 form-control" asp-items="@Model.category" style="width:395px">
-
-                                                <option value="0">Category</option>
-
-
-                                            </select>
-                                            <span asp-validation-for="SupplierRegistation.CountryOfRegistration" class="text-danger"></span>
-                                        </div>
-                                            <div class="col-lg-6">
-                                            <textarea rows="4" asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.." /></textarea>
-                                            <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
-                                            </div>
                                      
-                                            
-                                        </div>
+             </div>
 
+                                   
 
-                                    </div>
-
-
-                                    <div class="form-group">
-
-                                        <input asp-for="SupplierRegistation.Shareholders" class="form-control form-control-user" placeholder="Supplier Description.."/>
-                                        <span asp-validation-for="SupplierRegistation.Shareholders" class="text-danger"></span>
-                                    </div>
-
+                                     
 
                                     <div class="form-group" style="display:none">
 
@@ -172,12 +151,13 @@
                                         <span asp-validation-for="SupplierRegistation.CompanyStatusNapsa" class="text-danger"></span>
                                     </div>
 
-
-                                    <div class="form-group">
-                                        <input type="submit" value="Create" class="btn btn-primary"/>
-                                        <a class="btn btn-warning" href="~/Login/Login">Login</a>
+                                    <div class="row">
+                                        <div class="col-lg-10"></div>
+                                 <div class="col-lg-1">
+                                        <button type="submit" value="Create" class="btn btn-primary">Register</button>
+                                      
                                     </div>
-
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -193,12 +173,7 @@
 </div>
 </body>
 
-    <script>
-
-              $('#category').select2({
-  placeholder: 'Select an option'
-});
-    </script>
+ 
 
 
 

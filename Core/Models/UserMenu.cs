@@ -11,7 +11,7 @@ namespace Core.Models
         }
 
         public int Id { get; set; }
-        public string MenuDescription { get; set; }
+        public string? MenuDescription { get; set; }
 
         public virtual ICollection<UserMenuMapping> UserMenuMappings { get; set; }
     }

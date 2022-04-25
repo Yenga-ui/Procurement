@@ -8,7 +8,7 @@ namespace Core.Models
         public int IncreaseHistoryId { get; set; }
         public int EmployeeId { get; set; }
         public int? IncreaseReasonTypeId { get; set; }
-        public string IncreaseAppliedOn { get; set; }
+        public string? IncreaseAppliedOn { get; set; }
         public decimal? IncreaseAmount { get; set; }
         public decimal? IncreasePercentage { get; set; }
         public decimal? PreviousAnnualSalary { get; set; }

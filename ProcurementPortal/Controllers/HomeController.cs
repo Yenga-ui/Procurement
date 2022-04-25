@@ -28,4 +28,17 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    [Route("username")]
+    [HttpGet]
+    public IActionResult username()
+    {
+        String username = HttpContext.Session.GetString("username");
+        return Ok(
+                      new
+                      {
+                          success = false,
+                          message = "Successfully added",
+                          payload = username,
+                      });
+    }
 }

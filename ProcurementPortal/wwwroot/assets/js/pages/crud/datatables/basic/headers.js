@@ -7,6 +7,7 @@ var KTDatatablesBasicHeaders = function() {
 		// begin first table
 		table.DataTable({
 			responsive: true,
+			bdestroy:true,
 			columnDefs: [
 				{
 					targets: -1,

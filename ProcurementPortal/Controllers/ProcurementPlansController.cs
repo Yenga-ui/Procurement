@@ -1,5 +1,6 @@
 ﻿using Core.Interfaces;
 using Core.Models;
+using Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Portal.Controllers
@@ -22,6 +23,25 @@ namespace Portal.Controllers
             Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        [HttpGet]
+        [Route("PlanItems")]
+        public List<Core.Models.CdfPlanItem> procItems()
+        {
+            try
+            {
+
+                List<CdfPlanItem> procItems=ProcurementPlanDataService.getAllPlanItems(Int32.Parse(HttpContext.Session.GetString("ProcID")));
+                return procItems;
+            }
+            catch(Exception ex)
+            {
+
+                return null;
+            }
+
+
+        }
+
         [HttpPost]
         [Route("upload-plan")]
         public async Task<IActionResult> UploadPlanAsync(List<IFormFile> file)
@@ -40,7 +60,7 @@ namespace Portal.Controllers
             {
                 var fileName = Path.GetFileName(postedFile.FileName);
                 var uploadPath = Path.Combine(path, fileName);
-                List<ProcurementPlanItem> procurementPlanItems;
+                List<Core.Models.ProcurementPlanItem> procurementPlanItems;
                 await using (var stream = new FileStream(uploadPath, FileMode.Create))
                 {
                     postedFile.CopyTo(stream);
@@ -65,12 +85,36 @@ namespace Portal.Controllers
             return View();
         }
 
+        [Route("ProcHeader")]
+        [HttpPost]
+        public IActionResult procHeader([FromBody] PlanHeader request)
+        {
+            if (!ModelState.IsValid) return Ok(
+                 new { success = false, message = "Validatio Failed" });
+
+            CdfProcPlan cdfProcPlan = new CdfProcPlan();
+            cdfProcPlan.Year = request.year;
+            cdfProcPlan.Comments = request.description;
+
+            int Id = ProcurementPlanDataService.createProcPlan(cdfProcPlan);
+
+            HttpContext.Session.SetString("ProcID", Id.ToString());
+            return Ok(
+                         new
+                         {
+                             success = true,
+                             message = "Successfully added",
+                             payload = Id,
+                         });
+        }
+
         [HttpPost]
         [Route("procurement-plan/create")]
-        public ActionResult Create([FromBody] ProcurementPlanItem plan)
+        public ActionResult Create([FromBody] Core.Models.ProcurementPlanItem plan)
         {
             try
             {
+                ModelState.Remove("procPlanId");
                 if (!ModelState.IsValid)
                 {
                     return Ok(
@@ -81,9 +125,10 @@ namespace Portal.Controllers
                         });
                 }
 
+                plan.procPlanId = HttpContext.Session.GetString("ProcID");
                 var savedPlanItem = ProcurementPlanDataService.Save(plan);
 
-                if (savedPlanItem == null) throw new Exception("Failed To Save Plan Item");
+
 
                 return Ok(
                         new

@@ -14,6 +14,7 @@
     <link href="~/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors Styles-->
     <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/assets/css/pages/wizard/wizard-1.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
     <link href="~/assets/css/style.bundle.css" rel="stylesheet" type="text/css" asp-append-version="true" />
@@ -44,7 +45,7 @@
                     <!--begin::Entry-->
                     <div class="d-flex flex-column-fluid">
                         <!--begin::Container-->
-                        <div class="container-fluid">
+                        <div class="container">
                             @RenderBody()
                         </div>
                         <!--end::Container-->
@@ -86,6 +87,8 @@
     <script src="~/assets/plugins/global/plugins.bundle.js" asp-append-version="true"></script>
     <script src="~/assets/plugins/custom/prismjs/prismjs.bundle.js" asp-append-version="true"></script>
     <script src="~/assets/js/scripts.bundle.js" asp-append-version="true"></script>
+    <script src="~/assets/js/pages/custom/wizard/wizard-1.js"></script>
+    	<script src="~/assets/js/pages/crud/ktdatatable/base/html-table.js"></script>
     <!--end::Global Theme Bundle-->
 
     <script>

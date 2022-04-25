@@ -12,7 +12,7 @@ namespace Core.Models
         }
 
         public int UserRoleId { get; set; }
-        public string RoleDescription { get; set; }
+        public string? RoleDescription { get; set; }
 
         public virtual ICollection<UserDetail> UserDetails { get; set; }
         public virtual ICollection<UserMenuMapping> UserMenuMappings { get; set; }

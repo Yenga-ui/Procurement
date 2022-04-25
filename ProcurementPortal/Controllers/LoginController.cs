@@ -14,7 +14,7 @@ namespace Portal.Controllers
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            var user = new Core.Login.User();
+           var user = new Core.Login.User();
             if (user.login(username, password))
             {
                 HttpContext.Session.SetString("username", username);
@@ -23,6 +23,8 @@ namespace Portal.Controllers
 
             ViewBag.error = "Invalid Account";
             return View("Index");
+
+            return RedirectToAction("Index", "Home");
         }
 
         [Route("logout")]
@@ -33,5 +35,8 @@ namespace Portal.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Index");
         }
+
+     
+
     }
 }

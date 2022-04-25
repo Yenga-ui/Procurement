@@ -11,9 +11,9 @@ namespace Core.Models
         }
 
         public int IdnumberTypeId { get; set; }
-        public string Idcode { get; set; }
-        public string LongDescription { get; set; }
-        public string Status { get; set; }
+        public string? Idcode { get; set; }
+        public string? LongDescription { get; set; }
+        public string? Status { get; set; }
 
         public virtual ICollection<Entity> Entities { get; set; }
     }

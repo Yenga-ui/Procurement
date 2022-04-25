@@ -3,123 +3,117 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Pages/Shared/_SupplierLayout.cshtml";
+    Layout = "~/Pages/Shared/_SLayout.cshtml";
 }
+<link type="text/css" href="~/assets/datatable/jquery.dataTables.min.css" />
+<style>
+    .FilterStuff>div{float:left;}
+    .dataTables_wrapper .FilterStuff .dataTables_filter {float:right
+</style>
 
-<div class="card o-hidden border-0 shadow-lg col-lg-12">
+<div class="card shadow-lg col-lg-12">
     <div class="card-header">
         <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Current Tenders</h1>
         </div>
     </div>
     <div class="card-body p-0">
-        <div class="row">
-            <div class="col-md-12">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].Category)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].DateCreated)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].DueDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].ShortDescription)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].LongDescription)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].TenderSerial)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].TenderProcedure)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].TenderProcurementTechnique)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].SubmissionDeadline)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].ClarificationDeadline)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].InvitationDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].ContractNoticeDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CdfTender[0].EvaluationMechanism)
-                    </th>
-                    <th>
-                        Status
-                    </th>
-                   
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.CdfTender)
-                {
-                <tr>
-                    <td>
-                        <a asp-page="./Create" asp-route-id="@item.Id">Bid</a> |
+        <div class="row p-5">
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tenderTable">
+                    <thead>
+                        <tr>
                        
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Category)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateCreated)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DueDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ShortDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LongDescription)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TenderSerial)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TenderProcedure)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TenderProcurementTechnique)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SubmissionDeadline)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClarificationDeadline)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.InvitationDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ContractNoticeDate)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.EvaluationMechanism)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Status)
-                    </td>
+                            <th>#</th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CdfTender[0].Category)
+                            </th>
 
-                </tr>
-                }
-            </tbody>
-        </table>
-                </div>
+
+                            <th>
+                                Description
+                            </th>
+                            <th>
+                                Guideline
+                            </th>
+                            <th>
+                                Serial
+                            </th>
+                            <th>
+                                Procedure
+                            </th>
+
+                            <th>
+                                Deadline
+                            </th>
+
+
+                            <th>
+                                Method
+                            </th>
+                            <th>
+                                ``
+                                Status
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.CdfTender)
+                        {
+
+                            <tr>
+                           
+                            
+                                <td>
+                                   
+                                    <a href="TenderSection?ID=@item.Id" class="mb-2 mr-2 btn-transition btn btn-outline-info">Bid</a>
+                               
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Category)
+                                </td>
+
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ShortDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LongDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenderSerial)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenderProcedure)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DueDate)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EvaluationMechanism)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
+
+<script src="~/js/jquery.js"></script>
+<script src="~/assets/datatable/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready( function () {
+        $('#tenderTable').DataTable({
+            dom: '<"ButtonStuff"B><"FilterStuff"f>t'
+        });
+    } );
+</script>
+

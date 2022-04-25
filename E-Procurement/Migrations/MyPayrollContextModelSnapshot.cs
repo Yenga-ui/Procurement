@@ -1137,6 +1137,10 @@ namespace E_Procurement.Migrations
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
 
+                    b.Property<decimal?>("Budget")
+                        .HasColumnName("budget")
+                        .HasColumnType("decimal(18, 0)");
+
                     b.Property<string>("Class")
                         .HasColumnName("class")
                         .HasColumnType("varchar(max)")
@@ -1146,6 +1150,12 @@ namespace E_Procurement.Migrations
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
 
+                    b.Property<string>("CreatedBy")
+                        .HasColumnName("createdBy")
+                        .HasColumnType("varchar(100)")
+                        .HasMaxLength(100)
+                        .IsUnicode(false);
+
                     b.Property<string>("Description")
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
@@ -1153,6 +1163,10 @@ namespace E_Procurement.Migrations
                     b.Property<string>("Prequalification")
                         .HasColumnType("varchar(max)")
                         .IsUnicode(false);
+
+                    b.Property<int?>("ProcPlanId")
+                        .HasColumnName("procPlanID")
+                        .HasColumnType("int");
 
                     b.Property<string>("ProcurementMethod")
                         .HasColumnName("procurement_method")
@@ -1504,6 +1518,123 @@ namespace E_Procurement.Migrations
                     b.ToTable("CDF_Stock");
                 });
 
+            modelBuilder.Entity("E_Procurement.Models.CdfSupplierFee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Active")
+                        .HasColumnName("active")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("dateCreated")
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("(getdate())");
+
+                    b.Property<decimal?>("SupplierFee")
+                        .HasColumnType("decimal(18, 0)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CDF_SupplierFee");
+                });
+
+            modelBuilder.Entity("E_Procurement.Models.CdfSupplierResDocuments", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("Path")
+                        .HasColumnName("path")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<int>("SectionId")
+                        .HasColumnName("section_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnName("type")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cdf_Supplier_ResDocuments");
+                });
+
+            modelBuilder.Entity("E_Procurement.Models.CdfSupplierResponse", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("SectionId")
+                        .HasColumnName("section_id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SupplierId")
+                        .HasColumnName("supplier_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TenderId")
+                        .HasColumnName("tender_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TextResponse")
+                        .HasColumnName("text_response")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cdf_Supplier_Response");
+                });
+
+            modelBuilder.Entity("E_Procurement.Models.CdfSupplierTenderPayment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Paid")
+                        .HasColumnName("paid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SupplierCode")
+                        .HasColumnName("supplierCode")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.Property<string>("TenderCode")
+                        .HasColumnName("tenderCode")
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CDF_SupplierTenderPayment");
+                });
+
             modelBuilder.Entity("E_Procurement.Models.CdfTender", b =>
                 {
                     b.Property<int>("Id")
@@ -1511,6 +1642,14 @@ namespace E_Procurement.Migrations
                         .HasColumnName("id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Active")
+                        .HasColumnName("active")
+                        .HasColumnType("int");
+
+                    b.Property<decimal?>("Amount")
+                        .HasColumnName("amount")
+                        .HasColumnType("decimal(18, 0)");
 
                     b.Property<int?>("BudgetExpenseId")
                         .HasColumnName("budget_expense_id")
@@ -1664,6 +1803,89 @@ namespace E_Procurement.Migrations
                     b.ToTable("CDF_TenderProcedure");
                 });
 
+            modelBuilder.Entity("E_Procurement.Models.CdfTenderSection", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("text");
+
+                    b.Property<int?>("SupportingDocumentation")
+                        .HasColumnName("supporting_documentation")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TenderId")
+                        .HasColumnName("tenderID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TextResponse")
+                        .HasColumnName("text_response")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnName("title")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cdf_TenderSection");
+                });
+
+            modelBuilder.Entity("E_Procurement.Models.CdfTenderSectionSub", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200)
+                        .IsUnicode(false);
+
+                    b.Property<string>("NumberInput")
+                        .HasColumnName("numberInput")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("SupportingDocumentation")
+                        .HasColumnName("supportingDocumentation")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<int?>("TenderId")
+                        .HasColumnName("tenderID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TenderSectionId")
+                        .HasColumnName("tenderSectionID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TextResponse")
+                        .HasColumnName("textResponse")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("Title")
+                        .HasColumnName("title")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200)
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CDF_TenderSectionSub");
+                });
+
             modelBuilder.Entity("E_Procurement.Models.CdfUser", b =>
                 {
                     b.Property<int>("Id")
@@ -1730,13 +1952,21 @@ namespace E_Procurement.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false);
 
+                    b.Property<string>("ProcEntity")
+                        .HasColumnName("procEntity")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200)
+                        .IsUnicode(false);
+
                     b.Property<int?>("RoleId")
                         .HasColumnName("role_id")
                         .HasColumnType("int");
 
-                    b.Property<int?>("Status")
+                    b.Property<string>("Status")
                         .HasColumnName("status")
-                        .HasColumnType("int");
+                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(50)
+                        .IsUnicode(false);
 
                     b.Property<int?>("Type")
                         .HasColumnName("type")
@@ -1865,6 +2095,12 @@ namespace E_Procurement.Migrations
                     b.Property<string>("Password")
                         .HasColumnName("password")
                         .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("ProcEntity")
+                        .HasColumnName("procEntity")
+                        .HasColumnType("varchar(300)")
+                        .HasMaxLength(300)
                         .IsUnicode(false);
 
                     b.Property<int?>("RoleId")
@@ -3835,6 +4071,10 @@ namespace E_Procurement.Migrations
                         .HasColumnType("varchar(150)")
                         .HasMaxLength(150)
                         .IsUnicode(false);
+
+                    b.Property<int?>("Paid")
+                        .HasColumnName("paid")
+                        .HasColumnType("int");
 
                     b.Property<string>("Phone")
                         .HasColumnName("phone")

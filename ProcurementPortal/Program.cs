@@ -18,6 +18,9 @@ builder.Services.AddDbContext<MyPayrollContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IExcelDataService, ExcelDataService>();
 builder.Services.AddScoped<IProcurementPlanDataService, ProcurementPlanDataService>();
+builder.Services.AddScoped<IDropDownService, DropDownService>();
+builder.Services.AddScoped<ITenderService, TenderService > ();
+builder.Services.AddScoped<ITenderSectionDataService, TenderSectionDataService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -39,7 +42,7 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
-
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

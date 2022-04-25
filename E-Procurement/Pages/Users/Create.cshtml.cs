@@ -8,13 +8,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using E_Procurement.Models;
 using Microsoft.EntityFrameworkCore;
 using E_Procurement.Services;
-
+using Microsoft.AspNetCore.Http;
 namespace E_Procurement.Pages.Users
 {
     public class CreateModel : PageModel
     {
         private readonly E_Procurement.Models.MyPayrollContext _context;
         private IMailService mailService;
+       
 
         public CreateModel(E_Procurement.Models.MyPayrollContext context)
         {
@@ -29,6 +30,7 @@ namespace E_Procurement.Pages.Users
             populateDepartmet(_context);
             populateUserType(_context);
             populateStatus(_context);
+            populateProcEntity(_context);
             
         }
         [BindProperty]
@@ -41,10 +43,18 @@ namespace E_Procurement.Pages.Users
 
         public SelectList role { get; set;}
 
-
+        public SelectList procEntity { get; set; }
         public SelectList department { get; set; }
 
+        public void populateProcEntity(MyPayrollContext _context, object selectedDepartment = null)
+        {
 
+            var departmentQuery = from c in _context.CdfProcurementEntity
+                                  orderby c.EntityName
+                                  select c;
+           
+            this.procEntity = new SelectList(departmentQuery.AsNoTracking(), "EntityName", "EntityName", selectedDepartment);
+        }
         public void populateDepartmet(MyPayrollContext _context,object selectedDepartment = null)
         {
 
@@ -87,16 +97,20 @@ namespace E_Procurement.Pages.Users
         // more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-             
+            
+            CdfUser.Username = Request.Form["Username"];
            
+            CdfUser.Fname = Request.Form["Fname"];
+
+            CdfUser.Lname = Request.Form["Lname"];
+            CdfUser.Email = Request.Form["Email"];
+            CdfUser.CreatedBy = HttpContext.Session.GetString("username");
+            CdfUser.ProcEntity = Request.Form["ProcEntity"];
+            CdfUser.RoleId = 3;
             _context.CdfUser.Add(CdfUser);
             await _context.SaveChangesAsync();
             MailRequest mailRequest = new MailRequest(CdfUser.Email, "User Registration", CdfUser.Username + " Kindly note that your account has been created. You can log in to the application using your email " + CdfUser.Email + " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Create");
         }
 
         public async void SendMail(MailRequest request)

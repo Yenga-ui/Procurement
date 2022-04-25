@@ -25,7 +25,31 @@ namespace Core.Services
             }
 
         }
-        
+        int IProcurementPlanDataService.saveTender(CdfTender cdfTender)
+        {
+            try
+            {
+                db.CdfTenders.Add(cdfTender);
+                return cdfTender.Id;
+            }
+            catch(Exception ex)
+            {
+
+                return 0;
+            }
+        }
+        List<CdfPlanItem> IProcurementPlanDataService.getAllPlanItems(int id)
+        {
+            try
+            {
+                List<CdfPlanItem> planItems = db.CdfPlanItems.ToList().Where(x => x.ProcPlanId == id).ToList();
+                return planItems;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
         CdfPlanItem IProcurementPlanDataService.Save(ProcurementPlanItem procurementPlanItems)
         {
             if(procurementPlanItems == null) return null;
@@ -33,6 +57,7 @@ namespace Core.Services
             var planItem = new CdfPlanItem
             {
                 Class = procurementPlanItems.Class,
+                ProcPlanId=Int32.Parse(procurementPlanItems.procPlanId),
                 Unspsc = procurementPlanItems.UNSPSC,
                 Description = procurementPlanItems.Description,
                 RefNo = procurementPlanItems.Ref_No,
@@ -42,11 +67,12 @@ namespace Core.Services
                 SourceOfFunds = procurementPlanItems.Source_of_Funds,
                 Prequalification = procurementPlanItems.Prequalification,
                 ProcurementMethod = procurementPlanItems.Procurement_Method,
-                Publication = Util.ToDateTime(procurementPlanItems.Publication),
-                Award = Util.ToDateTime(procurementPlanItems.Award),
-                Start = Util.ToDateTime(procurementPlanItems.Start),
-                Comments = procurementPlanItems.Comments ?? "",
-                TypeOfEntry = procurementPlanItems.Type_of_Entry ?? ""
+
+                Budget = Decimal.Parse(procurementPlanItems.budget),
+                Publication = Util.ToDateTime(procurementPlanItems.Publication).ToString(),
+                Award = Util.ToDateTime(procurementPlanItems.Award).ToString(),
+
+
             };
 
             Console.Write(planItem);
@@ -55,7 +81,7 @@ namespace Core.Services
             return planItem;
         }
        
-        public List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems)
+        public List<CdfPlanItem> SaveAll(List<ProcurementPlanItem> procurementPlanItems )
         {
 
             var cdfPlanItems = procurementPlanItems.Select(item => new CdfPlanItem
@@ -77,11 +103,29 @@ namespace Core.Services
                     TypeOfEntry = item.Type_of_Entry ?? ""
             })
                 .ToList();
+     
 
             db.CdfPlanItems.AddRange(cdfPlanItems);
             db.SaveChanges();
             
            return cdfPlanItems;
+        }
+
+        public int createProcPlan(CdfProcPlan cdfProcPlan)
+        {
+
+            try
+            {
+                db.CdfProcPlans.Add(cdfProcPlan);
+                db.SaveChanges();
+                return cdfProcPlan.Id;
+
+            }
+            catch (Exception ex)
+            {
+
+                return 0;
+            }
         }
     }
 }

@@ -23,7 +23,7 @@ namespace Core.Login
         public bool login(String username, String password)
         {
             var userCount = 1;
-            userCount = _context.CdfUsers.Where(p => p.Email == username).Count();
+            userCount = _context.CdfProcurementEntities.Where(p => p.Email == username).Count();
             return userCount >= 1;
         }
     }

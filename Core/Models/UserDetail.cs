@@ -12,9 +12,9 @@ namespace Core.Models
 
         public int UserId { get; set; }
         public int? EmployeId { get; set; }
-        public string Username { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
+        public string? Username { get; set; }
+        public string? EmailAddress { get; set; }
+        public string? Password { get; set; }
         public int? UserRoleId { get; set; }
         public int? ProfileStatus { get; set; }
         public DateTime? DateCreated { get; set; }
@@ -22,8 +22,8 @@ namespace Core.Models
         public int? FailedLoginAttempts { get; set; }
         public int? OrganizationId { get; set; }
 
-        public virtual UserStatus ProfileStatusNavigation { get; set; }
-        public virtual UserRole UserRole { get; set; }
+        public virtual UserStatus? ProfileStatusNavigation { get; set; }
+        public virtual UserRole? UserRole { get; set; }
         public virtual ICollection<UserPasswordReset> UserPasswordResets { get; set; }
     }
 }

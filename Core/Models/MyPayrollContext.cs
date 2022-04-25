@@ -17,127 +17,136 @@ namespace Core.Models
 
         }
 
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; }
-        public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
-        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
-        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
-        public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; }
-        public virtual DbSet<Bank> Banks { get; set; }
-        public virtual DbSet<BankBranch> BankBranches { get; set; }
-        public virtual DbSet<CdfAdmin> CdfAdmins { get; set; }
-        public virtual DbSet<CdfAsset> CdfAssets { get; set; }
-        public virtual DbSet<CdfAssetType> CdfAssetTypes { get; set; }
-        public virtual DbSet<CdfBid> CdfBids { get; set; }
-        public virtual DbSet<CdfBudget> CdfBudgets { get; set; }
-        public virtual DbSet<CdfBudgetExpense> CdfBudgetExpenses { get; set; }
-        public virtual DbSet<CdfBudgetPeriod> CdfBudgetPeriods { get; set; }
-        public virtual DbSet<CdfBudgetRevenue> CdfBudgetRevenues { get; set; }
-        public virtual DbSet<CdfCompanyType> CdfCompanyTypes { get; set; }
-        public virtual DbSet<CdfConstituency> CdfConstituencies { get; set; }
-        public virtual DbSet<CdfConstituency1> CdfConstituencies1 { get; set; }
-        public virtual DbSet<CdfDepartment> CdfDepartments { get; set; }
-        public virtual DbSet<CdfEvaluationmethod> CdfEvaluationmethods { get; set; }
-        public virtual DbSet<CdfExpenseType> CdfExpenseTypes { get; set; }
-        public virtual DbSet<CdfFund> CdfFunds { get; set; }
-        public virtual DbSet<CdfFund1> CdfFunds1 { get; set; }
-        public virtual DbSet<CdfIdentityType> CdfIdentityTypes { get; set; }
-        public virtual DbSet<CdfIdentityType1> CdfIdentityTypes1 { get; set; }
-        public virtual DbSet<CdfLevel> CdfLevels { get; set; }
-        public virtual DbSet<CdfOrganization> CdfOrganizations { get; set; }
-        public virtual DbSet<CdfOrganization1> CdfOrganizations1 { get; set; }
-        public virtual DbSet<CdfOrganizationActivation> CdfOrganizationActivations { get; set; }
-        public virtual DbSet<CdfOrganizationbranch> CdfOrganizationbranches { get; set; }
-        public virtual DbSet<CdfOrganizationdepartment> CdfOrganizationdepartments { get; set; }
-        public virtual DbSet<CdfOrganizationjob> CdfOrganizationjobs { get; set; }
-        public virtual DbSet<CdfOrganizationprofile> CdfOrganizationprofiles { get; set; }
-        public virtual DbSet<CdfPermission> CdfPermissions { get; set; }
-        public virtual DbSet<CdfPlanItem> CdfPlanItems { get; set; }
-        public virtual DbSet<CdfProcPlan> CdfProcPlans { get; set; }
-        public virtual DbSet<CdfProcurement> CdfProcurements { get; set; }
-        public virtual DbSet<CdfProcurementEntity> CdfProcurementEntities { get; set; }
-        public virtual DbSet<CdfProcurementEntityType> CdfProcurementEntityTypes { get; set; }
-        public virtual DbSet<CdfRole> CdfRoles { get; set; }
-        public virtual DbSet<CdfRole1> CdfRoles1 { get; set; }
-        public virtual DbSet<CdfRole2> CdfRoles2 { get; set; }
-        public virtual DbSet<CdfService> CdfServices { get; set; }
-        public virtual DbSet<CdfStatus> CdfStatuses { get; set; }
-        public virtual DbSet<CdfStatus1> CdfStatuses1 { get; set; }
-        public virtual DbSet<CdfStock> CdfStocks { get; set; }
-        public virtual DbSet<CdfTender> CdfTenders { get; set; }
-        public virtual DbSet<CdfTenderCategory> CdfTenderCategories { get; set; }
-        public virtual DbSet<CdfTenderProcedure> CdfTenderProcedures { get; set; }
-        public virtual DbSet<CdfUser> CdfUsers { get; set; }
-        public virtual DbSet<CdfUser1> CdfUsers1 { get; set; }
-        public virtual DbSet<CdfUser2> CdfUsers2 { get; set; }
-        public virtual DbSet<CdfUserType> CdfUserTypes { get; set; }
-        public virtual DbSet<CdfUserType1> CdfUserTypes1 { get; set; }
-        public virtual DbSet<CeecCategory> CeecCategories { get; set; }
-        public virtual DbSet<Company> Companies { get; set; }
-        public virtual DbSet<CountryName> CountryNames { get; set; }
-        public virtual DbSet<CurrencySymbol> CurrencySymbols { get; set; }
-        public virtual DbSet<CurrencySymbol1> CurrencySymbols1 { get; set; }
-        public virtual DbSet<Department> Departments { get; set; }
-        public virtual DbSet<DisciplinaryCase> DisciplinaryCases { get; set; }
-        public virtual DbSet<Document> Documents { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<EmployeeBankDetail> EmployeeBankDetails { get; set; }
-        public virtual DbSet<EmployeeBankDetailsView> EmployeeBankDetailsViews { get; set; }
-        public virtual DbSet<EmployeeDetail> EmployeeDetails { get; set; }
-        public virtual DbSet<EmployeeHistory> EmployeeHistories { get; set; }
-        public virtual DbSet<EmployeeQualification> EmployeeQualifications { get; set; }
-        public virtual DbSet<EmployeeQualificationsView> EmployeeQualificationsViews { get; set; }
-        public virtual DbSet<EmployeeRemuneration> EmployeeRemunerations { get; set; }
-        public virtual DbSet<EmployeeStatus> EmployeeStatuses { get; set; }
-        public virtual DbSet<EmployeeTimeSheet> EmployeeTimeSheets { get; set; }
-        public virtual DbSet<Entity> Entities { get; set; }
-        public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
-        public virtual DbSet<Gender> Genders { get; set; }
-        public virtual DbSet<HistoryPayrollRun> HistoryPayrollRuns { get; set; }
-        public virtual DbSet<IdnumberType> IdnumberTypes { get; set; }
-        public virtual DbSet<IncreaseHistory> IncreaseHistories { get; set; }
-        public virtual DbSet<IncreaseReason> IncreaseReasons { get; set; }
-        public virtual DbSet<JobGeneral> JobGenerals { get; set; }
-        public virtual DbSet<JobGrade> JobGrades { get; set; }
-        public virtual DbSet<JobTitle> JobTitles { get; set; }
-        public virtual DbSet<LeaveDetail> LeaveDetails { get; set; }
-        public virtual DbSet<LeaveEntitlementView> LeaveEntitlementViews { get; set; }
-        public virtual DbSet<LeaveTransaction> LeaveTransactions { get; set; }
-        public virtual DbSet<LeaveType> LeaveTypes { get; set; }
-        public virtual DbSet<MaritalStatus> MaritalStatuses { get; set; }
-        public virtual DbSet<NapsaConfiguration> NapsaConfigurations { get; set; }
-        public virtual DbSet<NatureOfContract> NatureOfContracts { get; set; }
-        public virtual DbSet<NhimaConfiguration> NhimaConfigurations { get; set; }
-        public virtual DbSet<PayrollDeductionDef> PayrollDeductionDefs { get; set; }
-        public virtual DbSet<PayrollEarningDef> PayrollEarningDefs { get; set; }
-        public virtual DbSet<PayrollLinesFrequecyCode> PayrollLinesFrequecyCodes { get; set; }
-        public virtual DbSet<PayrollRunDetailsView> PayrollRunDetailsViews { get; set; }
-        public virtual DbSet<PayslipDefinition> PayslipDefinitions { get; set; }
-        public virtual DbSet<PayslipDetail> PayslipDetails { get; set; }
-        public virtual DbSet<PayslipDetailArchive> PayslipDetailArchives { get; set; }
-        public virtual DbSet<PositionCodesView> PositionCodesViews { get; set; }
-        public virtual DbSet<PositionDetail> PositionDetails { get; set; }
-        public virtual DbSet<PromotionHistory> PromotionHistories { get; set; }
-        public virtual DbSet<Reference> References { get; set; }
-        public virtual DbSet<StatusDescription> StatusDescriptions { get; set; }
-        public virtual DbSet<SupplierRegAttachment> SupplierRegAttachments { get; set; }
-        public virtual DbSet<SupplierRegistation> SupplierRegistations { get; set; }
-        public virtual DbSet<TaxTableDefinition> TaxTableDefinitions { get; set; }
-        public virtual DbSet<TerminationReason> TerminationReasons { get; set; }
-        public virtual DbSet<TitleDescription> TitleDescriptions { get; set; }
-        public virtual DbSet<UserAuditLog> UserAuditLogs { get; set; }
-        public virtual DbSet<UserDetail> UserDetails { get; set; }
-        public virtual DbSet<UserMenu> UserMenus { get; set; }
-        public virtual DbSet<UserMenuMapping> UserMenuMappings { get; set; }
-        public virtual DbSet<UserPasswordReset> UserPasswordResets { get; set; }
-        public virtual DbSet<UserRole> UserRoles { get; set; }
-        public virtual DbSet<UserStatus> UserStatuses { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
+        public virtual DbSet<AspNetRoleClaim> AspNetRoleClaims { get; set; } = null!;
+        public virtual DbSet<AspNetUser> AspNetUsers { get; set; } = null!;
+        public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; } = null!;
+        public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; } = null!;
+        public virtual DbSet<AspNetUserToken> AspNetUserTokens { get; set; } = null!;
+        public virtual DbSet<Bank> Banks { get; set; } = null!;
+        public virtual DbSet<BankBranch> BankBranches { get; set; } = null!;
+        public virtual DbSet<CdfAdmin> CdfAdmins { get; set; } = null!;
+        public virtual DbSet<CdfAsset> CdfAssets { get; set; } = null!;
+        public virtual DbSet<CdfAssetType> CdfAssetTypes { get; set; } = null!;
+        public virtual DbSet<CdfBid> CdfBids { get; set; } = null!;
+        public virtual DbSet<CdfBudget> CdfBudgets { get; set; } = null!;
+        public virtual DbSet<CdfBudgetExpense> CdfBudgetExpenses { get; set; } = null!;
+        public virtual DbSet<CdfBudgetPeriod> CdfBudgetPeriods { get; set; } = null!;
+        public virtual DbSet<CdfBudgetRevenue> CdfBudgetRevenues { get; set; } = null!;
+        public virtual DbSet<CdfCompanyType> CdfCompanyTypes { get; set; } = null!;
+        public virtual DbSet<CdfConstituency> CdfConstituencies { get; set; } = null!;
+        public virtual DbSet<CdfConstituency1> CdfConstituencies1 { get; set; } = null!;
+        public virtual DbSet<CdfDepartment> CdfDepartments { get; set; } = null!;
+        public virtual DbSet<CdfEvaluationmethod> CdfEvaluationmethods { get; set; } = null!;
+        public virtual DbSet<CdfExpenseType> CdfExpenseTypes { get; set; } = null!;
+        public virtual DbSet<CdfFund> CdfFunds { get; set; } = null!;
+        public virtual DbSet<CdfFund1> CdfFunds1 { get; set; } = null!;
+        public virtual DbSet<CdfIdentityType> CdfIdentityTypes { get; set; } = null!;
+        public virtual DbSet<CdfIdentityType1> CdfIdentityTypes1 { get; set; } = null!;
+        public virtual DbSet<CdfLevel> CdfLevels { get; set; } = null!;
+        public virtual DbSet<CdfOrganization> CdfOrganizations { get; set; } = null!;
+        public virtual DbSet<CdfOrganization1> CdfOrganizations1 { get; set; } = null!;
+        public virtual DbSet<CdfOrganizationActivation> CdfOrganizationActivations { get; set; } = null!;
+        public virtual DbSet<CdfOrganizationbranch> CdfOrganizationbranches { get; set; } = null!;
+        public virtual DbSet<CdfOrganizationdepartment> CdfOrganizationdepartments { get; set; } = null!;
+        public virtual DbSet<CdfOrganizationjob> CdfOrganizationjobs { get; set; } = null!;
+        public virtual DbSet<CdfOrganizationprofile> CdfOrganizationprofiles { get; set; } = null!;
+        public virtual DbSet<CdfPermission> CdfPermissions { get; set; } = null!;
+        public virtual DbSet<CdfPlanItem> CdfPlanItems { get; set; } = null!;
+        public virtual DbSet<CdfProcPlan> CdfProcPlans { get; set; } = null!;
+        public virtual DbSet<CdfProcurement> CdfProcurements { get; set; } = null!;
+        public virtual DbSet<CdfProcurementEntity> CdfProcurementEntities { get; set; } = null!;
+        public virtual DbSet<CdfProcurementEntityType> CdfProcurementEntityTypes { get; set; } = null!;
+        public virtual DbSet<CdfRole> CdfRoles { get; set; } = null!;
+        public virtual DbSet<CdfRole1> CdfRoles1 { get; set; } = null!;
+        public virtual DbSet<CdfRole2> CdfRoles2 { get; set; } = null!;
+        public virtual DbSet<CdfService> CdfServices { get; set; } = null!;
+        public virtual DbSet<CdfStatus> CdfStatuses { get; set; } = null!;
+        public virtual DbSet<CdfStatus1> CdfStatuses1 { get; set; } = null!;
+        public virtual DbSet<CdfStock> CdfStocks { get; set; } = null!;
+        public virtual DbSet<CdfSupplierFee> CdfSupplierFees { get; set; } = null!;
+        public virtual DbSet<CdfSupplierResDocument> CdfSupplierResDocuments { get; set; } = null!;
+        public virtual DbSet<CdfSupplierResponse> CdfSupplierResponses { get; set; } = null!;
+        public virtual DbSet<CdfSupplierTenderPayment> CdfSupplierTenderPayments { get; set; } = null!;
+        public virtual DbSet<CdfTender> CdfTenders { get; set; } = null!;
+        public virtual DbSet<CdfTenderCategory> CdfTenderCategories { get; set; } = null!;
+        public virtual DbSet<CdfTenderProcedure> CdfTenderProcedures { get; set; } = null!;
+        public virtual DbSet<CdfTenderSection> CdfTenderSections { get; set; } = null!;
+        public virtual DbSet<CdfTenderSectionSub> CdfTenderSectionSubs { get; set; } = null!;
+        public virtual DbSet<CdfUser> CdfUsers { get; set; } = null!;
+        public virtual DbSet<CdfUser1> CdfUsers1 { get; set; } = null!;
+        public virtual DbSet<CdfUser2> CdfUsers2 { get; set; } = null!;
+        public virtual DbSet<CdfUserType> CdfUserTypes { get; set; } = null!;
+        public virtual DbSet<CdfUserType1> CdfUserTypes1 { get; set; } = null!;
+        public virtual DbSet<CeecCategory> CeecCategories { get; set; } = null!;
+        public virtual DbSet<Company> Companies { get; set; } = null!;
+        public virtual DbSet<CountryName> CountryNames { get; set; } = null!;
+        public virtual DbSet<CurrencySymbol> CurrencySymbols { get; set; } = null!;
+        public virtual DbSet<CurrencySymbol1> CurrencySymbols1 { get; set; } = null!;
+        public virtual DbSet<Department> Departments { get; set; } = null!;
+        public virtual DbSet<DisciplinaryCase> DisciplinaryCases { get; set; } = null!;
+        public virtual DbSet<Document> Documents { get; set; } = null!;
+        public virtual DbSet<Employee> Employees { get; set; } = null!;
+        public virtual DbSet<EmployeeBankDetail> EmployeeBankDetails { get; set; } = null!;
+        public virtual DbSet<EmployeeBankDetailsView> EmployeeBankDetailsViews { get; set; } = null!;
+        public virtual DbSet<EmployeeDetail> EmployeeDetails { get; set; } = null!;
+        public virtual DbSet<EmployeeHistory> EmployeeHistories { get; set; } = null!;
+        public virtual DbSet<EmployeeQualification> EmployeeQualifications { get; set; } = null!;
+        public virtual DbSet<EmployeeQualificationsView> EmployeeQualificationsViews { get; set; } = null!;
+        public virtual DbSet<EmployeeRemuneration> EmployeeRemunerations { get; set; } = null!;
+        public virtual DbSet<EmployeeStatus> EmployeeStatuses { get; set; } = null!;
+        public virtual DbSet<EmployeeTimeSheet> EmployeeTimeSheets { get; set; } = null!;
+        public virtual DbSet<Entity> Entities { get; set; } = null!;
+        public virtual DbSet<ErrorLog> ErrorLogs { get; set; } = null!;
+        public virtual DbSet<Gender> Genders { get; set; } = null!;
+        public virtual DbSet<HistoryPayrollRun> HistoryPayrollRuns { get; set; } = null!;
+        public virtual DbSet<IdnumberType> IdnumberTypes { get; set; } = null!;
+        public virtual DbSet<IncreaseHistory> IncreaseHistories { get; set; } = null!;
+        public virtual DbSet<IncreaseReason> IncreaseReasons { get; set; } = null!;
+        public virtual DbSet<JobGeneral> JobGenerals { get; set; } = null!;
+        public virtual DbSet<JobGrade> JobGrades { get; set; } = null!;
+        public virtual DbSet<JobTitle> JobTitles { get; set; } = null!;
+        public virtual DbSet<LeaveDetail> LeaveDetails { get; set; } = null!;
+        public virtual DbSet<LeaveEntitlementView> LeaveEntitlementViews { get; set; } = null!;
+        public virtual DbSet<LeaveTransaction> LeaveTransactions { get; set; } = null!;
+        public virtual DbSet<LeaveType> LeaveTypes { get; set; } = null!;
+        public virtual DbSet<MaritalStatus> MaritalStatuses { get; set; } = null!;
+        public virtual DbSet<NapsaConfiguration> NapsaConfigurations { get; set; } = null!;
+        public virtual DbSet<NatureOfContract> NatureOfContracts { get; set; } = null!;
+        public virtual DbSet<NhimaConfiguration> NhimaConfigurations { get; set; } = null!;
+        public virtual DbSet<PayrollDeductionDef> PayrollDeductionDefs { get; set; } = null!;
+        public virtual DbSet<PayrollEarningDef> PayrollEarningDefs { get; set; } = null!;
+        public virtual DbSet<PayrollLinesFrequecyCode> PayrollLinesFrequecyCodes { get; set; } = null!;
+        public virtual DbSet<PayrollRunDetailsView> PayrollRunDetailsViews { get; set; } = null!;
+        public virtual DbSet<PayslipDefinition> PayslipDefinitions { get; set; } = null!;
+        public virtual DbSet<PayslipDetail> PayslipDetails { get; set; } = null!;
+        public virtual DbSet<PayslipDetailArchive> PayslipDetailArchives { get; set; } = null!;
+        public virtual DbSet<PositionCodesView> PositionCodesViews { get; set; } = null!;
+        public virtual DbSet<PositionDetail> PositionDetails { get; set; } = null!;
+        public virtual DbSet<PromotionHistory> PromotionHistories { get; set; } = null!;
+        public virtual DbSet<Reference> References { get; set; } = null!;
+        public virtual DbSet<StatusDescription> StatusDescriptions { get; set; } = null!;
+        public virtual DbSet<SupplierRegAttachment> SupplierRegAttachments { get; set; } = null!;
+        public virtual DbSet<SupplierRegistation> SupplierRegistations { get; set; } = null!;
+        public virtual DbSet<TaxTableDefinition> TaxTableDefinitions { get; set; } = null!;
+        public virtual DbSet<TerminationReason> TerminationReasons { get; set; } = null!;
+        public virtual DbSet<TitleDescription> TitleDescriptions { get; set; } = null!;
+        public virtual DbSet<UserAuditLog> UserAuditLogs { get; set; } = null!;
+        public virtual DbSet<UserDetail> UserDetails { get; set; } = null!;
+        public virtual DbSet<UserMenu> UserMenus { get; set; } = null!;
+        public virtual DbSet<UserMenuMapping> UserMenuMappings { get; set; } = null!;
+        public virtual DbSet<UserPasswordReset> UserPasswordResets { get; set; } = null!;
+        public virtual DbSet<UserRole> UserRoles { get; set; } = null!;
+        public virtual DbSet<UserStatus> UserStatuses { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Name=DBConnection");
+
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+
             }
         }
 
@@ -154,9 +163,7 @@ namespace Core.Models
 
             modelBuilder.Entity<AspNetRoleClaim>(entity =>
             {
-                entity.Property(e => e.RoleId)
-                    .IsRequired()
-                    .HasMaxLength(450);
+                entity.Property(e => e.RoleId).HasMaxLength(450);
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.AspNetRoleClaims)
@@ -189,9 +196,7 @@ namespace Core.Models
 
             modelBuilder.Entity<AspNetUserClaim>(entity =>
             {
-                entity.Property(e => e.UserId)
-                    .IsRequired()
-                    .HasMaxLength(450);
+                entity.Property(e => e.UserId).HasMaxLength(450);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserClaims)
@@ -206,9 +211,7 @@ namespace Core.Models
 
                 entity.Property(e => e.ProviderKey).HasMaxLength(128);
 
-                entity.Property(e => e.UserId)
-                    .IsRequired()
-                    .HasMaxLength(450);
+                entity.Property(e => e.UserId).HasMaxLength(450);
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.AspNetUserLogins)
@@ -242,7 +245,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -269,7 +271,6 @@ namespace Core.Models
                 entity.Property(e => e.BranchCode)
                     .HasMaxLength(10)
                     .IsUnicode(false);
-
 
                 entity.Property(e => e.BranchName)
                     .HasMaxLength(50)
@@ -405,7 +406,6 @@ namespace Core.Models
                 entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Amount)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("amount");
@@ -413,7 +413,6 @@ namespace Core.Models
                 entity.Property(e => e.BudgetId).HasColumnName("budget_id");
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("code");
@@ -424,7 +423,6 @@ namespace Core.Models
                     .HasColumnName("currency");
 
                 entity.Property(e => e.Description)
-                    .IsRequired()
                     .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("description");
@@ -861,15 +859,26 @@ namespace Core.Models
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
+                entity.Property(e => e.Budget)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("budget");
+
                 entity.Property(e => e.Class)
                     .IsUnicode(false)
                     .HasColumnName("Class");
 
                 entity.Property(e => e.Comments).IsUnicode(false);
 
+                entity.Property(e => e.CreatedBy)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("createdBy");
+
                 entity.Property(e => e.Description).IsUnicode(false);
 
                 entity.Property(e => e.Prequalification).IsUnicode(false);
+
+                entity.Property(e => e.ProcPlanId).HasColumnName("procPlanID");
 
                 entity.Property(e => e.ProcurementMethod)
                     .IsUnicode(false)
@@ -951,6 +960,14 @@ namespace Core.Models
                 entity.ToTable("CDF_ProcurementEntity");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Description)
+                    .IsUnicode(false)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.Email)
+                    .IsUnicode(false)
+                    .HasColumnName("email");
 
                 entity.Property(e => e.EntityName)
                     .IsUnicode(false)
@@ -1093,11 +1110,95 @@ namespace Core.Models
                     .HasColumnName("stockCode");
             });
 
+            modelBuilder.Entity<CdfSupplierFee>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("CDF_SupplierFee");
+
+                entity.Property(e => e.Active).HasColumnName("active");
+
+                entity.Property(e => e.DateCreated)
+                    .HasColumnType("datetime")
+                    .HasColumnName("dateCreated")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID");
+
+                entity.Property(e => e.SupplierFee).HasColumnType("decimal(18, 0)");
+            });
+
+            modelBuilder.Entity<CdfSupplierResDocument>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_ResDocuments");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Name)
+                    .IsUnicode(false)
+                    .HasColumnName("name");
+
+                entity.Property(e => e.Path)
+                    .IsUnicode(false)
+                    .HasColumnName("path");
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.Type)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("type");
+            });
+
+            modelBuilder.Entity<CdfSupplierResponse>(entity =>
+            {
+                entity.ToTable("Cdf_Supplier_Response");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.SectionId).HasColumnName("section_id");
+
+                entity.Property(e => e.SupplierId).HasColumnName("supplier_id");
+
+                entity.Property(e => e.TenderId).HasColumnName("tender_id");
+
+                entity.Property(e => e.TextResponse)
+                    .HasColumnType("text")
+                    .HasColumnName("text_response");
+            });
+
+            modelBuilder.Entity<CdfSupplierTenderPayment>(entity =>
+            {
+                entity.ToTable("CDF_SupplierTenderPayment");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Paid).HasColumnName("paid");
+
+                entity.Property(e => e.SupplierCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("supplierCode");
+
+                entity.Property(e => e.TenderCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("tenderCode");
+            });
+
             modelBuilder.Entity<CdfTender>(entity =>
             {
                 entity.ToTable("CDF_Tender");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Active).HasColumnName("active");
+
+                entity.Property(e => e.Amount)
+                    .HasColumnType("decimal(18, 0)")
+                    .HasColumnName("amount");
 
                 entity.Property(e => e.BudgetExpenseId).HasColumnName("budget_expense_id");
 
@@ -1213,6 +1314,60 @@ namespace Core.Models
                     .HasColumnName("tenderProcedure");
             });
 
+            modelBuilder.Entity<CdfTenderSection>(entity =>
+            {
+                entity.ToTable("Cdf_TenderSection");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Description)
+                    .HasColumnType("text")
+                    .HasColumnName("description");
+
+                entity.Property(e => e.SupportingDocumentation).HasColumnName("supporting_documentation");
+
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
+                entity.Property(e => e.TextResponse).HasColumnName("text_response");
+
+                entity.Property(e => e.Title)
+                    .IsUnicode(false)
+                    .HasColumnName("title");
+            });
+
+            modelBuilder.Entity<CdfTenderSectionSub>(entity =>
+            {
+                entity.ToTable("CDF_TenderSectionSub");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.NumberInput)
+                    .IsUnicode(false)
+                    .HasColumnName("numberInput");
+
+                entity.Property(e => e.SupportingDocumentation)
+                    .IsUnicode(false)
+                    .HasColumnName("supportingDocumentation");
+
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
+                entity.Property(e => e.TenderSectionId).HasColumnName("tenderSectionID");
+
+                entity.Property(e => e.TextResponse)
+                    .IsUnicode(false)
+                    .HasColumnName("textResponse");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("title");
+            });
+
             modelBuilder.Entity<CdfUser>(entity =>
             {
                 entity.ToTable("CDF_User");
@@ -1262,9 +1417,17 @@ namespace Core.Models
                     .IsUnicode(false)
                     .HasColumnName("phone");
 
+                entity.Property(e => e.ProcEntity)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("procEntity");
+
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
-                entity.Property(e => e.Status).HasColumnName("status");
+                entity.Property(e => e.Status)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("status");
 
                 entity.Property(e => e.Type).HasColumnName("type");
 
@@ -1302,6 +1465,11 @@ namespace Core.Models
                 entity.Property(e => e.Password)
                     .IsUnicode(false)
                     .HasColumnName("password");
+
+                entity.Property(e => e.ProcEntity)
+                    .HasMaxLength(300)
+                    .IsUnicode(false)
+                    .HasColumnName("procEntity");
 
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
@@ -1390,25 +1558,21 @@ namespace Core.Models
                     .HasColumnName("id");
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(3)
                     .IsUnicode(false)
                     .HasColumnName("code");
 
                 entity.Property(e => e.Country)
-                    .IsRequired()
                     .HasMaxLength(36)
                     .IsUnicode(false)
                     .HasColumnName("country");
 
                 entity.Property(e => e.Currency)
-                    .IsRequired()
                     .HasMaxLength(39)
                     .IsUnicode(false)
                     .HasColumnName("currency");
 
                 entity.Property(e => e.Symbol)
-                    .IsRequired()
                     .HasMaxLength(5)
                     .HasColumnName("symbol");
             });
@@ -1432,7 +1596,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.DepartmentCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -1503,11 +1666,7 @@ namespace Core.Models
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
 
-                entity.Property(e => e.FileData).IsRequired();
-
-                entity.Property(e => e.FileName)
-                    .IsRequired()
-                    .HasMaxLength(250);
+                entity.Property(e => e.FileName).HasMaxLength(250);
 
                 entity.Property(e => e.FileType)
                     .HasMaxLength(100)
@@ -1541,7 +1700,6 @@ namespace Core.Models
                 entity.Property(e => e.DepartmentId).HasColumnName("DepartmentID");
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -1687,7 +1845,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.CellPhoneNumber)
-                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -1700,12 +1857,10 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmailAddress)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -1716,7 +1871,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
@@ -1729,7 +1883,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("IDNumber");
@@ -1745,7 +1898,6 @@ namespace Core.Models
                 entity.Property(e => e.JobTitle).IsUnicode(false);
 
                 entity.Property(e => e.LastName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
@@ -1777,9 +1929,7 @@ namespace Core.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.PhysicalAddress)
-                    .IsRequired()
-                    .IsUnicode(false);
+                entity.Property(e => e.PhysicalAddress).IsUnicode(false);
 
                 entity.Property(e => e.PositionCode)
                     .HasMaxLength(113)
@@ -1803,7 +1953,6 @@ namespace Core.Models
                 entity.ToTable("EmployeeHistory");
 
                 entity.Property(e => e.CreatedBy)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -1812,7 +1961,6 @@ namespace Core.Models
                 entity.Property(e => e.DateEngaged).HasColumnType("datetime");
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(15)
                     .IsUnicode(false);
 
@@ -1826,8 +1974,6 @@ namespace Core.Models
             modelBuilder.Entity<EmployeeQualification>(entity =>
             {
                 entity.HasKey(e => e.FileId);
-
-                entity.Property(e => e.DocumentContent).IsRequired();
 
                 entity.Property(e => e.DocumentName)
                     .HasMaxLength(200)
@@ -1843,9 +1989,7 @@ namespace Core.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.GuId)
-                    .IsRequired()
-                    .IsUnicode(false);
+                entity.Property(e => e.GuId).IsUnicode(false);
 
                 entity.Property(e => e.QualificationType)
                     .HasMaxLength(20)
@@ -1864,8 +2008,6 @@ namespace Core.Models
                 entity.HasNoKey();
 
                 entity.ToView("EmployeeQualificationsView");
-
-                entity.Property(e => e.DocumentContent).IsRequired();
 
                 entity.Property(e => e.DocumentName)
                     .HasMaxLength(200)
@@ -1889,9 +2031,7 @@ namespace Core.Models
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
-                entity.Property(e => e.GuId)
-                    .IsRequired()
-                    .IsUnicode(false);
+                entity.Property(e => e.GuId).IsUnicode(false);
 
                 entity.Property(e => e.LastName)
                     .HasMaxLength(100)
@@ -1927,7 +2067,6 @@ namespace Core.Models
                 entity.Property(e => e.StartDate).HasColumnType("date");
 
                 entity.Property(e => e.UserId)
-                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -1973,7 +2112,6 @@ namespace Core.Models
                 entity.Property(e => e.DateWorked).HasColumnType("date");
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2042,17 +2180,14 @@ namespace Core.Models
                 entity.Property(e => e.EmployeeStatusId).HasColumnName("EmployeeStatusID");
 
                 entity.Property(e => e.FirstName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Gender)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Idnumber)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("IDNumber");
@@ -2062,7 +2197,6 @@ namespace Core.Models
                 entity.Property(e => e.LastChanged).HasColumnType("datetime");
 
                 entity.Property(e => e.LastName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
@@ -2309,7 +2443,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Jobcode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2355,7 +2488,6 @@ namespace Core.Models
                 entity.ToView("LeaveEntitlementView");
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -2411,7 +2543,6 @@ namespace Core.Models
                     .IsUnique();
 
                 entity.Property(e => e.ApplicableGender)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2420,7 +2551,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2435,7 +2565,6 @@ namespace Core.Models
                 entity.Property(e => e.DateCreated).HasColumnType("date");
 
                 entity.Property(e => e.LeaveTypeDescription)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });
@@ -2601,7 +2730,6 @@ namespace Core.Models
                     .IsUnique();
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2643,12 +2771,10 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.FirstName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
@@ -2657,7 +2783,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.IdNumber)
-                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
@@ -2672,7 +2797,6 @@ namespace Core.Models
                 entity.Property(e => e.JobTitle).IsUnicode(false);
 
                 entity.Property(e => e.LastName)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
             });
@@ -2702,7 +2826,6 @@ namespace Core.Models
                 entity.Property(e => e.PeriodStartDate).HasColumnType("date");
 
                 entity.Property(e => e.Type)
-                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
@@ -2794,7 +2917,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.JobTitleCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2803,12 +2925,10 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.PositionCode)
-                    .IsRequired()
                     .HasMaxLength(20)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ReportsToPosition)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
@@ -2841,7 +2961,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.JobTitleCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2850,7 +2969,6 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.PositionCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -2891,17 +3009,14 @@ namespace Core.Models
                 entity.Property(e => e.CreatedDate).HasColumnType("date");
 
                 entity.Property(e => e.EmployeeCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.NewPositionCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.OldPositionCode)
-                    .IsRequired()
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
@@ -3015,6 +3130,8 @@ namespace Core.Models
                     .IsUnicode(false)
                     .HasColumnName("organizationType");
 
+                entity.Property(e => e.Paid).HasColumnName("paid");
+
                 entity.Property(e => e.Phone)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -3077,19 +3194,16 @@ namespace Core.Models
                     .IsUnique();
 
                 entity.Property(e => e.Code)
-                    .IsRequired()
                     .HasMaxLength(8)
                     .IsUnicode(false);
 
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
                 entity.Property(e => e.Description)
-                    .IsRequired()
                     .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Status)
-                    .IsRequired()
                     .HasMaxLength(2)
                     .IsUnicode(false);
             });

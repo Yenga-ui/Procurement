@@ -7,10 +7,10 @@ namespace Core.Models
     {
         public int Id { get; set; }
         public int? OrganizationId { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
+        public string? Email { get; set; }
+        public string? Phone { get; set; }
         public int? Active { get; set; }
-        public string Fname { get; set; }
-        public string Lname { get; set; }
+        public string? Fname { get; set; }
+        public string? Lname { get; set; }
     }
 }
