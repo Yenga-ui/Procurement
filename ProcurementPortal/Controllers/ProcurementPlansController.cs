@@ -2,22 +2,25 @@
 using Core.Models;
 using Core.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace Portal.Controllers
 {
     public class ProcurementPlansController : Controller
     {
+        private readonly ILogger<ProcurementPlansController> Logger;
         private readonly IWebHostEnvironment Environment;
         private readonly IExcelDataService ExcelDataService;
         private readonly IProcurementPlanDataService ProcurementPlanDataService;
 
-        public ProcurementPlansController(IWebHostEnvironment environment, IExcelDataService excelDataService,
-            IProcurementPlanDataService procurementPlanDataService)
+        public ProcurementPlansController(IWebHostEnvironment environment,
+            IExcelDataService excelDataService,
+            IProcurementPlanDataService procurementPlanDataService,
+            ILogger<ProcurementPlansController> logger)
         {
             Environment = environment;
             ExcelDataService = excelDataService;
             ProcurementPlanDataService = procurementPlanDataService;
+            Logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpGet]
@@ -121,8 +124,11 @@ namespace Portal.Controllers
                             message = "Validation Failed"
                         });
                 }
+
                 plan.procPlanId = HttpContext.Session.GetString("ProcID");
                 var savedPlanItem = ProcurementPlanDataService.Save(plan);
+
+
 
                 return Ok(
                         new
@@ -134,8 +140,8 @@ namespace Portal.Controllers
             }
             catch (Exception ex)
             {
-                Console.Write(ex.Message);
-                //log exception
+                Logger.LogError(ex.StackTrace);
+                
                 return Ok(
                         new
                         {

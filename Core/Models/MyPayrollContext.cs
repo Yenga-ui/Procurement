@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-
+using Microsoft.Extensions.Configuration;
 namespace Core.Models
 {
     public partial class MyPayrollContext : DbContext
@@ -14,6 +14,7 @@ namespace Core.Models
         public MyPayrollContext(DbContextOptions<MyPayrollContext> options)
             : base(options)
         {
+
         }
 
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
@@ -142,8 +143,10 @@ namespace Core.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+
             }
         }
 
@@ -850,7 +853,9 @@ namespace Core.Models
             {
                 entity.ToTable("CDF_PlanItems");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("Id");
+
+                entity.Property(e => e.PlanHeaderId).IsUnicode(false);
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
@@ -860,7 +865,7 @@ namespace Core.Models
 
                 entity.Property(e => e.Class)
                     .IsUnicode(false)
-                    .HasColumnName("class");
+                    .HasColumnName("Class");
 
                 entity.Property(e => e.Comments).IsUnicode(false);
 
@@ -877,35 +882,35 @@ namespace Core.Models
 
                 entity.Property(e => e.ProcurementMethod)
                     .IsUnicode(false)
-                    .HasColumnName("procurement_method");
+                    .HasColumnName("ProcurementMethod");
 
                 entity.Property(e => e.ProjectCode)
                     .IsUnicode(false)
-                    .HasColumnName("Project_Code");
+                    .HasColumnName("ProjectCode");
 
                 entity.Property(e => e.Publication)
                     .IsUnicode(false)
                     .HasColumnName("publication");
 
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
+                entity.Property(e => e.Quantity).HasColumnName("Quantity");
 
                 entity.Property(e => e.RefNo)
                     .IsUnicode(false)
-                    .HasColumnName("Ref_No");
+                    .HasColumnName("RefNo");
 
                 entity.Property(e => e.SourceOfFunds)
                     .IsUnicode(false)
-                    .HasColumnName("source_of_funds");
+                    .HasColumnName("SourceOfFunds");
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                entity.Property(e => e.Typeofentry)
+                entity.Property(e => e.TypeOfEntry)
                     .IsUnicode(false)
-                    .HasColumnName("typeofentry");
+                    .HasColumnName("TypeOfEntry");
 
-                entity.Property(e => e.Unitofmeasure)
+                entity.Property(e => e.UnitOfMeasure)
                     .IsUnicode(false)
-                    .HasColumnName("unitofmeasure");
+                    .HasColumnName("UnitOfMeasure");
 
                 entity.Property(e => e.Unspsc)
                     .IsUnicode(false)

@@ -860,7 +860,7 @@ namespace E_Procurement.Models
             {
                 entity.ToTable("CDF_PlanItems");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id).HasColumnName("Id");
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
@@ -869,7 +869,7 @@ namespace E_Procurement.Models
                     .HasColumnType("decimal(18, 0)");
 
                 entity.Property(e => e.Class)
-                    .HasColumnName("class")
+                    .HasColumnName("Class")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Comments).IsUnicode(false);
@@ -886,39 +886,39 @@ namespace E_Procurement.Models
                 entity.Property(e => e.ProcPlanId).HasColumnName("procPlanID");
 
                 entity.Property(e => e.ProcurementMethod)
-                    .HasColumnName("procurement_method")
+                    .HasColumnName("procurementMethod")
                     .IsUnicode(false);
 
                 entity.Property(e => e.ProjectCode)
-                    .HasColumnName("Project_Code")
+                    .HasColumnName("ProjectCode")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Publication)
-                    .HasColumnName("publication")
+                    .HasColumnName("Publication")
                     .IsUnicode(false);
 
-                entity.Property(e => e.Quantity).HasColumnName("quantity");
+                entity.Property(e => e.Quantity).HasColumnName("Quantity");
 
                 entity.Property(e => e.RefNo)
-                    .HasColumnName("Ref_No")
+                    .HasColumnName("RefNo")
                     .IsUnicode(false);
 
                 entity.Property(e => e.SourceOfFunds)
-                    .HasColumnName("source_of_funds")
+                    .HasColumnName("SourceOfFunds")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                entity.Property(e => e.Typeofentry)
-                    .HasColumnName("typeofentry")
+                entity.Property(e => e.TypeOfEntry)
+                    .HasColumnName("TypeOfEntry")
                     .IsUnicode(false);
 
-                entity.Property(e => e.Unitofmeasure)
-                    .HasColumnName("unitofmeasure")
+                entity.Property(e => e.UnitOfMeasure)
+                    .HasColumnName("UnitOfMeasure")
                     .IsUnicode(false);
 
                 entity.Property(e => e.Unspsc)
-                    .HasColumnName("UNSPSC")
+                    .HasColumnName("Unspsc")
                     .IsUnicode(false);
             });
 

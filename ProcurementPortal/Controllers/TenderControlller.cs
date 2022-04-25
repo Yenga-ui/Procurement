@@ -2,10 +2,15 @@
 
 namespace Portal.Controllers;
 
-public class TenderControlller : Controller
+public class TenderController : Controller
 {
     // GET
     public IActionResult Index()
+    {
+        return View();
+    }
+
+    public ActionResult Create()
     {
         return View();
     }
