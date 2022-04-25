@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using E_Procurement.Models;
 using E_Procurement.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace E_Procurement.Pages.Register
 {
@@ -100,10 +101,12 @@ namespace E_Procurement.Pages.Register
 
             _context.SupplierRegistation.Add(SupplierRegistation);
             await _context.SaveChangesAsync();
-            MailRequest mailRequest = new MailRequest(SupplierRegistation.Email, "Supplier Registration", SupplierRegistation.OrganizationName + " Kindly note that your account on the Procurement System has been created. You can log in to the application as a supplier using your supplier code "+ SupplierRegistation.SupplierRegistrationCode+ " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
-
-            SendMail(mailRequest);
-            return RedirectToPage("./Index");
+           // MailRequest mailRequest = new MailRequest(SupplierRegistation.Email, "Supplier Registration", SupplierRegistation.OrganizationName + " Kindly note that your account on the Procurement System has been created. You can log in to the application as a supplier using your supplier code "+ SupplierRegistation.SupplierRegistrationCode+ " and default password of Test1234. Click https://localhost:44313/Login/Login to log in");
+            HttpContext.Session.SetString("supplierCode", SupplierRegistation.SupplierRegistrationCode);
+            HttpContext.Session.SetString("orgName", SupplierRegistation.OrganizationName);
+            HttpContext.Session.SetString("regID", SupplierRegistation.Id.ToString());
+           //sss SendMail(mailRequest);
+            return RedirectToPage("./Payment");
         }
         
 

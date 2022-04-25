@@ -75,6 +75,7 @@ namespace E_Procurement.Models
         public virtual DbSet<CdfTenderCategory> CdfTenderCategory { get; set; }
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedure { get; set; }
         public virtual DbSet<CdfTenderSection> CdfTenderSection { get; set; }
+        public virtual DbSet<CdfTenderSectionSub> CdfTenderSectionSub { get; set; }
         public virtual DbSet<CdfUser> CdfUser { get; set; }
         public virtual DbSet<CdfUser1> CdfUser1 { get; set; }
         public virtual DbSet<CdfUserType> CdfUserType { get; set; }
@@ -1116,9 +1117,9 @@ namespace E_Procurement.Models
 
             modelBuilder.Entity<CdfSupplierFee>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("CDF_SupplierFee");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Active).HasColumnName("active");
 
@@ -1126,10 +1127,6 @@ namespace E_Procurement.Models
                     .HasColumnName("dateCreated")
                     .HasColumnType("datetime")
                     .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.SupplierFee).HasColumnType("decimal(18, 0)");
             });
@@ -1197,6 +1194,8 @@ namespace E_Procurement.Models
                 entity.ToTable("CDF_Tender");
 
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Active).HasColumnName("active");
 
                 entity.Property(e => e.Amount)
                     .HasColumnName("amount")
@@ -1335,6 +1334,39 @@ namespace E_Procurement.Models
                 entity.Property(e => e.Title)
                     .IsRequired()
                     .HasColumnName("title")
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<CdfTenderSectionSub>(entity =>
+            {
+                entity.ToTable("CDF_TenderSectionSub");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Description)
+                    .HasColumnName("description")
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NumberInput)
+                    .HasColumnName("numberInput")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.SupportingDocumentation)
+                    .HasColumnName("supportingDocumentation")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
+                entity.Property(e => e.TenderSectionId).HasColumnName("tenderSectionID");
+
+                entity.Property(e => e.TextResponse)
+                    .HasColumnName("textResponse")
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Title)
+                    .HasColumnName("title")
+                    .HasMaxLength(200)
                     .IsUnicode(false);
             });
 

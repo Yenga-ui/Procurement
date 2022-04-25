@@ -29,5 +29,6 @@ namespace E_Procurement.Models
         public int? BudgetExpenseId { get; set; }
         public int? BudgetId { get; set; }
         public decimal? Amount { get; set; }
+        public int? Active { get; set; }
     }
 }

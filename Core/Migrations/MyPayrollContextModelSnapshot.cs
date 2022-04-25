@@ -1889,6 +1889,55 @@ namespace Core.Migrations
                     b.ToTable("Cdf_TenderSection", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Models.CdfTenderSectionSub", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("description");
+
+                    b.Property<string>("NumberInput")
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("numberInput");
+
+                    b.Property<string>("SupportingDocumentation")
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("supportingDocumentation");
+
+                    b.Property<int?>("TenderId")
+                        .HasColumnType("int")
+                        .HasColumnName("tenderID");
+
+                    b.Property<int?>("TenderSectionId")
+                        .HasColumnType("int")
+                        .HasColumnName("tenderSectionID");
+
+                    b.Property<string>("TextResponse")
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(max)")
+                        .HasColumnName("textResponse");
+
+                    b.Property<string>("Title")
+                        .HasMaxLength(200)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(200)")
+                        .HasColumnName("title");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CDF_TenderSectionSub", (string)null);
+                });
+
             modelBuilder.Entity("Core.Models.CdfUser", b =>
                 {
                     b.Property<int>("Id")

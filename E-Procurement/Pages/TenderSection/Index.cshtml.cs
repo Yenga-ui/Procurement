@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using E_Procurement.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace E_Procurement.Pages.TenderSection
 {
@@ -20,15 +21,26 @@ namespace E_Procurement.Pages.TenderSection
 
         public IList<CdfTenderSection> CdfTenderSection { get;set; }
 
-        public async Task OnGetAsync(int ? id)
-        {
+        public async Task<IActionResult> OnGetAsync(int ? id)
+            {
             try
             {
-                CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
+                string username = HttpContext.Session.GetString("username");
+
+                if (_context.CdfSupplierTenderPayment.Where(x => x.SupplierCode == username).Count() == 0)
+                {
+
+                    return RedirectToPage("../Register/Payment");
+                }
+                else
+                {
+                    CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
+                    return Page();
+                }
             }
             catch (Exception ex)
             {
-               RedirectToPage("../SupplierTender/");
+              return  RedirectToPage("../SupplierTender/");
             }
             
         }

@@ -1520,6 +1520,12 @@ namespace E_Procurement.Migrations
 
             modelBuilder.Entity("E_Procurement.Models.CdfSupplierFee", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int?>("Active")
                         .HasColumnName("active")
                         .HasColumnType("int");
@@ -1530,14 +1536,10 @@ namespace E_Procurement.Migrations
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("(getdate())");
 
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("ID")
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
                     b.Property<decimal?>("SupplierFee")
                         .HasColumnType("decimal(18, 0)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("CDF_SupplierFee");
                 });
@@ -1640,6 +1642,10 @@ namespace E_Procurement.Migrations
                         .HasColumnName("id")
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("Active")
+                        .HasColumnName("active")
+                        .HasColumnType("int");
 
                     b.Property<decimal?>("Amount")
                         .HasColumnName("amount")
@@ -1830,6 +1836,54 @@ namespace E_Procurement.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cdf_TenderSection");
+                });
+
+            modelBuilder.Entity("E_Procurement.Models.CdfTenderSectionSub", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200)
+                        .IsUnicode(false);
+
+                    b.Property<string>("NumberInput")
+                        .HasColumnName("numberInput")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("SupportingDocumentation")
+                        .HasColumnName("supportingDocumentation")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<int?>("TenderId")
+                        .HasColumnName("tenderID")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TenderSectionId")
+                        .HasColumnName("tenderSectionID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TextResponse")
+                        .HasColumnName("textResponse")
+                        .HasColumnType("varchar(max)")
+                        .IsUnicode(false);
+
+                    b.Property<string>("Title")
+                        .HasColumnName("title")
+                        .HasColumnType("varchar(200)")
+                        .HasMaxLength(200)
+                        .IsUnicode(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CDF_TenderSectionSub");
                 });
 
             modelBuilder.Entity("E_Procurement.Models.CdfUser", b =>

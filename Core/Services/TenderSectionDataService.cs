@@ -11,31 +11,42 @@ namespace Core.Services
         {
             db = payrollContext;
         }
-        public CdfTenderSection Save(CdfTenderSection tenderSection)
+
+        CdfTenderSectionSub ITenderSectionDataService.SaveSub(CdfTenderSectionSub sub)
         {
-            if(tenderSection == null) return null;
 
-            var tender = new CdfTenderSection
-            {
-                Id = tenderSection.Id,
-                Title = tenderSection.Title,
-                TenderId = tenderSection.TenderId,
-                Description = tenderSection.Description,
-                SupportingDocumentation = tenderSection.SupportingDocumentation,
-                TextResponse = (tenderSection.TextResponse)
-            };
+                db.CdfTenderSectionSubs.Add(sub);
+                db.SaveChanges();
+                return sub;
 
-            try
-            {
+           
+            
+
+        }
+        CdfTenderSection ITenderSectionDataService.Save(CdfTenderSection tenderSection)
+        {
+
+         
+                if (tenderSection == null) return null;
+
+                var tender = new CdfTenderSection
+                {
+                    Id = tenderSection.Id,
+                    Title = tenderSection.Title,
+                    TenderId = tenderSection.TenderId,
+                    Description = tenderSection.Description,
+                    SupportingDocumentation = tenderSection.SupportingDocumentation,
+                    TextResponse = (tenderSection.TextResponse),
+                    
+                };
+
+
                 db.CdfTenderSections.Add(tender);
                 db.SaveChanges();
                 return tenderSection;
+            
             }
-            catch (Exception)
-            {
-
-                throw new NotImplementedException();
-            }
-        }
+           
+        
     }
 }

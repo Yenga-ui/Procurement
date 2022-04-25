@@ -22,6 +22,7 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tenderTable">
                     <thead>
                         <tr>
+                       
                             <th>#</th>
                             <th>
                                 @Html.DisplayNameFor(model => model.CdfTender[0].Category)
@@ -61,9 +62,12 @@
                         {
 
                             <tr>
+                           
+                            
                                 <td>
+                                   
                                     <a href="TenderSection?ID=@item.Id" class="mb-2 mr-2 btn-transition btn btn-outline-info">Bid</a>
-
+                               
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.Category)

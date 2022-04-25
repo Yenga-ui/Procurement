@@ -71,6 +71,7 @@ namespace Core.Models
         public virtual DbSet<CdfTenderCategory> CdfTenderCategories { get; set; } = null!;
         public virtual DbSet<CdfTenderProcedure> CdfTenderProcedures { get; set; } = null!;
         public virtual DbSet<CdfTenderSection> CdfTenderSections { get; set; } = null!;
+        public virtual DbSet<CdfTenderSectionSub> CdfTenderSectionSubs { get; set; } = null!;
         public virtual DbSet<CdfUser> CdfUsers { get; set; } = null!;
         public virtual DbSet<CdfUser1> CdfUsers1 { get; set; } = null!;
         public virtual DbSet<CdfUser2> CdfUsers2 { get; set; } = null!;
@@ -1325,6 +1326,39 @@ namespace Core.Models
                 entity.Property(e => e.TextResponse).HasColumnName("text_response");
 
                 entity.Property(e => e.Title)
+                    .IsUnicode(false)
+                    .HasColumnName("title");
+            });
+
+            modelBuilder.Entity<CdfTenderSectionSub>(entity =>
+            {
+                entity.ToTable("CDF_TenderSectionSub");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
+
+                entity.Property(e => e.Description)
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnName("description");
+
+                entity.Property(e => e.NumberInput)
+                    .IsUnicode(false)
+                    .HasColumnName("numberInput");
+
+                entity.Property(e => e.SupportingDocumentation)
+                    .IsUnicode(false)
+                    .HasColumnName("supportingDocumentation");
+
+                entity.Property(e => e.TenderId).HasColumnName("tenderID");
+
+                entity.Property(e => e.TenderSectionId).HasColumnName("tenderSectionID");
+
+                entity.Property(e => e.TextResponse)
+                    .IsUnicode(false)
+                    .HasColumnName("textResponse");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(200)
                     .IsUnicode(false)
                     .HasColumnName("title");
             });
