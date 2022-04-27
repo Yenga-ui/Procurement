@@ -145,7 +145,8 @@ namespace Core.Models
             {
 
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+                // optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+                optionsBuilder.UseSqlServer("Server=tcp:eprocurementtestdb.database.windows.net,1433;Initial Catalog=MyPayroll;Persist Security Info=False;User ID=jbkingdb;Password=Azuredb@2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;;");
 
             }
         }
@@ -855,7 +856,7 @@ namespace Core.Models
 
                 entity.Property(e => e.Id).HasColumnName("Id");
 
-                entity.Property(e => e.PlanHeaderId).IsUnicode(false);
+                //entity.Property(e => e.PlanHeaderId).IsUnicode(false);
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
@@ -904,13 +905,13 @@ namespace Core.Models
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                entity.Property(e => e.TypeOfEntry)
+                /*entity.Property(e => e.TypeOfEntry)
                     .IsUnicode(false)
-                    .HasColumnName("TypeOfEntry");
+                    .HasColumnName("TypeOfEntry");*/
 
-                entity.Property(e => e.UnitOfMeasure)
+                /*entity.Property(e => e.UnitOfMeasure)
                     .IsUnicode(false)
-                    .HasColumnName("UnitOfMeasure");
+                    .HasColumnName("UnitOfMeasure");*/
 
                 entity.Property(e => e.Unspsc)
                     .IsUnicode(false)

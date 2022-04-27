@@ -17,14 +17,13 @@ namespace E_Procurement.Pages.Budget
     {
         private readonly E_Procurement.Models.MyPayrollContext _context;
         private List<CsvLine> lines = new List<CsvLine>();
-        private IHostingEnvironment _environment;
+        private IWebHostEnvironment _environment;
         public BudgetModel(E_Procurement.Models.MyPayrollContext context)
         {
             _context = context;
         }
-
-   
-         public async Task<IActionResult> OnGetAsync(int? id)
+        
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
 
             if (id == null)

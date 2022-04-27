@@ -909,9 +909,9 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                entity.Property(e => e.TypeOfEntry)
+                /*entity.Property(e => e.TypeOfEntry)
                     .HasColumnName("TypeOfEntry")
-                    .IsUnicode(false);
+                    .IsUnicode(false);*/
 
                 entity.Property(e => e.UnitOfMeasure)
                     .HasColumnName("UnitOfMeasure")

@@ -10,13 +10,14 @@ using Microsoft.AspNetCore.Http;
 using System.ComponentModel.DataAnnotations;
 using E_Procurement.Services;
 using System.IO;
+using Microsoft.Extensions.Logging;
 
 namespace E_Procurement.Pages.SupplierTender
 {
     public class CreateModel : PageModel
     {
         private readonly E_Procurement.Models.MyPayrollContext _context;
-
+        
      
         private int tenderId;
         private string fullPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
@@ -38,8 +39,6 @@ namespace E_Procurement.Pages.SupplierTender
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-
-            
             return Page();
         }
 
@@ -127,7 +126,6 @@ namespace E_Procurement.Pages.SupplierTender
             }
             catch(Exception ex)
             {
-
                 ViewData["SuccessMessage"] = "You have succesffully submitted your bid.";
                 return Page();
             }
