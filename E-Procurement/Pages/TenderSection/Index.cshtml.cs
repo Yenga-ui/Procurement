@@ -27,16 +27,19 @@ namespace E_Procurement.Pages.TenderSection
             {
                 string username = HttpContext.Session.GetString("username");
 
-                if (_context.CdfSupplierTenderPayment.Where(x => x.SupplierCode == username).Count() == 0)
-                {
+                /*  if (_context.CdfSupplierTenderPayment.Where(x => x.SupplierCode == username).Count() == 0)
+                  {
 
-                    return RedirectToPage("../Register/Payment");
-                }
-                else
-                {
-                    CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
-                    return Page();
-                }
+                      return RedirectToPage("../Register/Payment");
+                  }
+                  else
+                  {
+                      CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
+                      return Page();
+                  }
+                */
+                CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
+                return Page();
             }
             catch (Exception ex)
             {

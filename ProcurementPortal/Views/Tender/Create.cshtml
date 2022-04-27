@@ -729,7 +729,6 @@
 
 	
           let formData = new FormData($("#subSectionData")[0]);
-		  
            let payload = {
                 Title: $("#secTitles").val(),
                 Description: $("#secDescriptions").val(),
@@ -760,7 +759,7 @@
                 setTimeout(function(){
                    if(response.success){
                        // $("#sections").removeClass('d-none');
-                       
+                        swal.fire('Header Section Created, Kindly create sub sections !', response, 'success');
 
                          let data = response.payload;
                          $("#cdAddSection").removeClass('d-none');
@@ -771,8 +770,8 @@
                               <td>${data.title}</td>
                               <td>${data.description}</td>
 							  <td>${data.supportingDocumentation}</td>
-							  <td>${data.textResponse}</td>
-							  <td>${data.numberInput}</td>
+							   <td>${data.textResponse}</td>
+							   <td>${data.NumberInput}</td>
                             
                            
                           </tr>`;

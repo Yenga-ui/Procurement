@@ -84,10 +84,36 @@ public class TenderSectionController : Controller
         CdfTenderSectionSub cdfTenderSectionSub= new CdfTenderSectionSub();
         try
         {
-            if (tenderSectionSub.Description == "")
+            if (tenderSectionSub.TextResponse == "1")
             {
 
-                tenderSectionSub.Description = tenderSectionSub.Title;
+                tenderSectionSub.TextResponse = "yes";
+            }
+            if(tenderSectionSub.TextResponse == "0")
+            {
+
+                tenderSectionSub.TextResponse="No";
+            }
+
+            if (tenderSectionSub.NumberInput == "1")
+            {
+
+                tenderSectionSub.NumberInput = "yes";
+            }
+            if (tenderSectionSub.NumberInput == "0")
+            {
+
+                tenderSectionSub.NumberInput = "No";
+            }
+            if (tenderSectionSub.SupportingDocumentation == "1")
+            {
+
+                tenderSectionSub.SupportingDocumentation = "yes";
+            }
+            if (tenderSectionSub.SupportingDocumentation == "0")
+            {
+
+                tenderSectionSub.SupportingDocumentation = "No";
             }
 
             tenderSectionSub.TenderId =Int32.Parse( HttpContext.Session.GetString("tenderID"));
