@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
+
 namespace Core.Models
 {
     public partial class MyPayrollContext : DbContext
@@ -14,7 +14,6 @@ namespace Core.Models
         public MyPayrollContext(DbContextOptions<MyPayrollContext> options)
             : base(options)
         {
-
         }
 
         public virtual DbSet<AspNetRole> AspNetRoles { get; set; } = null!;
@@ -143,18 +142,13 @@ namespace Core.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                // optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
-                optionsBuilder.UseSqlServer("Server=tcp:eprocurementtestdb.database.windows.net,1433;Initial Catalog=MyPayroll;Persist Security Info=False;User ID=jbkingdb;Password=Azuredb@2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;;");
-
+                optionsBuilder.UseSqlServer("Server=tcp:eprocurementtestdb.database.windows.net,1433;Initial Catalog=MyPayroll;Persist Security Info=False;User ID=jbkingdb;Password=Azuredb@2022;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
-
             modelBuilder.Entity<AspNetRole>(entity =>
             {
                 entity.Property(e => e.Name).HasMaxLength(256);
@@ -854,68 +848,34 @@ namespace Core.Models
             {
                 entity.ToTable("CDF_PlanItems");
 
-                entity.Property(e => e.Id).HasColumnName("Id");
+                entity.Property(e => e.Award).HasColumnType("datetime");
 
-                //entity.Property(e => e.PlanHeaderId).IsUnicode(false);
+                entity.Property(e => e.Class).HasMaxLength(100);
 
-                entity.Property(e => e.Award).IsUnicode(false);
+                entity.Property(e => e.Comments).HasMaxLength(50);
 
-                entity.Property(e => e.Budget)
-                    .HasColumnType("decimal(18, 0)")
-                    .HasColumnName("budget");
-
-                entity.Property(e => e.Class)
+                entity.Property(e => e.Prequalification)
+                    .HasMaxLength(1)
                     .IsUnicode(false)
-                    .HasColumnName("Class");
+                    .IsFixedLength();
 
-                entity.Property(e => e.Comments).IsUnicode(false);
+                entity.Property(e => e.ProcurementMethod).HasMaxLength(50);
 
-                entity.Property(e => e.CreatedBy)
-                    .HasMaxLength(100)
-                    .IsUnicode(false)
-                    .HasColumnName("createdBy");
+                entity.Property(e => e.ProjectCode).HasMaxLength(50);
 
-                entity.Property(e => e.Description).IsUnicode(false);
+                entity.Property(e => e.Publication).HasColumnType("datetime");
 
-                entity.Property(e => e.Prequalification).IsUnicode(false);
+                entity.Property(e => e.Quantity).HasMaxLength(50);
 
-                entity.Property(e => e.ProcPlanId).HasColumnName("procPlanID");
+                entity.Property(e => e.RefNo).HasMaxLength(50);
 
-                entity.Property(e => e.ProcurementMethod)
-                    .IsUnicode(false)
-                    .HasColumnName("ProcurementMethod");
-
-                entity.Property(e => e.ProjectCode)
-                    .IsUnicode(false)
-                    .HasColumnName("ProjectCode");
-
-                entity.Property(e => e.Publication)
-                    .IsUnicode(false)
-                    .HasColumnName("publication");
-
-                entity.Property(e => e.Quantity).HasColumnName("Quantity");
-
-                entity.Property(e => e.RefNo)
-                    .IsUnicode(false)
-                    .HasColumnName("RefNo");
-
-                entity.Property(e => e.SourceOfFunds)
-                    .IsUnicode(false)
-                    .HasColumnName("SourceOfFunds");
+                entity.Property(e => e.SourceOfFunds).HasMaxLength(50);
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                /*entity.Property(e => e.TypeOfEntry)
-                    .IsUnicode(false)
-                    .HasColumnName("TypeOfEntry");*/
+                entity.Property(e => e.TypeOfEntry).HasMaxLength(50);
 
-                /*entity.Property(e => e.UnitOfMeasure)
-                    .IsUnicode(false)
-                    .HasColumnName("UnitOfMeasure");*/
-
-                entity.Property(e => e.Unspsc)
-                    .IsUnicode(false)
-                    .HasColumnName("UNSPSC");
+                entity.Property(e => e.UnitOfMeasure).HasMaxLength(50);
             });
 
             modelBuilder.Entity<CdfProcPlan>(entity =>
@@ -1113,9 +1073,9 @@ namespace Core.Models
 
             modelBuilder.Entity<CdfSupplierFee>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("CDF_SupplierFee");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Active).HasColumnName("active");
 
@@ -1123,10 +1083,6 @@ namespace Core.Models
                     .HasColumnType("datetime")
                     .HasColumnName("dateCreated")
                     .HasDefaultValueSql("(getdate())");
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("ID");
 
                 entity.Property(e => e.SupplierFee).HasColumnType("decimal(18, 0)");
             });
@@ -1815,7 +1771,7 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.BranchCode)
-                    .HasMaxLength(50)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.BranchName)
@@ -2906,7 +2862,7 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmployeeCode)
-                    .HasMaxLength(50)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.EmployeeName)
@@ -2922,11 +2878,11 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.LongDescription)
-                    .HasMaxLength(80)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.PositionCode)
-                    .HasMaxLength(20)
+                    .HasMaxLength(10)
                     .IsUnicode(false);
 
                 entity.Property(e => e.ReportsToPosition)
@@ -2934,7 +2890,7 @@ namespace Core.Models
                     .IsUnicode(false);
 
                 entity.Property(e => e.ShortDescription)
-                    .HasMaxLength(30)
+                    .HasMaxLength(25)
                     .IsUnicode(false);
 
                 entity.Property(e => e.StartDate).HasColumnType("date");

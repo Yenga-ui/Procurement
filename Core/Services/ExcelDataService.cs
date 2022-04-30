@@ -1,14 +1,7 @@
 ﻿using Core.Interfaces;
 using Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Dynamic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using Excel = Microsoft.Office.Interop.Excel;       //Microsoft Excel 14 object in references-> COM tab
+//using Excel = Microsoft.Office.Interop.Excel;       //Microsoft Excel 14 object in references-> COM tab
 
 namespace Core.Services
 {
@@ -22,7 +15,7 @@ namespace Core.Services
         public async Task<List<ProcurementPlanItem>> ParseExcelData(String filePath)
         {
             //Create COM Objects. Create a COM object for everything that is referenced
-            Excel.Application xlApp = new Excel.Application();
+            /*Excel.Application xlApp = new Excel.Application();
             Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(filePath);
             Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
             Excel.Range xlRange = xlWorksheet.UsedRange;
@@ -88,7 +81,8 @@ namespace Core.Services
             Marshal.ReleaseComObject(xlApp);
 
             await Task.Delay(10);
-            return listOfDictionary;
+            return listOfDictionary;*/
+            return null;
         }
 
         private string SanitizePropertyName(string v)
