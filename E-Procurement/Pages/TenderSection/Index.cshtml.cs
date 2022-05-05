@@ -47,6 +47,7 @@ namespace E_Procurement.Pages.TenderSection
             }
             
         }
+
         public async Task OnPostAsync()
         {
 
