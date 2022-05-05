@@ -541,7 +541,7 @@ error: function (data) { }
 
        $("#saveData").on('click', function(){
 
-           console.log('Clicked')
+           $('#addProcurementPlanModal').modal('hide');
 
            let formData = new FormData($("#procurementForm")[0]);
            let payload = {};
@@ -556,8 +556,10 @@ error: function (data) { }
               data: JSON.stringify(payload),
               contentType: 'application/json'
            };
+
            $.ajax(settings)
            .done(function(response){
+
 
                if(response.success){
 
@@ -614,6 +616,20 @@ error: function (data) { }
                }
 
            }).fail(function(xhr){
+
+               setTimeout(function(){
+                   if(response.success){
+                        swal.fire('Plan Item Submission !', response.message, 'success');
+                   }else{
+                        swal.fire('Oops !', message, 'error');
+                   }
+               },300);
+           })
+           .fail(function(xhr){
+               $('#addProcurementPlanModal').modal('show');
+
+               swal.fire('Oops !',"Failed to process request", 'error');
+
            });
        });
 

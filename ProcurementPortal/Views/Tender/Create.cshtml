@@ -21,6 +21,7 @@
         border-radius: 0 !important;
     }
 
+<<<<<<< HEAD
 </style>
 
 <div class="container" style="display:none">
@@ -51,11 +52,46 @@
                         </thead>
                         <tbody></tbody>
                     </table>
+=======
+
+</style>
+
+<div class="container-fluid">
+    <div id="kt_repeater_1">
+        <div class="form-group row">
+            <div data-repeater-list="" class="col-lg-10">
+                <div data-repeater-item="" class="form-group row align-items-center p-3">
+                    <div class="col-md-12 mb-3">
+
+                        <form id="tenderData">
+                            <partial name="_Accordion.cshtml" />
+                        </form>
+                        <!-- TinyMCE-->
+                        @*<partial name="_Editor.cshtml" />*@
+                    </div>
+                </div>
+            </div>
+        
+            
+            <div class="col-lg-2">
+                <div class="row">
+                    <div class="col-sm-12 mb-3">
+                        <a href="javascript:;" data-repeater-create="" class="btn btn-block btn-sm font-weight-bolder btn-light-primary">
+                            <i class="la la-plus-circle"></i>Add Section
+                        </a>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="reset" id="saveTender" class="btn font-weight-bold btn-block btn-success">
+                            <i class="la la-check-circle"></i> Submit
+                        </button>
+                    </div>
+>>>>>>> 276794d46aaa7d11400d7eb79ce540da4be399cf
                 </div>
             </div>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 				<div class="subheader py-3 py-lg-8 subheader-transparent" id="kt_subheader">
 							<div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
 								<!--begin::Info-->
@@ -854,4 +890,47 @@
 	  });
 
 </script>
+=======
+
+
+@section Scripts{
+    <script src="~/assets/js/pages/crud/forms/widgets/form-repeater.js"></script>
+    <script src="~/assets/plugins/custom/tinymce/tinymce.bundle.js"></script>
+    <script src="~/assets/js/pages/crud/forms/editors/tinymce.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#saveTender").on('click', function(){
+                let formData = new FormData($("#tenderData")[0])
+                let paylod = {}
+                for(var pair of formData.entries()){
+                    payload[pair[0]]= pair[1];
+                }
+
+                console.log("payload", payload)
+
+                let settings = {
+                    url: "tender/create",
+                    method: "POST",
+                    dataType: "json",
+                    data: JSON.stringify(payload),
+                    contentType: 'application/json'
+                }
+
+                $.ajax(settings).done(function(response){
+                    setTimeout(function(){
+                       if(response.success){
+                            swal.fire('Tender Submission !', response.message, 'success');
+                       }else{
+                            swal.fire('Oops !', message, 'error');
+                       }
+                   },300);
+                })
+                .fail(function(xhr){
+                   swal.fire('Oops !',"Failed to process request", 'error');
+               });
+            })
+        })
+    </script>
+>>>>>>> 276794d46aaa7d11400d7eb79ce540da4be399cf
 }
