@@ -37,11 +37,7 @@
                 <input asp-for="CdfPlanItems.ProjectCode" class="form-control" />
                 <span asp-validation-for="CdfPlanItems.ProjectCode" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CdfPlanItems.Unitofmeasure" class="control-label"></label>
-                <input asp-for="CdfPlanItems.Unitofmeasure" class="form-control" />
-                <span asp-validation-for="CdfPlanItems.Unitofmeasure" class="text-danger"></span>
-            </div>
+            
             <div class="form-group">
                 <label asp-for="CdfPlanItems.Quantity" class="control-label"></label>
                 <input asp-for="CdfPlanItems.Quantity" class="form-control" />
@@ -309,16 +305,8 @@
                 @Html.DisplayFor(modelItem => item.RefNo)
 				</div>
             </td>
-			<td>
-				<div class="d-flex justify-content-start flex-column">
-                @Html.DisplayFor(modelItem => item.ProjectCode)
-				</div>
-            </td>
-           <td>
-				<div class="d-flex justify-content-start flex-column">
-                @Html.DisplayFor(modelItem => item.Unitofmeasure)
-				</div>
-            </td>
+			
+          
 			 <td>
 				<div class="d-flex justify-content-start flex-column">
                 @Html.DisplayFor(modelItem => item.Quantity)

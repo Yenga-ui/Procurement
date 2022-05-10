@@ -855,7 +855,7 @@ namespace Core.Models
 
                 entity.Property(e => e.Id).HasColumnName("Id");
 
-                entity.Property(e => e.PlanHeaderId).IsUnicode(false);
+              //  entity.Property(e => e.PlanHeaderId).IsUnicode(false);
 
                 entity.Property(e => e.Award).IsUnicode(false);
 
@@ -903,7 +903,7 @@ namespace Core.Models
                     .HasColumnName("SourceOfFunds");
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
-
+/*
                 entity.Property(e => e.TypeOfEntry)
                     .IsUnicode(false)
                     .HasColumnName("TypeOfEntry");
@@ -911,7 +911,7 @@ namespace Core.Models
                 entity.Property(e => e.UnitOfMeasure)
                     .IsUnicode(false)
                     .HasColumnName("UnitOfMeasure");
-
+*/
                 entity.Property(e => e.Unspsc)
                     .IsUnicode(false)
                     .HasColumnName("UNSPSC");

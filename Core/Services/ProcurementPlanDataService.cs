@@ -62,7 +62,7 @@ namespace Core.Services
                 Description = procurementPlanItems.Description,
                 RefNo = procurementPlanItems.Ref_No,
                 ProjectCode = procurementPlanItems.Project_Code ?? "",
-                UnitOfMeasure = procurementPlanItems.Unit_of_Measure ?? "",
+                //UnitOfMeasure = procurementPlanItems.Unit_of_Measure ?? "",
                 Quantity = procurementPlanItems.Quantity == "" || procurementPlanItems.Quantity == null ? 0 : Convert.ToInt32(procurementPlanItems.Quantity),
                 SourceOfFunds = procurementPlanItems.Source_of_Funds,
                 Prequalification = procurementPlanItems.Prequalification,
@@ -91,16 +91,16 @@ namespace Core.Services
                     Description = item.Description,
                     RefNo = item.Ref_No,
                     ProjectCode = item.Project_Code ?? "",
-                    UnitOfMeasure = item.Unit_of_Measure ?? "",
+                    //UnitOfMeasure = item.Unit_of_Measure ?? "",
                     Quantity = item.Quantity == "" || item.Quantity == null ? 0: Convert.ToInt32(item.Quantity),
                     SourceOfFunds = item.Source_of_Funds,
                     Prequalification = item.Prequalification,
                     ProcurementMethod = item.Procurement_Method,                    
-                    Publication = Util.ToDateTime(item.Publication),
-                    Award = Util.ToDateTime(item.Award),
+                   // Publication = Util.ToDateTime(item.Publication),
+                   // Award = Util.ToDateTime(item.Award),
                     Start = Util.ToDateTime(item.Start),
                     Comments = item.Comments ?? "",
-                    TypeOfEntry = item.Type_of_Entry ?? ""
+                    //TypeOfEntry = item.Type_of_Entry ?? ""
             })
                 .ToList();
      

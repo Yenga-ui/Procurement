@@ -2,6 +2,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
+
+
+
+
 // Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
@@ -909,10 +913,10 @@ namespace E_Procurement.Models
 
                 entity.Property(e => e.Start).HasColumnType("datetime");
 
-                entity.Property(e => e.TypeOfEntry)
+            /*    entity.Property(e => e.TypeOfEntry)
                     .HasColumnName("TypeOfEntry")
                     .IsUnicode(false);
-
+            */
                 entity.Property(e => e.UnitOfMeasure)
                     .HasColumnName("UnitOfMeasure")
                     .IsUnicode(false);
