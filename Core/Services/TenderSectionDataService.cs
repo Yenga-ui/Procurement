@@ -46,7 +46,10 @@ namespace Core.Services
                 return tenderSection;
             
             }
-           
-        
+
+        public List<CdfTenderSection?> Get()
+        {
+            return db.CdfTenderSections.ToList();
+        }
     }
 }

@@ -22,6 +22,7 @@ public class TenderSectionController : Controller
     [Route("tender-section/create")]
     public ActionResult Create()
     {
+        ViewBag.Message= TenderSectionDataService.Get();
         return View();
     }
 

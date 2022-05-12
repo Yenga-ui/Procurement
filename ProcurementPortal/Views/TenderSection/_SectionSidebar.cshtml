@@ -1,0 +1,31 @@
+﻿@{
+    var sections = ViewBag.Message;
+}
+<!--begin::Card-->
+<div class="card card-custom gutter-b" id="cdAdd">
+    <div class="card-header">
+        <div class="card-title">
+            <h3 class="card-label text-muted">Tender Sections</h3>
+        </div>
+       
+    </div>
+    <div class="card-body">
+        <!--begin::Accordion-->
+        @foreach (var section in sections)
+        {
+              <div class="accordion accordion-light accordion-toggle-arrow" id="accordionExample2">
+                <div class="card">
+                    <div class="card-header" id="headingOne2">
+                        <div class="card-title" data-toggle="collapse" data-target="#collapseOne2">@section.Title</div>
+                    </div>
+                    <div id="collapseOne2" class="collapse show" data-parent="#accordionExample2">
+                        <input type="hidden" name="Id" value="0"/>
+                        <input type="text" name="Title" id="Title" class="form-control mb-4" placeholder="Enter section title" />
+                    </div>
+                </div>
+            </div>
+        }
+        <!--end::Accordion-->
+    </div>
+</div>
+<!--end::Card-->

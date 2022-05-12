@@ -8,5 +8,6 @@ namespace Core.Interfaces
 
         CdfTenderSectionSub SaveSub(CdfTenderSectionSub sub);
 
+        List<CdfTenderSection?> Get();
     }
 }
