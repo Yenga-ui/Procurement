@@ -151,7 +151,8 @@ namespace E_Procurement.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+                // optionsBuilder.UseSqlServer("Server=HQ-IPM-CBUM03;Database=MyPayroll;persist security info=True;user id=sa;password=Srax200plus;;");
+                optionsBuilder.UseSqlServer("Server=HQ-IT-LSEM57\\MSSQLSERVER01;Initial Catalog=MyPayroll;Persist Security Info=True;User ID=jb;Password=Sqlserver@2022;;");
             }
         }
 
