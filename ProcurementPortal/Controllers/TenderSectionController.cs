@@ -151,8 +151,21 @@ public class TenderSectionController : Controller
                 
 
 
-            }
         }
+    }
+
+
+    [HttpGet]
+    [Route("tender-sections")]
+    public ActionResult getSections()
+    {
+        return Ok(
+            new
+            {
+                success = true,
+                payload = TenderSectionDataService.Get()
+            });
+    }
 
     // public ActionResult CreateSub([FromBody] CdfTend)
 }

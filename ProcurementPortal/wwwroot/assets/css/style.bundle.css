@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #3F4254;
   text-align: left;
-  background-color: #ffffff; }
+  background-color: #fbfbfb; }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important; }
@@ -60382,7 +60382,7 @@ canvas {
       display: none !important; } }
 
 body {
-  background: #ffffff; }
+  background: #fbfbfb; }
 
 @media (min-width: 992px) {
   .wrapper {
