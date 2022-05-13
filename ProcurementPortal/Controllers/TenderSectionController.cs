@@ -31,7 +31,7 @@ public class TenderSectionController : Controller
     {
         try
         {
-
+            
             tenderSection.TextResponse = 1;
             tenderSection.SupportingDocumentation = 1;
                         /*if (!ModelState.IsValid)

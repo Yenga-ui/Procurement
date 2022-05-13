@@ -52,6 +52,7 @@ namespace Core.Services
         }
         CdfPlanItem IProcurementPlanDataService.Save(ProcurementPlanItem procurementPlanItems)
         {
+            MyPayrollContext db=new MyPayrollContext();
             if(procurementPlanItems == null) return null;
 
             var planItem = new CdfPlanItem
@@ -71,6 +72,9 @@ namespace Core.Services
                 Budget = Decimal.Parse(procurementPlanItems.budget),
                 Publication = Util.ToDateTime(procurementPlanItems.Publication).ToString(),
                 Award = Util.ToDateTime(procurementPlanItems.Award).ToString(),
+                Start= Util.ToDateTime(procurementPlanItems.Start),
+                Typeofentry=procurementPlanItems.Type_of_Entry
+
 
 
             };
@@ -116,8 +120,10 @@ namespace Core.Services
 
             try
             {
-                db.CdfProcPlans.Add(cdfProcPlan);
-                db.SaveChanges();
+                MyPayrollContext ct=new MyPayrollContext();
+
+                ct.CdfProcPlans.Add(cdfProcPlan);
+                ct.SaveChanges();
                 return cdfProcPlan.Id;
 
             }

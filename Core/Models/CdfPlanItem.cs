@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Models
 {
-    [Table("CDF_PlanItems")]
     public partial class CdfPlanItem
     {
         public int Id { get; set; }
@@ -26,6 +24,5 @@ namespace Core.Models
         public decimal? Budget { get; set; }
         public string? CreatedBy { get; set; }
         public int? ProcPlanId { get; set; }
-
     }
 }

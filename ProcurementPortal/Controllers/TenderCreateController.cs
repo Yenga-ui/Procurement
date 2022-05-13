@@ -118,7 +118,7 @@ namespace Portal.Controllers
                     return Ok(
                                 new
                                 {
-                                    success = false,
+                                    success = true,
                                     message = "Successfully added",
                                     payload = id,
                                 });

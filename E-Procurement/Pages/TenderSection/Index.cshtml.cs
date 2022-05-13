@@ -21,6 +21,8 @@ namespace E_Procurement.Pages.TenderSection
 
         public IList<CdfTenderSection> CdfTenderSection { get;set; }
 
+        public IList<CdfTenderSectionSub> cdfTenderSectionSubs { get;set; } 
+
         public async Task<IActionResult> OnGetAsync(int ? id)
             {
             try
@@ -39,6 +41,7 @@ namespace E_Procurement.Pages.TenderSection
                   }
                 */
                 CdfTenderSection = await _context.CdfTenderSection.Where(m => m.TenderId == id).ToListAsync();
+                //cdfTenderSectionSubs= await _context.CdfTenderSectionSub.Where(m => m. == id).ToListAsync();
                 return Page();
             }
             catch (Exception ex)

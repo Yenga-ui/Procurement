@@ -25,6 +25,7 @@ namespace Core.Services
         public CdfTender CreateTender(Tender tender)
         {
 
+            MyPayrollContext db = new MyPayrollContext();
             CdfTender cdfTender = new CdfTender();
             try
             {

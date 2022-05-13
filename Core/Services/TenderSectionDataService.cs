@@ -15,6 +15,8 @@ namespace Core.Services
         CdfTenderSectionSub ITenderSectionDataService.SaveSub(CdfTenderSectionSub sub)
         {
 
+            MyPayrollContext db =  new MyPayrollContext(); 
+
                 db.CdfTenderSectionSubs.Add(sub);
                 db.SaveChanges();
                 return sub;
@@ -26,7 +28,7 @@ namespace Core.Services
         CdfTenderSection ITenderSectionDataService.Save(CdfTenderSection tenderSection)
         {
 
-         
+            MyPayrollContext db = new MyPayrollContext();
                 if (tenderSection == null) return null;
 
                 var tender = new CdfTenderSection
